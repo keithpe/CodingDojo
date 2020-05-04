@@ -55,3 +55,26 @@ myList = count_positives(myList)
 print('After', myList)
 
 # ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# sum_total
+#
+# Create a function that takes a list and returns the sum of all the values in the array.
+#
+# Example: sum_total([1,2,3,4]) should return 10
+# Example: sum_total([6,3,-2]) should return 7
+# ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+def sum_total(myList):
+    sum = 0
+    for i in range(0, len(myList), 1):
+        sum += myList[i]
+
+    return sum
+
+
+print("**** sum_total ****")
+myList = [1, 2, 3, 4]
+print("myList=", myList, " sum=", sum_total(myList))
+
+myList = [6, 3, -2]
+print("myList=", myList, " sum=", sum_total(myList))
