@@ -1,0 +1,95 @@
+Assignment: Practice using pip in a virtual environment
+
+Objectices: 
+1) Get used to using commands required to use pip modules.
+2) Practice using a virtual environment.
+
+Activate my py3Env environment.
+source py3Env/bin/Activate
+
+Run these commands in the order instructed. Include a short explanation of what I was able to learn about 
+each command by doing a brief web search for each item. If relevent, include the output of my command and my 
+understanding of what it means. Always important to read terminal output and understand it.
+
+use pip when environment is activated (the envirnment will know which version of pyhont/pip is installed).
+
+pip install Django==1.11.9
+
+The output includes status bars and info about what's being installed. The last line displayed when installation is completed is:
+Successfully installed Django-1.11.9 pytz-2020.1
+
+pip list
+
+Displays a list of the packages installed in this virtual environment:
+
+Package    Version
+---------- -------
+Django     1.11.9
+pip        20.1
+pytz       2020.1
+setuptools 41.2.0
+
+To deactivate the virtual environment:
+deactivate
+
+New prompt is displayed, without the virtual environment name (py3Env)
+
+pip3 list
+
+Package    Version
+---------- -------
+asgiref    3.2.7  
+pip        20.0.2 
+pytz       2020.1 
+setuptools 46.0.0 
+sqlparse   0.3.1  
+wheel      0.34.2 
+
+No Django or Django associated packages that were in my py3Env environment.
+
+source myEnvironments/py3Env/activated
+I know see that the py3Env environment name is included in the prompt:
+(py3Env) python_stack(master) $: 
+
+pip install Django==1.11.9
+Because I already installed Django in this environment, the prompt tells me so:
+
+Requirement already satisfied: Django==1.11.9 in ./my_environments/py3Env/lib/python3.7/site-packages (1.11.9)
+Requirement already satisfied: pytz in ./my_environments/py3Env/lib/python3.7/site-packages (from Django==1.11.9) (2020.1)
+Could not build wheels for Django, since package 'wheel' is not installed.
+Could not build wheels for pytz, since package 'wheel' is not installed.
+
+pip freeze
+Output installed packages in requirements format. This listing evidently does not include pip itself or packages that it uses/requirements
+to work. Although you can use the "all" flag to show those files as well. The formatting of the output is also the "requirements format".
+
+pip list
+Appears to list ALL packages including pip and setuptools (used by pip).
+
+When I call pip freeze > requirements.txt, from the desktop prompt, I see the same list of packages that I saw when I call
+pip freeze from the python_stack or myEnvironment directory.
+
+pip uninstall Django
+
+Found existing installation: Django 1.11.9
+Uninstalling Django-1.11.9:
+  Would remove:
+    /Users/keithpeterson/projects/coding-dojo-2020/python_stack/my_environments/py3Env/bin/django-admin
+    /Users/keithpeterson/projects/coding-dojo-2020/python_stack/my_environments/py3Env/bin/django-admin.py
+    /Users/keithpeterson/projects/coding-dojo-2020/python_stack/my_environments/py3Env/lib/python3.7/site-packages/Django-1.11.9.dist-info/*
+    /Users/keithpeterson/projects/coding-dojo-2020/python_stack/my_environments/py3Env/lib/python3.7/site-packages/django/*
+Proceed (y/n)? y
+  Successfully uninstalled Django-1.11.9
+
+pip show Django
+WARNING: Package(s) not found: Django
+
+pip search Flask
+I see LOTS of entries for this, including this, first one:
+Flask-SimpleMDE (0.3.0)     - Flask-SimpleMDE - a Flask extension for SimpleMDE
+
+
+
+
+
+

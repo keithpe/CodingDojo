@@ -1,0 +1,168 @@
+#1 - prints 5
+
+def a():
+    return 5
+print(a())
+
+#2 - prints 10. Each call to function a returns 5, and they are added together in the print statement to produce 10.
+
+def a():
+    return 5
+print(a()+a())
+
+#3 prints 5, because the function is called once, and it executes the return statement with value 5, exits the function, returning 5, 
+the second return is never executed.
+
+def a():
+    return 5
+    return 10
+print a())
+
+#4  - prints 5. The print statement after the return 5 statement in the function never executes. The print statement calls a(), which 
+     returns 5, which print statement prints.
+
+def a():
+    return 5
+    print(10)
+print(a())
+
+#5 The function is called, it prints 5, it returns 'none', because it doesn't contain a return statement, none is returned by default. 
+So x is assigned 'none' and print statement prints 'none'.
+
+def a():
+    print(5)
+
+x = a();
+print(x)
+
+#6 The function is called, twice from the print statement. The first call returns 3 (1+2=3), the second call returns 5 (2+3=5).
+The two return values are added together, because of the plus in the print statement, and the print statement prints 8.
+
+def a(b,c):
+    print(b+c)
+print(a(1,2) + a(2,3))
+
+#7k The function is called by the print statement. The function receives the two arguments, 2 and 5, converts them to strings
+ and concatenates the two strings, create the string with value 25, and returning that string. 
+ And the print command prints 25 (still a string).
+
+def a(b,c):
+    return str(b)+str(c)
+print(a(2,5))
+
+#8 The function is called by the print statement. The function takes no arguments, b is assigned 100, and the function prints out 100
+The value of b is not less than 10, so the else statement statement is executed, which returns 10 to the calling statement, print, which
+prints out 10, the value returned to the print calling statement. Return 7 in the function is NEVER executed.
+
+def a():
+    b=100
+    print(b)
+    if b < 10:
+        return 5
+    else:
+        return 10
+    return 7
+print(a())
+
+# 9  The first print command calls the function, passing the arguments 2 and 3. b (2) is less than c (which is 3), 
+so 7 is returned and the first print statment prints 7.
+The second print command calls the function, passing the arguments 5 and 3. This time b (5) is NOT less than c (3), so else statement
+is executed and 14 is returned, and printed by the print statement that called the function.
+The third print command calls the function twice, the first time passing the arguments 2 and 3, which again cause the function to
+return 7 (same as the first print command), the print command calls the function a second time passing it 5 and 3 (same as the second
+print statement), which again returns 14. Now the 7 and 14 are added, and the print statement prints out 21, because the two values are
+ints not strings.
+
+def a(b,c):
+    if b<c:
+        return 7
+    else
+        return14
+    return3
+
+print(a(2,3))
+print(a(5,3))
+print(a(2,3) + a(5,3))
+
+# 10 The print statement calls the function, passing it the arguments 3 and 5. The function returns 3+5 (8). 
+The print statment prints 8. The 'return 10' statement in the function never executes.
+
+def a(b,c):
+    return b+c
+    return 10
+print(a(3,5))
+
+#11 b is assigned the value 500. THe print statment prints 500 (the value of 5). The function is defined. Another print statement
+prints 500 again (the same b). The function is called, b is assigned 300 inside the function. The print statment inside the function
+prints 300 (the value of the b inside the function). The function returns (none), and another print statement prints 500, the value
+of b outside the function.
+
+b = 500
+print(b)
+def a():
+    b=300
+    print(b)
+print(b)
+a()
+print (b)
+
+#12 b is assigned the value 500, the print statement prints 500 (the value of b). The function is defined. The print statement
+outside the function definition prints 500, the value of b. The function is called. The internal variable b is defined and assigned
+the value 300. THe print statement prints 300 (value of b). The function returns the value of b (300). The print statement
+outside the function prints 500, which is the value of b outside the function. THe function returned the value of it's 'b', but it
+was not used by the calling program. The value of the returned b was just lossed.
+
+b = 500
+print(b)
+def a():
+    b = 300
+    print(b)
+    return b 
+print(b)
+a()
+print(b)
+
+#13 b is defined and assigned the value of 500. The print statment prints 500 (the value of b). The function is defined. 
+The print statment (outside the function definition) prints 500 again (the value of b is still 500). The function is called
+in a statement that assigns its return value to the variable b (currently containing 500). The function assigns 300 to its
+copy of b. The print statment prints the value of b, which is (internally) 300. and then the returns the value of b (300) to 
+the calling code. The value of 300 gets assigned to the variable b (outside the function). And the next print statement prints
+300 which is the new value of the b variable outside the function (because it was asigned to the b variable when the function returned)
+
+b = 500
+print(b)
+def a():
+    b = 300
+    print(b)
+    return b 
+print(b)
+b=a()
+print(b)
+
+#14 the 'a' function is defined, then the 'b' function is defined. Then the 'a' function is called. It prints a 1 (integer).
+It calls b() which prints a 3. 'b' returns (none), and the 'a' function prints 2.
+
+def a():
+    print(1)
+    b()
+    print(2)
+def b():
+    print(3)
+a()
+
+ #15 -  The 'a' function is defined. The 'b' function is defined. y is assigned the return value of 'a' function. The 'a' function is 
+ called, prints 1, x is assigned the return value of the 'b' function. The 'b' function is executed, it prints 3 and returns 5, which is
+ stored in the 'x' variable. The contents of x is printed and 10 is returned by the 'a' function, which is stored in the y (in the main code.
+ and the value of y is printed, which is 10.
+
+def a():
+    print(1)
+    x = b()
+    print(x)
+    return 10
+def b():
+    print(3)
+    return 5
+y= a()
+print(y)
+
