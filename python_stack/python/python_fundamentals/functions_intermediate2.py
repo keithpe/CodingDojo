@@ -24,10 +24,10 @@ sports_directory = {
 z = [{'x': 10, 'y': 20}]
 
 # ----------------------------------------------------------------------------------
-# Update values in Dictionary and Lists
+# (1) Update values in Dictionary and Lists
 # ----------------------------------------------------------------------------------
 
-# (1) Change the value 10 in x to 15. Once you're done, x should now be [[5,2,3],[15,8,9]]
+# (1-1) Change the value 10 in x to 15. Once you're done, x should now be [[5,2,3],[15,8,9]]
 print('\n-----------------------------------------------------------------------------------')
 print("**** Change the value 10 in x to 15. ****")
 print('-----------------------------------------------------------------------------------\n')
@@ -37,7 +37,7 @@ print("\nChange 10 in x to 15")
 x[1][0] = 15
 print("x=", x)
 
-# (2) Change the last_name of the first student from 'Jordan' to 'Bryant'
+# (1-2) Change the last_name of the first student from 'Jordan' to 'Bryant'
 print('\n-----------------------------------------------------------------------------------')
 print("**** Changing the last_name of the first student from 'Jordan' to 'Bryant' ****")
 print('-----------------------------------------------------------------------------------\n')
@@ -49,7 +49,7 @@ students[0]['last_name'] = 'Bryant'
 print('\nShow all students, including Michael BRYANT')
 print('students=', students)
 
-# (3) In the sports_directory, change 'Messi' to 'Andres'.
+# (1-3) In the sports_directory, change 'Messi' to 'Andres'.
 print('\n-----------------------------------------------------------------------------------')
 print("**** Change 'Messi' to 'Andres' in the sports_directory ****")
 print('-----------------------------------------------------------------------------------\n')
@@ -64,7 +64,7 @@ sports_directory['soccer'][0] = 'Andres'
 print('\nShow modified sports directory')
 print('sports_directory', sports_directory)
 
-# (4) Change the value 20 in z to 30
+# (1-4) Change the value 20 in z to 30
 print('\n-----------------------------------------------------------------------------------')
 print("**** Change the value 20 in z to 30 ****")
 print('-----------------------------------------------------------------------------------\n')
@@ -75,7 +75,7 @@ print("z", z)
 print()
 
 # ----------------------------------------------------------------------------------
-# Iterate through a list of dictionaries
+# (2) Iterate through a list of dictionaries
 # ----------------------------------------------------------------------------------
 
 students = [
@@ -87,13 +87,6 @@ students = [
 
 
 def iterateDictionary(some_list):
-    # for x in some_list:
-    # print(x)
-    # print(x['first_name'], x['last_name'])
-
-    # for x in some_list:
-    # for key, value in x.items():
-    # print("{} - {}, ".format(key, value))
     for x in some_list:
         print("first_name - {}, last_name - {}".format(x.get('first_name'),
                                                        x.get('last_name')))
@@ -103,3 +96,23 @@ print('\n-----------------------------------------------------------------------
 print('Iterate through the list of students')
 print('----------------------------------------------------------------------------------\n')
 iterateDictionary(students)
+
+# ----------------------------------------------------------------------------------
+# (3) Get values from a list of dictionaries
+# ----------------------------------------------------------------------------------
+
+
+def iterateDictionary2(key_name, some_list):
+    for x in some_list:
+        print(x[key_name])
+
+
+print('\n----------------------------------------------------------------------------------')
+print('Get values from a list of dictionaries')
+print('----------------------------------------------------------------------------------\n')
+
+print('*** first_name key ***\n')
+iterateDictionary2('first_name', students)
+
+print('*** last_name key ***\n')
+iterateDictionary2('last_name', students)
