@@ -2,7 +2,7 @@
 # Bubble Sort
 #
 # Not really an assigment, but an intro to sorting. Bubble sort is very easy
-# to implement, but not too efficient. You need to iterate through the data/array to many times.
+# to implement, but very inefficient. You need to iterate through the data/array too many times.
 #
 # -----------------------------------------------------------------------------------------------
 
