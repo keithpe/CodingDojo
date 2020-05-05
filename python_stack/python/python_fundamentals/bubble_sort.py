@@ -43,7 +43,7 @@ print("Original array is: {}\n".format(arr))
 counter = bubble_sort(arr)
 
 print("Sorted array is: {}\n".format(arr))
-print("We called bubble_sort() {} times.\n".format(counter))
+print("bubble_sort() traversed array {} times.\n".format(counter))
 
 print("****************** DONE *****************\n")
 
@@ -55,7 +55,7 @@ Original array is: [8, 1, 5, 3, 2, 0]
 
 Sorted array is: [0, 1, 2, 3, 5, 8]
 
-We called bubble_sort() 6 times.
+bubble_sort() traversed array 6 times.
 
 ****************** DONE *****************
 '''
