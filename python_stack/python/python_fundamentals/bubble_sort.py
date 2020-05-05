@@ -57,7 +57,7 @@ Original array is: [8, 1, 5, 3, 2, 0]
 
 Sorted array is: [0, 1, 2, 3, 5, 8]
 
-bubble_sort() traversed array 6 times.
+bubble_sort() traversed array 5 times.
 
 ****************** DONE *****************
 '''
