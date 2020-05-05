@@ -116,3 +116,33 @@ iterateDictionary2('first_name', students)
 
 print('*** last_name key ***\n')
 iterateDictionary2('last_name', students)
+
+# ----------------------------------------------------------------------------------
+# (4) Iterate through a dictionary with list values.
+# ----------------------------------------------------------------------------------
+
+dojo = {
+    'locations': ['San Jose', 'Seattle', 'Dallas', 'Chicago', 'Tulsa', 'DC', 'Burbank'],
+    'instructors': ['Michael', 'Amy', 'Eduardo', 'Josh', 'Graham', 'Patrick', 'Minh', 'Devon']
+}
+
+
+def printInfo(some_dict):
+
+    for x in some_dict:  # Loop through dictionary items (there are two)
+
+        # Print the number of array elements (locations or instructors) for this dictionary key
+        print('\n' + str(len(some_dict[x])) + ' ' + x.upper())
+
+        for y in some_dict[x]:  # loop through all the array elements
+            print(y)
+
+    print("\n**** DONE ****\n")
+
+
+print('\n----------------------------------------------------------------------------------')
+print('Iterate through a dictionary with list values')
+print('----------------------------------------------------------------------------------\n')
+
+
+printInfo(dojo)
