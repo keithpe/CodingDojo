@@ -78,3 +78,46 @@ print("myList=", myList, " sum=", sum_total(myList))
 
 myList = [6, 3, -2]
 print("myList=", myList, " sum=", sum_total(myList))
+
+# ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# Average
+#
+# Create a function that takes a list and returns the average of all the values.
+#
+# Example: average([1,2,3,4]) should return 2.5
+# ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+def average(myList):
+    sum = 0
+    for i in range(0, len(myList), 1):
+        sum += myList[i]
+    return (sum / len(myList))
+
+
+print("**** average ****")
+
+myList = [1, 2, 3, 4]
+print("myList=", myList)
+print("sum=", average(myList))
+
+# ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# Length
+#
+# Create a function that takes a list and returns the length of the list.
+#
+# Example: length([37,2,1,-9]) should return 4
+# Example: length([]) should return 0
+# ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+def length(myList):
+    return len(myList)
+
+
+print("**** length() ****")
+myList = [37, 2, 1, -9]
+print("The length of {} is {}".format(myList, len(myList)))
+
+myList = []
+print("The length of {} is {}".format(myList, len(myList)))
