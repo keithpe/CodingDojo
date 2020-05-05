@@ -61,3 +61,13 @@ print('\nChange the name of Messi to Andres')
 sports_directory['soccer'][0] = 'Andres'
 print('\nShow modified sports directory')
 print('sports_directory', sports_directory)
+
+# (4) Change the value 20 in z to 30
+print('\n-----------------------------------------------------------------------------------')
+print("**** Change the value 20 in z to 30 ****")
+print('-----------------------------------------------------------------------------------\n')
+print("z", z)
+print("\nChange the value of y to 30")
+z[0]['y'] = 30
+print("z", z)
+print()
