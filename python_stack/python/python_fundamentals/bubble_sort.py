@@ -17,12 +17,14 @@ def bubble_sort(arr):
     # Continue to call bubble sort function on the array until it no longer makes changes.
     something_changed = False
 
-    while True:
-
+    # Use outer loop
+    for h in range(len(arr)-1):
         counter += 1
         something_changed = False
 
-        for i in range(0, len(arr)-1, 1):
+        # We don't have to revisit the elements that are already in the correct place.
+        # Each time we loop through the array the largest number 'bubbles' toward the top/end of the array.
+        for i in range(0, len(arr)-1-h, 1):
             if arr[i] > arr[i+1]:
                 something_changed = True
                 arr[i], arr[i+1] = arr[i+1], arr[i]
