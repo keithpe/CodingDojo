@@ -46,4 +46,18 @@ print('\nCHANGE the last_name of the first student from Jordan to Bryant')
 students[0]['last_name'] = 'Bryant'
 print('\nShow all students, including Michael BRYANT')
 print('students=', students)
-print('\n-----------------------------------------------------------------------------------\n')
+
+# (3) In the sports_directory, change 'Messi' to 'Andres'.
+print('\n-----------------------------------------------------------------------------------')
+print("**** Change 'Messi' to 'Andres' in the sports_directory ****")
+print('-----------------------------------------------------------------------------------\n')
+print('Show the entire sports directory')
+print('sports_directory', sports_directory)
+print('\nShow the soccer info')
+print('sports_directory["soccer"]', sports_directory['soccer'])
+print('\nShow "Messi')
+print('sports_directory["soccer"][0]', sports_directory['soccer'][0])
+print('\nChange the name of Messi to Andres')
+sports_directory['soccer'][0] = 'Andres'
+print('\nShow modified sports directory')
+print('sports_directory', sports_directory)
