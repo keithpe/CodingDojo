@@ -181,3 +181,38 @@ print("The maximum value in the list {} is {}".format(myList, maximum(myList)))
 
 myList = []
 print("The maximum value in the list {} is {}".format(myList, maximum(myList)))
+
+# ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# Ultimate Analysis
+#
+# Create a function that takes a list and returns a dictionary that has the sumTotal, average, minimum, maximum and
+# length of the list.
+#
+# Example: ultimate_analysis([37,2,1,-9]) should return
+#          {'sumTotal': 31, 'average': 7.75, 'minimum': -9, 'maximum': 37, 'length': 4}
+# ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+def ultimate_analysis(myList):
+    sumTotal = 0
+    average = 0
+    minimum = myList[0]
+    maximum = myList[0]
+    length = len(myList)
+
+    for i in range(0, len(myList), 1):
+        sumTotal += myList[i]
+        if minimum > myList[i]:
+            minimum = myList[i]
+        if maximum < myList[i]:
+            maximum = myList[i]
+
+    average = sumTotal / length
+    return {'sumTotal': sumTotal, 'average': average,
+            'minimum': minimum, 'maximum': maximum, 'length': length}
+
+
+print("**** ultimate_analysis() ****")
+myList = [37, 2, 1, -9]
+myDict = ultimate_analysis(myList)
+print("The call to ultimate_analysis({}) returned {}".format(myList, myDict))
