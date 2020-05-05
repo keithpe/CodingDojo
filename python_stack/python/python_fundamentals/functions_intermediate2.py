@@ -7,9 +7,11 @@
 # a dictionary of lists.
 #
 
-# Clear the screen
 import os
+
+# Clear the screen
 os.system('clear')
+
 
 x = [[5, 2, 3], [10, 8, 9]]
 students = [
@@ -71,3 +73,33 @@ print("\nChange the value of y to 30")
 z[0]['y'] = 30
 print("z", z)
 print()
+
+# ----------------------------------------------------------------------------------
+# Iterate through a list of dictionaries
+# ----------------------------------------------------------------------------------
+
+students = [
+    {'first_name': 'Michael', 'last_name': 'Jordan'},
+    {'first_name': 'John', 'last_name': 'Rosales'},
+    {'first_name': 'Mark', 'last_name': 'Guillen'},
+    {'first_name': 'KB', 'last_name': 'Tonel'}
+]
+
+
+def iterateDictionary(some_list):
+    # for x in some_list:
+    # print(x)
+    # print(x['first_name'], x['last_name'])
+
+    # for x in some_list:
+    # for key, value in x.items():
+    # print("{} - {}, ".format(key, value))
+    for x in some_list:
+        print("first_name - {}, last_name - {}".format(x.get('first_name'),
+                                                       x.get('last_name')))
+
+
+print('\n----------------------------------------------------------------------------------')
+print('Iterate through the list of students')
+print('----------------------------------------------------------------------------------\n')
+iterateDictionary(students)
