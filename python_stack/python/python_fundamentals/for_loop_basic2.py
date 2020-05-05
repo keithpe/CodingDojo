@@ -216,3 +216,29 @@ print("**** ultimate_analysis() ****")
 myList = [37, 2, 1, -9]
 myDict = ultimate_analysis(myList)
 print("The call to ultimate_analysis({}) returned {}".format(myList, myDict))
+
+# ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# Reverse List
+#
+# Create a function that takes a list and returns that list with values reversed. Do this without creating a second list
+# (This challenge is know to appear during basic technical interviews)
+#
+# Example: reverse_list([37,2,1,-9]) should return [-9,1,2,37]
+# ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+def reverse_list(myList):
+    for i in range(0, len(myList), 1):
+        if len(myList)/2 <= i:
+            return myList
+        temp = myList[i]
+        myList[i] = myList[len(myList)-1-i]
+        myList[len(myList)-1-i] = temp
+
+
+print("**** reverse_list() ****")
+myList = [37, 2, 1, -9]
+print("Original array:", myList)
+print("Reversed array:", reverse_list(myList))
+
+print("**** DONE ****")
