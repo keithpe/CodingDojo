@@ -148,3 +148,36 @@ def minimum(myList):
 print("**** minimum ****")
 myList = [37, 2, 1, -9]
 print("The minimum value in the list {} is {}".format(myList, minimum(myList)))
+
+myList = []
+print("The minimum value in the list {} is {}".format(myList, minimum(myList)))
+
+# ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# maximum
+#
+# Create a function that takes a list and returns the maximum value in the array. If the list is empty have the
+# function return False.
+#
+# Example: maximum([37,2,-9]) should return 37
+# Example: maximum([]) should return False
+# ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+def maximum(myList):
+    if len(myList) == 0:
+        return False
+
+    maximum = myList[0]
+    for i in range(0, len(myList), 1):
+        if maximum < myList[i]:
+            maximum = myList[i]
+
+    return maximum
+
+
+print("**** maximum ****")
+myList = [37, 2, 1, -9]
+print("The maximum value in the list {} is {}".format(myList, maximum(myList)))
+
+myList = []
+print("The maximum value in the list {} is {}".format(myList, maximum(myList)))
