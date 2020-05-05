@@ -121,3 +121,30 @@ print("The length of {} is {}".format(myList, len(myList)))
 
 myList = []
 print("The length of {} is {}".format(myList, len(myList)))
+
+# ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# Minimum
+#
+# Create a function that takes a list of numbers and returns the minimum value in the list. If the list is empty
+# have the function return False
+#
+# Example: minimum([37,2,1,-9]) should return -9
+# Example: minimum([]) should return False
+# ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+def minimum(myList):
+    if len(myList) == 0:
+        return False
+
+    minimum = myList[0]
+    for i in range(0, len(myList), 1):
+        if minimum > myList[i]:
+            minimum = myList[i]
+
+    return minimum
+
+
+print("**** minimum ****")
+myList = [37, 2, 1, -9]
+print("The minimum value in the list {} is {}".format(myList, minimum(myList)))
