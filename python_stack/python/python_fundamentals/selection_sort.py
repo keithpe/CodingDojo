@@ -33,7 +33,7 @@ array = [3, 5, 1, 2, 3, 4, 7, 3]
 print('   Original array: {}\n'.format(array))
 counter = selection_sort(array)
 print('   Modified array: {}\n'.format(array))
-print('   cThe selection_sort() function traversed the array {} times'.format(counter))
+print('   The selection_sort() function traversed the array {} times'.format(counter))
 print('\n****************************************************************************\n')
 
 
