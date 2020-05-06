@@ -1,0 +1,33 @@
+.jumbotron {
+    text-align: center;
+}
+
+#seattle {
+    width: 150px;
+}
+
+.btn {
+    vertical-align: bottom;
+}
+
+.card {
+    min-height: 340px;
+    margin: 5px;
+}
+
+.img-box {
+    min-height: 120px;
+}
+
+.txt-box {
+    min-height: 160px;
+}
+
+.red {
+    color: red;
+}
+
+#val-text {
+    width: 300px;
+    height: 100px;
+}

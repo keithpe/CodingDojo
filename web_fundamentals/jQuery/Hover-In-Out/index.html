@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover In and Out</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            // Change image when you hover in, then out
+            $('img').hover(
+                function () {
+                    // In
+                    console.log('$(this)', $(this));
+                    swapImages($(this));
+                },
+                function () {
+                    // Out
+                    console.log('$(this)', $(this));
+                    swapImages($(this));
+                }
+            );
+
+            function swapImages(jQueryThis) {
+                // Condense all the swap code into this one function.
+                let src = jQueryThis.attr('src');
+                let dataAltSrc = jQueryThis.attr('data-alt-src');
+                jQueryThis.attr('src', dataAltSrc);
+                jQueryThis.attr('data-alt-src', src);
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Hover IN and OUT Ninja</h1>
+        <div class="images">
+            <img src="./images/ninja1.jpg" data-alt-src="./images/ninja2.jpg" alt="Normal Ninja">
+            <img src="./images/ninja1.jpg" data-alt-src="./images/ninja2.jpg" alt="Normal Ninja">
+            <img src="./images/ninja1.jpg" data-alt-src="./images/ninja2.jpg" alt="Normal Ninja">
+            <img src="./images/ninja1.jpg" data-alt-src="./images/ninja2.jpg" alt="Normal Ninja">
+            <img src="./images/ninja1.jpg" data-alt-src="./images/ninja2.jpg" alt="Normal Ninja">
+            <img src="./images/ninja1.jpg" data-alt-src="./images/ninja2.jpg" alt="Normal Ninja">
+            <img src="./images/ninja1.jpg" data-alt-src="./images/ninja2.jpg" alt="Normal Ninja">
+            <img src="./images/ninja1.jpg" data-alt-src="./images/ninja2.jpg" alt="Normal Ninja">
+        </div>
+        <p>Hover over each image to see it change.</p>
+    </div>
+</body>
+
+</html>

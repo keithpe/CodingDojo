@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>jQuery Functions</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script> -->
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+  <script>
+    $(document).ready(function () {
+      // Test the click function
+      $("#click").click(function () {
+        alert("Button has been clicked");
+      });
+
+      // Test the hide function.
+      $("#hide").click(function () {
+        $(".hide").hide("slow");
+      });
+
+      // Use show to unhide anyone that was hidden by the hide button
+      $("#show").click(function () {
+        $(".hide").show("slow");
+      });
+
+      // Toggle the button
+      $("#toggle").click(function () {
+        $(".hide").toggle("slow");
+      });
+
+      // Slide down
+      $("#slideDown").click(function () {
+        $("#seattle").slideDown("slow");
+      });
+
+      $("#slideUp").click(function () {
+        $("#seattle").slideUp("slow");
+      });
+
+      $("#slide-toggle").click(function () {
+        $("#seattle").slideToggle("slow");
+      });
+
+      $("#fade-in").click(function () {
+        $("#fade").fadeIn("slow");
+      });
+
+      $("#fade-out").click(function () {
+        $("#fade").fadeOut("slow");
+      });
+
+      $("#addClass").click(function () {
+        $(".changeMyClass").addClass("red");
+      });
+
+      $("#removeClass").click(function () {
+        $(".changeMyClass").removeClass("red");
+      });
+
+      $("#before").click(function () {
+        if ($("#before-text").length) {
+          $("#before-text").remove();
+        } else {
+          $("#before-after").before(
+            "<p id='before-text' class='red'>Before</p>"
+          );
+        }
+      });
+
+      $("#after").click(function () {
+        if ($("#after-text").length) {
+          $("#after-text").remove();
+        } else {
+          $("#before-after").after(
+            "<p id='after-text' class='red'>After</p>"
+          );
+        }
+      });
+
+      $("#append").click(function () {
+        $("#append-to-me").append("Like this for example.");
+      });
+
+      $("#get-html").click(function () {
+        let text = "Existing HTML: " + $("#html-text").html();
+        alert(text);
+      });
+
+      $("#set-html").click(function () {
+        $("#html-text").html("All new content!!! Awesome!!!");
+      });
+
+      $("#get-attr").click(function () {
+        let value = $("#attr-text").attr("style");
+        alert(value);
+      });
+
+      $("#set-attr").click(function () {
+        $("#attr-text").attr("style", "color:red");
+      });
+
+      $("#get-val").click(function () {
+        let value = $("#val-text").val();
+        alert(value);
+      });
+
+      $("#set-val").click(function () {
+        $("#val-text").val("The contents of this textarea has been changed.");
+      });
+
+      $("#get-text").click(function () {
+        let value = $("#text-text").text();
+        alert(value);
+      });
+
+      $("#set-text").click(function () {
+        $("#text-text").text("The contents of this textarea has been changed.");
+      });
+
+    });
+  </script>
+</head>
+
+<body>
+  <div class="jumbotron jumbotron-fluid justify-content-center">
+    <div class="container-fluid justify-content-md-center">
+      <!-- <h1 class="justify-content-md-center"></h1> -->
+      <h1>jQuery Functions</h1>
+      <h5>An Introduction to jQuery</h5>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="card col-sm">
+        <div class="card-body">
+          <div class="card-title">
+            <h2>Click</h2>
+          </div>
+          <div class="txt-box">
+            <p class="card-text">
+              Click on the button below to change the click heading above.
+            </p>
+          </div>
+          <button id="click" class="btn btn-outline-primary btn-block">
+            Click
+          </button>
+        </div>
+      </div>
+      <div class="card col-sm">
+        <div class="card-body">
+          <div class="card-title">
+            <h2>Hide/Show</h2>
+          </div>
+          <div class="txt-box">
+            <p class="card-text hide">
+              Click on one of the buttons below to hide or show this text.
+            </p>
+          </div>
+          <button id="hide" class="btn btn-outline-primary btn-block">
+            Hide
+          </button>
+          <button id="show" class="btn btn-outline-primary btn-block">
+            Show
+          </button>
+        </div>
+      </div>
+      <div class="card col-sm">
+        <div class="card-body">
+          <div class="card-title">
+            <h2>Toggle</h2>
+          </div>
+          <div class="txt-box">
+            <p class="card-text">
+              Click on the button below to toggle the Hide and Show text.
+              Easier than separate buttons to hide and show.
+            </p>
+          </div>
+          <button id="toggle" class="btn btn-outline-primary btn-block">
+            Toggle
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+      <div class="card col-sm">
+        <div class="card-body">
+          <div class="card-title">
+            <h2>Slide Up Slide Down</h2>
+          </div>
+          <div class="container img-box">
+            <img id="seattle" src="./images/iu.jpg" alt="" />
+          </div>
+          <button id="slideUp" class="btn btn-outline-primary btn-block">
+            Slide Up
+          </button>
+          <button id="slideDown" class="btn btn-outline-primary btn-block">
+            Slide Down
+          </button>
+        </div>
+      </div>
+      <div class="card col-sm">
+        <div class="card-body">
+          <div class="card-title">
+            <h2>Slide Toggle</h2>
+          </div>
+          <div class="txt-box">
+            <p class="card-text">
+              Click on the button below to slide the image of Seattle up or
+              down.
+            </p>
+          </div>
+          <button id="slide-toggle" class="btn btn-outline-primary btn-block">
+            Slide Toggle
+          </button>
+        </div>
+      </div>
+      <div class="card col-sm">
+        <div class="card-body">
+          <div class="card-title">
+            <h2>Fade in/out</h2>
+          </div>
+          <div class="txt-box">
+            <p id="fade" class="card-text">
+              Click on the button below to Fade-In or Fade-Out this paragraph.
+            </p>
+          </div>
+          <button id="fade-in" class="btn btn-outline-primary btn-block">
+            fade-in
+          </button>
+          <button id="fade-out" class="btn btn-outline-primary btn-block">
+            fade-out
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="card col-sm">
+        <div class="card-body">
+          <div class="card-title">
+            <h2 class="changeMyClass">Add Class</h2>
+          </div>
+          <div class="txt-box">
+            <p class="card-text changeMyClass">
+              Click on the 'Add Class' to add the red class, which sets the
+              color attribute to red, or remove the it.
+            </p>
+          </div>
+          <button id="addClass" class="btn btn-outline-primary btn-block">
+            Add Class
+          </button>
+          <button id="removeClass" class="btn btn-outline-primary btn-block">
+            Remove Class
+          </button>
+        </div>
+      </div>
+      <div class="card col-sm">
+        <div class="card-body">
+          <div class="card-title">
+            <h2>Before After</h2>
+          </div>
+          <div id="before-after-container" class="txt-box">
+            <p id="before-after" class="card-text">
+              Click Before or After to add stuff.
+            </p>
+          </div>
+          <button id="before" class="btn btn-outline-primary btn-block">
+            Before
+          </button>
+          <button id="after" class="btn btn-outline-primary btn-block">
+            After
+          </button>
+        </div>
+      </div>
+      <div class="card col-sm">
+        <div class="card-body">
+          <div class="card-title">
+            <h2>Append</h2>
+          </div>
+          <div class="txt-box">
+            <p id="append-to-me" class="card-text">
+              Click on the button to append more text to this string.
+            </p>
+          </div>
+          <button id="append" class="btn btn-outline-primary btn-block">
+            Append
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+      <div class="card col-sm">
+        <div class="card-body">
+          <div class="card-title">
+            <h2>html</h2>
+          </div>
+          <div class="txt-box">
+            <p id="html-text" class="card-text">
+              Click on the button below to retrieve the html contents.</p>
+          </div>
+          <button id="get-html" class="btn btn-outline-primary btn-block">
+            Get HTML
+          </button>
+          <button id="set-html" class="btn btn-outline-primary btn-block">
+            Set HTML
+          </button>
+        </div>
+      </div>
+      <div class="card col-sm">
+        <div class="card-body">
+          <div class="card-title">
+            <h2>attr</h2>
+          </div>
+          <div class="txt-box">
+            <p id="attr-text" class="card-text">
+              Click on the button to get or set an attribute of this text. AFTER you set the style attribute, click on
+              Get Attribute to get the style attribute."</p>
+          </div>
+          <button id="get-attr" class="btn btn-outline-primary btn-block">Get Attribute</button>
+          <button id="set-attr" class="btn btn-outline-primary btn-block">Set Attribute</button>
+        </div>
+      </div>
+      <div class="card col-sm">
+        <div class="card-body">
+          <div class="card-title">
+            <h2>val</h2>
+          </div>
+          <div class="txt-box">
+            <textarea id="val-text"
+              class="card-text">Click on the button to get or set the val of this textarea.</textarea>
+          </div>
+          <button id="get-val" class="btn btn-outline-primary btn-block">Get Val</button>
+          <button id="set-val" class="btn btn-outline-primary btn-block">Set Val</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+      <div class="card col-sm">
+        <div class="card-body">
+          <div class="card-title">
+            <h2>Text</h2>
+          </div>
+          <div class="txt-box">
+            <p id="text-text" class="card-text">Click on the button to get or set the text of this paragraph.</p>
+          </div>
+          <button id="get-text" class="btn btn-outline-primary btn-block">Get Text</button>
+          <button id="set-text" class="btn btn-outline-primary btn-block">Set Text</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
