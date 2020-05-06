@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Fighter Plane Game</title>
+</head>
+
+<body>
+	<style type="text/css">
+		#ocean {
+			background-image: url("./images/ocean.jpg");
+			width: 900px;
+			height: 700px;
+		}
+
+		.player {
+			position: absolute;
+			background-image: url("./images/player.png");
+			width: 70px;
+			height: 75px;
+		}
+
+		.enemy {
+			position: absolute;
+			background-image: url("./images/enemy.png");
+			width: 70px;
+			height: 75px;
+		}
+
+		.missile {
+			position: absolute;
+			/* background-color: red; */
+			background-color: yellow;
+			width: 2px;
+			height: 25px;
+		}
+	</style>
+	<div id="ocean"></div>
+	<div id="players"></div>
+	<div id="enemies"></div>
+	<div id="missiles"></div>
+
+	<script type="text/javascript">
+
+		//////////////////////////////////////////////////////////////////////
+		// Author: Keith Peterson
+		//  Title: Airplane (1+2)
+		//   Date: 04/10/2020
+		//////////////////////////////////////////////////////////////////////
+		// 
+		// Challenges:
+		//
+		//     1) Change Color of missiles. Yellow!
+		//
+		//     2) Make missiles move faster. (shorten loop wait time) 
+		//        And move them farther for each loop by increasing
+		//        pixel increment value.
+		//
+		//     3) Make enemies move faster.
+		//	      I reduced the loop time, so the gameLoop function
+		//        ran more often and then reduced the number of
+		//			  pixels incremented for each movement.
+		//
+		//     4) Make entire game move faster (shorten loop wait time)
+		//     5) Shortening the loop interval and moving the missles
+		//        fewer pixels also seemed to make the enemies move faster
+		//        and smoother.
+		// 
+		// TODO: 
+		// 		 1) Make enemies disappear (or explode) when missiles 
+		//          hit them?
+		//
+		// I shortened the loop time to 200ms instead of 1000ms. This allowed
+		// me to shorten the number of pixels I added to move the planes.
+		// This allowed the planes to move faster - because of the time loop
+		// change, but slower than the speed of the missiles, which I moved
+		// more pixels for each time loop.
+		//////////////////////////////////////////////////////////////////////
+
+		//////////////////////////////////////////////////////////////////////
+		// Variable definitions
+		//////////////////////////////////////////////////////////////////////
+		// Allow the user to move to the edge of the viewport
+		var viewportWidth = window.innerWidth - 100;
+		var viewportHeight = window.innerHeight - 100;
+		var playerLimitUp = viewportHeight / 1.5;	// How far up/towards enemies, player can move
+
+		var player = {
+			left: viewportWidth / 2,
+			top: viewportHeight / 1.2
+		}
+
+		var enemies = [
+			{ left: 150, top: 100 },
+			{ left: 260, top: 100 },
+			{ left: 370, top: 100 },
+			{ left: 480, top: 100 },
+			{ left: 600, top: 100 },
+			{ left: 700, top: 100 },
+		]
+
+		var missiles = [];
+
+		//////////////////////////////////////////////////////////////////////
+		// Function definitions	
+		//////////////////////////////////////////////////////////////////////
+
+		function drawPlayer() {
+			content = "<div class='player' style='left:" + player.left + "px; top: " + player.top + "px'></div>"
+			document.getElementById("players").innerHTML = content;
+		}
+
+		function drawEnemies() {
+			content = "";
+			for (var i = 0; i < enemies.length; i++) {
+				content += "<div class='enemy' style='left:" + enemies[i].left + "px; top: " + enemies[i].top + "px'></div>"
+				document.getElementById("enemies").innerHTML = content;
+			}
+		}
+
+		function moveEnemies() {
+			for (var i = 0; i < enemies.length; i++) {
+				enemies[i].top += 2;
+			}
+		}
+
+		function gameLoop() {
+
+			drawPlayer();
+
+			moveEnemies();
+			drawEnemies();
+
+			moveMissiles();
+			drawMissiles();
+
+			setTimeout(gameLoop, 100);
+
+		}
+
+		function drawMissiles() {
+			content = "";
+			for (var i = 0; i < missiles.length; i++) {
+				content += "<div class='missile' style='left:" + missiles[i].left + "px; top:" + missiles[i].top + "px'></div>";
+			}
+			document.getElementById("missiles").innerHTML = content;
+		}
+
+		function moveMissiles() {
+			for (var i = 0; i < missiles.length; i++) {
+				missiles[i].top -= 25;
+			}
+		}
+
+		/////////////////////////////////////////////////////////////////////////
+		// End of function definition section	
+		/////////////////////////////////////////////////////////////////////////
+
+		document.onkeydown = function (e) {
+			console.log(e);
+			if (e.keyCode == 37 && player.left > 5) { // left, but stop at left edge of viewport
+				player.left -= 10;
+			}
+			if (e.keyCode == 39 && player.left < viewportWidth) { // right
+				player.left += 10;
+			};
+			if (e.keyCode == 38 && player.top > playerLimitUp) { // up, but stop at top of viewport
+				player.top -= 10;
+			}
+			if (e.keyCode == 40 && player.top < viewportHeight) { // down, but stop at bottom of viewport
+				player.top += 10;
+			}
+			if (e.keyCode == 32) {	// fire missle
+				missiles.push({ left: (player.left + 34), top: (player.top - 8) });
+				drawMissiles();
+			}
+			drawPlayer();
+		}
+		gameLoop();
+
+	</script>
+
+</body>
+
+</html>
