@@ -37,6 +37,9 @@ class Underscore:
         for i in range(0, len(iterable), 1):
             if callback(iterable[i]):
                 found = iterable[i]
+
+                # We just want the first element that we found.
+                # Exit the loop and return that number.
                 break
 
         return found
