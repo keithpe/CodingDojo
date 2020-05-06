@@ -37,6 +37,8 @@ def insertion_sort(arr):
 
             if arr[j] < arr[j-1]:
                 arr[j], arr[j-1] = arr[j-1], arr[j]
+            else:
+                break
 
         # Print the array to see it change as the outer loop progresses
         print('arr', arr)
@@ -45,7 +47,19 @@ def insertion_sort(arr):
     print("Inner Loop {} times".format(inner_loop_counter))
 
 
+# First test
+
 array = [5, 3, 1, 7, 8, 2]
+
+print("Original Array contents: {}".format(array))
+insertion_sort(array)
+print("Modified Array contents: {}".format(array))
+
+# Second test, array totally backwards
+
+array = [20, 19, 18, 17, 27, 16, 15, 14, 13,
+         12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
 print("Original Array contents: {}".format(array))
 insertion_sort(array)
 print("Modified Array contents: {}".format(array))
