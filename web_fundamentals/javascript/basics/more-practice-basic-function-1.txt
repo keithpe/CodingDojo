@@ -1,0 +1,181 @@
+//////////////////////////////////////////////////////////////
+//
+// Javascript - More Practice. Predict the outcome of these
+//
+//////////////////////////////////////////////////////////////
+
+// this function returns 35, the console will print 35.
+
+function a() {
+  return 35;
+}
+console.log(a());
+
+// This function will return 4, and console.log() will print 8, because it's adding the return value
+// from this function, which it calls twice.
+
+function a() {
+  return 4;
+}
+console.log(a() + a());
+
+// This function returns whatever is passed to it, and console.log will display 6 (the addition of 2 and 4)
+
+function a(b) {
+  return b;
+}
+console.log(a(2) + a(4));
+
+// This function will console.log() whatever value is passed to it, in this case 3, and it will return 
+// 3 times whatever value is passed to it. The console.log() outside the founction definition 
+// will display 9 (3 times the value that it passed to the function.
+
+function a(b) {
+  console.log(b);
+  return b * 3;
+}
+console.log(a(3));
+
+// This function will console.log() NOTHING, because it returns 4 times the value of whatever was passed to BEFORE
+// it can run the console.log() line. And the console.log() function outside the function will print 40 (4 times 10).
+
+function a(b) {
+  return b * 4;
+  console.log(b);
+}
+console.log(a(10));
+
+// Console.log() calls function "a" with the value 15, which is assigned to the variable b inside the function.
+// The value of b is 15, which is NOT less than 10, so it runs the second else statement which returns 4. 
+// The function will NEVER run it's console.log() commmand, because if the first element is true, it executes
+// the return in that if block, and if it's NOT true it will execute the return in the else block.
+
+function a(b) {
+  if (b < 10) {
+    return 2;
+  }
+  else {
+    return 4;
+  }
+  console.log(b);
+}
+console.log(a(15));
+
+// The first console.log() will just display( 10 and 3), it doesnt call the function at all.
+// The second console.log() will call function a() with the arguments 3 and 10, and the 
+// the function will multiple those two values and return 30, so the console.log() will display 30.
+
+function a(b, c) {
+  return b * c;
+}
+console.log(10, 3);
+console.log(a(3, 10));
+
+// the a function is defined but NEVER called.
+// The first console.log() will display 3.
+// THe second console.log() will display 4.
+
+function a(b) {
+  for (var i = 0; i < 10; i++) {
+    console.log(i);
+  }
+  return i;
+}
+console.log(3);
+console.log(4);
+
+// This function return is undefined. It doesn't take any arguments.
+// But it does loop from 0 to 10, and execute the console.log() for each 
+// iteration of i, printing the current value of i.
+// The value of "i" during the program run: 0,2,3,5,6,8,9,11
+// console.log(2), console.log(5),  console.log(8), console.log(11)
+
+function a() {
+  for (var i = 0; i < 10; i++) {
+    i = i + 2;
+    console.log(i);
+  }
+}
+a();
+
+// This function takes to arguments,
+// The FIRST time function "a" is called it's passed 0 and 10 as arguments.
+// THe function loops: value is during the loop is: 0, 
+// During the loop:
+// i = 0,1,2,3,4,5,6,7,8,9,10, console.log() is called from within the lop and prints:
+// 0,1,2,3,4,5,6,7,8,9
+// The function returns 0, but that value is NOT assigned to anything, is not printed,
+// and is lost.
+// The SECOND time function "a" is called (from the console.log() function), with the same arguments, 
+// it prints and returns all the same value, with the addition of the calling function console.log() printing
+// the returned value of 0.
+
+function a(b, c) {
+  for (var i = b; i < c; i++) {
+    console.log(i);
+  }
+  return b * c;
+}
+a(0, 10);
+console.log(a(0, 10));
+
+// This function is defined, but NEVER called. It executes and outputs nothing.
+
+function a() {
+  for (var i = 0; i < 10; i++) {
+    for (var j = 0; j < 10; j++) {
+      console.log(j);
+    }
+    console.log(i);
+  }
+}
+
+// This function is defined, but NEVER called. It executes and outputs nothing.
+
+function a() {
+  for (var i = 0; i < 10; i++) {
+    for (var j = 0; j < 10; j++) {
+      console.log(i, j);
+    }
+    console.log(j, i);
+  }
+}
+
+// Here var z is defined as 10. The function is defined. The console.log() just prints its variable z,
+// NOT the functions variable z. SO the output is 10. The function never gets executed. Althoug if it
+// WERE executed it would print 15 (the contents of ITS variable z)l
+
+var z = 10;
+function a() {
+  var z = 15;
+  console.log(z);
+}
+console.log(z);
+
+// Var z is defined as 10 in the main code (outside the function).
+// Var z is defined as 15 inside the function.
+// The function is called and prints the value of z, which is 15.
+// Console.log() just displays the value of z, as defined in the main code, which displays 10.
+
+var z = 10;
+function a() {
+  var z = 15;
+  console.log(z);
+}
+a();
+console.log(z);
+
+// Var z is defined as 10 in the main code, but then it's reassigned the value returned by the 
+// call to function "a". Function a defines it's own variable z and assigns it a value of 15.
+// It then console.logs that value (15) and returns the variable "z".
+// The return value from the call to function "a" is assigned to the variable z that was defined
+// in the main code, and that value is printed using console.log(). The value printed is 15.
+
+var z = 10;
+function a() {
+  var z = 15;
+  console.log(z);
+  return z;
+}
+z = a();
+console.log(z);
