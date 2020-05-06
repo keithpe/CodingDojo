@@ -34,13 +34,12 @@ class Underscore:
         # should return the first value that is greater than 4
         # _.find([1, 2, 3, 4, 5, 6], lambda x: x > 4)
 
-        newArray = []
-
         for i in range(0, len(iterable), 1):
             if callback(iterable[i]):
-                newArray.append(iterable[i])
+                found = iterable[i]
+                break
 
-        return newArray
+        return found
 
     def filter(self, iterable, callback):
         # should return [2,4,6]
@@ -74,39 +73,46 @@ class Underscore:
 _ = Underscore()  # yes we are setting our instance to a variable that is an underscore
 
 
-print('\n*****************************************************************\n')
-print(' create an underscore class and define four methods for')
-print(' that class. This app implements the filter, map, find and reject')
-print(' methods for the class.')
-print()
-print('\n*************************** .filter *****************************\n')
+print('\n*********************** The Underscore Class ***************************\n')
+print(' Create an underscore class and define four methods for it.')
+print(' This app implements those four methods: filter, map, find and reject\n')
+print(' .filter: Filters the array. In this case it returns all the even')
+print('          elements from the origin array.\n')
+print('    .map: Maps each element in the array to a element in the new')
+print('          array. In this case it maps each value to its double.\n')
+print('   .find: Finds elements in the original array and returns them')
+print('          in a new array. In this case it returns first value > 4\n')
+print(' .reject: Selects elements from the original array that do NOT meet a')
+print('          certain requirement. In this case it rejects all odd numbers')
+print('          and returns them in a new array.')
+print('\n*************************** .filter *************************************\n')
 
 # should return [2,4,6]
 evens = _.filter([1, 2, 3, 4, 5, 6], lambda x: x % 2 == 0)
 print(' evens = _.filter([1, 2, 3, 4, 5, 6], lambda x: x % 2 == 0)')
 print(' evens = {}'.format(evens))
 
-print('\n**************************** .map *******************************\n')
+print('\n**************************** .map ***************************************\n')
 
 # should return [2,4,6]
 doubles = _.map([1, 2, 3], lambda x: x*2)
 print(' doubles = _.map([1, 2, 3], lambda x: x*2)')
 print(' doubles = {}'.format(doubles))
 
-print('\n*************************** .find *******************************\n')
+print('\n*************************** .find ***************************************\n')
 
 # should return the first value that is greater than 4
 found = _.find([1, 2, 3, 4, 5, 6], lambda x: x > 4)
 print(' found = _.find([1, 2, 3, 4, 5, 6], lambda x: x > 4)')
 print(' found = {}'.format(found))
 
-print('\n************************** .reject ******************************\n')
+print('\n************************** .reject **************************************\n')
 #  should return [1,3,5]
 rejects = _.reject([1, 2, 3, 4, 5, 6], lambda x: x % 2 == 0)
 print(' rejects = _.reject([1, 2, 3, 4, 5, 6], lambda x: x % 2 == 0)')
 print(' rejects = {}'.format(rejects))
 
-print('\n**************************** DONE *******************************\n')
+print('\n**************************** DONE ***************************************\n')
 
 # -----------------------------------------------------------------------------------------
 # Tests for the four underscore functions
