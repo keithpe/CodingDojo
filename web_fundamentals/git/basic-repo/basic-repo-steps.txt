@@ -1,0 +1,35 @@
+First I created a new repo called "basic-repo" from the github.com GUI.
+I cliked on the "new repo" (upper right pull down - the + icon)
+I entered the name of my new repo (basic-repo) in the input provided.
+I clicked on the create repo button and was presented with a page for what I could do next
+That inforamtion included steps for 
+ 1) Creating a README.md, readme mark down file, with the name of my repo as the first line
+ 2) creating the git repo locally on my machine, (git init)
+ 3) Adding the new README.md file to my new local repo (git add README.md)
+ 4) Adding the location of the remote repo to my local git repo, so my git knows where to push my local changes:
+ git remote add origin https://github.com/keithpe/basic-repo.git
+ 5) Pushed my local repo contents to my new remote repo., the master branch of the origin location on my remote repo.
+ git push -u origin master
+
+I created an index.html and a style.css file and staged them.
+    git add index.html style.css
+I could have used the dot to add ALL the files (including subdirectories) to my repo:
+    git add .
+Then I committed these staged files to my local git repo.
+    git commit -m "Initial revision"
+Then I pushed these local changes to my remote github repo:
+    git push -u origin master
+I made changes to the index.html and staged the file again before commiting them locally. I used the git add
+command with a period, that will add any modified file to staging.
+    git add . 
+Then I committed them:
+    git commit -m "Changes to the index.html"
+Then I pushed the changes to the remote git repo:
+    git push -u origin master
+
+I reviewed the files on my github web page.
+
+TEST: I've made changes AFTER I created a ,gitignore file that lists *.txt as files that should NOT be added to repo. But because
+It was already in the repo, it will continue to monitor changes to this file.
+
+

@@ -1,0 +1,3 @@
+This file should NOT be added to the git repo, because it's in the .gitignore file (all files with txt extension x.txt)
+
+The basic-repo-steps.txt file was already added to the git repo BEFORE I created the .gitignore file, so it is there.

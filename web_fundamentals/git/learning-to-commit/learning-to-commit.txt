@@ -1,0 +1,47 @@
+1) Open terminal (click on terminal icon), and move to desktop folder
+
+    cd ~\Desktop
+
+2) Create a new folder called test
+    mkdir test
+
+3) Create two files "index.html" and "style.css"
+
+    touch test\index.html test\style.css
+
+4) Create your own git repository and make an initial commit with a comment
+
+    First I change to the test directory then, initialize the git repo
+
+    cd test
+    git init
+    git add .
+    git commit -m "initial commit"
+
+5) Write some html in the html file, commit the changes with the message 'update html".
+    (I used vi to add some html, then use git to stage and commit those changes.
+
+    git add index.html
+    git commit -m "updated html"
+
+6) Add some style to your css file and commit the changes with the message "update css"
+    (I used vi to add some css, then use git to stage and commit those changes.
+
+    git add style.css
+    git commit -m "update css"
+
+7)  View the logs to see your commit history
+   
+    git log 
+
+8) Revert your last commit, make changes and recommit.
+
+    git revert HEAD
+    (I used vi (launched automatically when I ran the git commit command) to add commit text)
+
+Done
+
+
+
+
+

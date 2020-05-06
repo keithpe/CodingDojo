@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>basic-repo</title>
+</head>
+
+<body>
+  <h1>Basic-Repo</h1>
+  <p>This was a test to see the steps involved in creating a local git repo and a remote git repo on github and
+    connecting
+    them, so I could push changes from the local git repo to the repot git repo on gitHub.</p>
+  <hr>
+  <p>I created a new repo called "basic-repo" from the github.com GUI.</p>
+  <p>Clicked on the "new repo" (upper right pull down - the + icon).</p>
+  <p>I entered the name of my new repo (basic-repo) in the input field provided.</p>
+  <p>I clicked on the button to create the remote repo, And I was presented with a page of what I could do next.</p>
+  <p>That information included steps for:</p>
+  <ul>
+    <li>Creating a README.md file in my local git repo (git add README.md)</li>
+    <li>Creating the git repo locally on my machine (git init).</li>
+    <li>Adding the new README.md file to my new local git repo (git add README.md).</li>
+    <li>Adding the location of the remote repo to my local git repo, so my local git repo knows where to push my local
+      changes. (git remote add origin https://github.com/keithpe/basic0repo.gitj</li>
+    <li>Pushed my local repo contnets to my new remote repository, the master branch of the origin location on my remote
+      repo. (git push -u origin master).</li>
+  </ul>
+  <p>I created an index.html and a style.css file and staged them.</p>
+  <ul>
+    <li>git add index.html style.css</li>
+  </ul>
+  <p>I could have used the dot to add ALL the files (including subdirectories) to my repo:</p>
+  <ul>
+    <li>git add .</li>
+  </ul>
+  <p>Then I committed these staged files to my local git repo.</p>
+  <ul>
+    <li>git commit -m "Initial reviion"</li>
+  </ul>
+  <p>Then I pushed these local changes to my remote github repo:</p>
+  <ul>
+    <li>git push -u origin master</li>
+  </ul>
+  <p>I made changes to the index.html and staged the file again before commiting them locally. I used the git add
+    command with a period, that will add any modified file to staging.</p>
+  <ul>
+    <li>git add .</li>
+  </ul>
+  <p>Then I committed them:</p>
+  <ul>
+    <li>git commit -m "Changes to the index.html"</li>
+  </ul>
+  <p>Then I pushed the changes to the remote git repo:</p>
+  <ul>
+    <li>git push -u origin master</li>
+  </ul>
+  <p>I created the basic-repo-steps.txt file to track all my work, and included it in this index.html file.</p>
+  <p>All Done!</p>
+</body>
+
+</html>

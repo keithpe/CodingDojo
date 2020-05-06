@@ -1,0 +1,77 @@
+This is my work from the "Using Terminal Commands" in the Terminal Basics section of the Web Fundamentals GIT section
+
+All of my work for terminal was done on a Mac.
+
+1) Open Terminal. I clicked on the terminal icon. I could also press CMD+SPACE keys and type terminal and press return
+
+2) Navigate to your desktop: 
+  
+  cd ~/Desktop
+
+3) Create a new directory, call it 'test': 
+
+  mkdir test 
+
+4) Make files called index.html, style.css, commands.txt inside the test directory
+
+  touch test\index.html
+  touch test\style.css
+  touch test\commands.txt
+
+  or I could move to the test directory first, before creating the new files:
+
+  cd test
+  touch index.html
+  touch style.css
+  touch commands.txt
+
+  Now that I'm in the test subdirectory...
+
+  5) Make a copy of index.html and call it index_2.html
+
+    cp index.html index_2.html
+
+  6) Navigate back to your desktop and make another directory, call it 'destination'.
+
+    cd ..
+    mkdir destination
+  
+  7) Move the index_2.html file to the 'destination' directory.
+
+    mv ./test/index_2.html ./destination
+
+  8) In the 'test' directory remove the'style.css file.
+
+    rm ./test/style.css
+
+  9) Now, check and see what files are in the 'test' and 'desitination' directories.
+
+    index.html,index_2.html and commands.txt are in the ~/Desktop/test directory.
+    index_2.html is in ~/Desktop/destination directory
+
+  10) Remove/delete the destination directory.
+
+    rm -rf ~/Desktop/destination
+
+  11) Spend 10 minutes researching some other terminal commands and keep them in mind for the future.
+
+    List open files: lsof
+    List oopen files for a specific user: lsof -u user
+    Present working directory: pwd
+    Browse through a text file: less filename
+    Display the first 10 lines of file: head filename
+    Display the last 10 lines of file: tail filename
+    Show running processes: 
+    Kill a process with id of 'id': kill id
+    start a program in the background (you get control of the terminal after you start the app)
+    program-name &
+
+  12) Here are those commands.
+
+  13) I've include all the commands I've used in this file. (commands.txt).
+
+  14) Dipslay the contents of commands.txt in the terminal:
+
+    cat commands.txt.
+
+  

@@ -1,0 +1,15 @@
+At the MIT Terminus site:
+http://web.mit.edu/mprat/Public/web/Terminus/Web/main.html
+
+I used cd to move to different locations: cd MIT
+
+I used "less WelcomeLetter" to read the welcome letter that I found at MIT.
+
+I used "cd StatCenter" to move to the StataCenter location inside MIT.
+
+I used "Less HelpfulTA" to read the HelpfulTA document. It read:
+Ah, welcome to the wonderful land of Stata. There's one room here that you'll need the combination for. All you 
+have to do is ask: 
+ 'tellme combo'.
+
+I used pwd to remember where I was.

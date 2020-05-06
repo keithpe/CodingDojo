@@ -1,0 +1,13 @@
+
+Fork this repository from Github: https://github.com/jjun14/git_demo
+    I forked the git_demo repo from the github GUI by clicking on the Fork button
+    From my local machine I ran git to clone my forked copy to my local machine. I used pull (fetch and merge).
+    git pull origin master
+ Make some changes demo_index.html on your local copy!
+    I added my name, user id and favorite language
+ Commit and send a pull request.
+    I staged and commited my changes to my local repo and then pushed them to my forked copy
+    git push -u origin master
+    From github on my forked copy of the demo project I clicked on the pull request.
+ Upload a simple .txt file that outlines the steps you took
+
