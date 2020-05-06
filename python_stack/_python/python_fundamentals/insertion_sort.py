@@ -32,8 +32,10 @@ def insertion_sort(arr):
             inner_loop_counter += 1
 
             # If the value at the inner loop position is less than the value in the
-            # array position to its left, then swap them, otherwise keep moving left
-            # until we get to the beginning of the array.
+            # array position to its left, then swap them. If no swap is needed
+            # the inner loop already knows that everything to its left is sorted,
+            # the inner loop doesn't need to keep moving to the beginning of the
+            # array, so we can exit the inner loop.
 
             if arr[j] < arr[j-1]:
                 arr[j], arr[j-1] = arr[j-1], arr[j]
