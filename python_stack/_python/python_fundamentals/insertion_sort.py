@@ -17,7 +17,7 @@ def insertion_sort(arr):
         # Inner loop moves left, starting from the position of inner loop pointer
         for j in range(i, 0, -1):
 
-            # If the value at the inner loop position is less then the value in the
+            # If the value at the inner loop position is less than the value in the
             # array position to its left, then swap them, otherwise keep moving left
             # until we get to the beginning of the array.
 
