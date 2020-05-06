@@ -37,7 +37,7 @@ print(x)
 
 #6 The function is called, but it does not contain an explicit return statement so it returns none, by default. 
 When the a() function is called from the print statement (twice), it returns none (twice), and python doesn't support 
-adding or concatenating the none value, so it throughs an error.
+adding or concatenating the none value, so it throws an error.
 
 def a(b,c):
     print(b+c)
