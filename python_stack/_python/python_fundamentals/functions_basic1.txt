@@ -35,8 +35,9 @@ def a():
 x = a();
 print(x)
 
-#6 The function is called, twice from the print statement. The first call returns 3 (1+2=3), the second call returns 5 (2+3=5).
-The two return values are added together, because of the plus in the print statement, and the print statement prints 8.
+#6 The function is called, but it does not contain an explicit return statement so it returns none, by default. 
+When the a() function is called from the print statement (twice), it returns none (twice), and python doesn't support 
+adding or concatenating the none value, so it throughs an error.
 
 def a(b,c):
     print(b+c)
