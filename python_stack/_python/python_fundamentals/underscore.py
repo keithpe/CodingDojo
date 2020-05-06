@@ -19,8 +19,8 @@
 class Underscore:
     def map(self, iterable, callback):
 
-        # should return [2,4,6]
-        # _.map([1, 2, 3], lambda x: x*2)
+        # Map/convert each element in the array, to a element in the new array,
+        # determined by the callback function
 
         newArray = []
 
@@ -31,8 +31,7 @@ class Underscore:
 
     def find(self, iterable, callback):
 
-        # should return the first value that is greater than 4
-        # _.find([1, 2, 3, 4, 5, 6], lambda x: x > 4)
+        # Find and return a value from the array using criteria in callback function
 
         for i in range(0, len(iterable), 1):
             if callback(iterable[i]):
@@ -45,8 +44,9 @@ class Underscore:
         return found
 
     def filter(self, iterable, callback):
-        # should return [2,4,6]
-        # _.filter([1, 2, 3, 4, 5, 6], lambda x: x % 2 == 0)
+
+        # Filter the original array and return the filtered elements, in a new array,
+        # based on the callback function.
 
         newArray = []
 
@@ -57,8 +57,9 @@ class Underscore:
         return newArray
 
     def reject(self, iterable, callback):
-        #  should return [1,3,5]
-        # _.reject([1, 2, 3, 4, 5, 6], lambda x: x % 2 == 0)
+
+        # Return an array of 'rejected' elements from the original array,
+        # which do not meet the criteria in the callback function.
 
         newArray = []
 
@@ -132,3 +133,47 @@ print('\n**************************** DONE *************************************
 
 #  should return [1,3,5]
 # _.reject([1, 2, 3, 4, 5, 6], lambda x: x % 2 == 0)
+
+
+# Sample Output
+'''
+*********************** The Underscore Class ***************************
+
+ Create an underscore class and define four methods for it.
+ This app implements those four methods: filter, map, find and reject
+
+ .filter: Filters the array. In this case it returns all the even
+          elements from the origin array.
+
+    .map: Maps each element in the array to a element in the new
+          array. In this case it maps each value to its double.
+
+   .find: Finds elements in the original array and returns them
+          in a new array. In this case it returns first value > 4
+
+ .reject: Selects elements from the original array that do NOT meet a
+          certain requirement. In this case it rejects all odd numbers
+          and returns them in a new array.
+
+*************************** .filter *************************************
+
+ evens = _.filter([1, 2, 3, 4, 5, 6], lambda x: x % 2 == 0)
+ evens = [2, 4, 6]
+
+**************************** .map ***************************************
+
+ doubles = _.map([1, 2, 3], lambda x: x*2)
+ doubles = [2, 4, 6]
+
+*************************** .find ***************************************
+
+ found = _.find([1, 2, 3, 4, 5, 6], lambda x: x > 4)
+ found = 5
+
+************************** .reject **************************************
+
+ rejects = _.reject([1, 2, 3, 4, 5, 6], lambda x: x % 2 == 0)
+ rejects = [1, 3, 5]
+
+**************************** DONE ***************************************
+'''
