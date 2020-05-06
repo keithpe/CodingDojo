@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Internet</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="images/globe.png" alt="globe">
+      <h1>The Inter<span>net</span></h1>
+      <div class="banner">
+        <h1>The World Wide Web</h1>
+      </div>
+    </div>
+    <div class="side">
+      <h1>So, what's an <span class="red">Internet?</span></h1>
+      <p>An <span class="blue">Inter</span>connected <span class="blue">Net</span>work of computers all around the
+        world!</p>
+      <button class="video">WATCH A VIDEO</button>
+      <button class="resources">MORE RESOURCES</button>
+      <hr>
+      <div class="advert">
+        <p>Reinvent your career in just 14 weeks</p>
+        <img src="images/ninja.png" alt="ninja">
+        <button>Learn More...</button>
+      </div>
+
+    </div>
+    <div class="main">
+      <div id="contact">
+        <div id="dns">
+          <img src="images/home.png" alt="home">
+          <p>DNS</p>
+        </div>
+        <img src="images/phone.png" alt="phone">
+        <div id="phone">
+          <p class="hours">Mon -Fri 9 a.m. - 5 p.m. (EST)</p>
+          <p class="phone">855.967.3787</p>
+          <p class="phone-international">International +1.617.963.0555</p>
+        </div>
+      </div> <!-- End of contact div -->
+      <div id="clients-and-servers">
+        <hr>
+        <h1>Clients and Servers</h1>
+        <p>Computers connected to the <span>Web</span> are called <strong>clients and servers</strong>.</p>
+        <ul>
+          <li>Clients are the typical Web user's Internet-connected devices (for example, your computer connected to
+            your Wi-Fi, or your phone connected to your mobile network) and <span>Web-accessing software</span>
+            available on those
+            devices (usually a web browser like Firefox or Chrome).</li>
+          <li><span>Servers</span> are computers that store <span>Webpages, sites</span> or <span>apps</span>. When a
+            client device wants to access a webpage, a copy of the webpage is downloaded from the server onto the client
+            machine to be displayed in the user's web browser.</li>
+        </ul>
+        <img src="images/client_server.jpg" alt="Client Server Diagram showing requests and responses">
+      </div>
+      <div id="what-happens-now">
+        <h1>So What Actually Happens?</h1>
+        <ol>
+          <li>The browser goes to the <span>DNS server</span> and finds the real address of the <span>server</span> that
+            the website lives on.</li>
+          <li>The browser sends an <span>HTTP request</span> message to the server asking it to send a copy of the
+            website to the
+            client.</li>
+          <li>If the server approves the client's request, the server sends the client a <span>"200 OK" message</span>,
+            which means "Permission granted! Here you go!", and then starts sending the website's files to the browser
+            as a series of small chunks.</li>
+          <li>The browser assembles the small chunks into a complete website and displays it to you!</li>
+        </ol>
+        <div id="big-three">
+          <img src="images/html.png" alt="The Big 3 HTML, CSS and JavaScript">
+          <div>
+            <h1>The Big 3 - HTML, CSS, JavaScript</h1>
+            <p>While the server can process information in many different languages, the files that they serve to the
+              client are <em>always</em> going to be some combination of HTML, CSS and Javascript!</p>
+            <p>Learn more about the Big 3 <a href="">here</a>!</p>
+          </div>
+
+        </div>
+      </div>
+    </div> <!-- End of main div -->
+  </div> <!-- End of container div class -->
+</body>
+
+</html>

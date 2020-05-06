@@ -1,0 +1,170 @@
+* {
+  /* outline: solid black 1px; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: inline-block;
+  background-color: rgb(233, 230, 230);
+  padding: 10px;
+  width: 100%;
+  height: 830px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.top-group {
+  color: red;
+  display: inline-block;
+  width: 100%;
+  height: 70px;
+  margin-bottom: 5px;
+}
+.top-group p:nth-child(1) {
+  display: inline-block;
+  height: 70px;
+  width: 80px;
+  padding: 15px;
+  font-weight: bolder;
+}
+.top-group p {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  vertical-align: top;
+  text-align: center;
+  padding: 15px 25px 25px 25px;
+  font-size: 1em;
+  font-weight: bolder;
+}
+.top-group p:nth-child(1) {
+  display: inline-block;
+  height: 70px;
+  width: 80px;
+  padding: 15px;
+  font-weight: bolder;
+}
+.top-group p:nth-child(3) {
+  margin-right: 15px;
+}
+.side-group {
+  display: inline-block;
+  width: 70px;
+  height: 530px;
+  padding: 5px;
+}
+.side-group p {
+  display: inline-block;
+  width: 100%;
+  height: 70px;
+  vertical-align: top;
+  text-align: center;
+  padding: 15px 25px 25px 25px;
+  margin-bottom: 4px;
+  font-size: 1em;
+  font-weight: bolder;
+  color: red;
+}
+.blue {
+  background-color: rgb(85, 164, 216);
+}
+.salmon {
+  background-color: lightsalmon;
+}
+.gold{
+  background-color: gold;
+}
+.green{
+  background-color: rgb(78, 247, 27);
+}
+.element {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  margin: 2px 0 2px 0; 
+  padding: 1px;
+  border: solid black 1px;
+}
+.element p {
+  display: inline-block;
+  width: 100%;
+  height: 32%;
+  padding: 2%;
+  text-align: center;
+  font-size: 1em;
+}
+.element h2 {
+  display: inline-block;
+  width: 100%;
+  height: 32%;
+  font-size: 1em;;
+  text-align: center;
+  padding: 2%;
+}
+/* The Hydrogen element needs to push Li to the right 
+   so it wraps to the next "row". */
+.blue-group > div:nth-child(1){
+  margin-right: 80px;
+}
+.blue-group {
+  color: darkblue;
+  display: inline-block;
+  width: 150px;
+  height: 525px;
+  padding: 2px;
+  margin-left: 10px;
+  vertical-align: top;
+}
+
+.salmon-group {
+  color: darkblue;
+  display: inline-block;
+  width: 745px;
+  height: 300px;
+  padding: 2px;
+  margin-top: 222px;
+  margin-left: 10px;
+  vertical-align: top;
+}
+
+/* The helium element needs to be on a line by itself
+   so set it's left margin to push it tll the way to the 
+   the right". */
+.gold-group > div:nth-child(1){
+  margin-left: 372px;
+}
+.gold-group {
+  color: darkblue;
+  display: inline-block;
+  width: 450px;
+  height: 525px;
+  padding: 2px;
+  margin-top: 0px;
+  margin-left: -5px;
+  vertical-align: top;
+}
+.green-group {
+  color: darkblue;
+  display: inline-block;
+  width: 1250px;
+  height: 525px;
+  padding: 2px;
+  margin-top: 20px;
+  margin-left: 85px;
+  vertical-align: top;
+}
+
+.noides{
+  display: inline-block;
+  vertical-align: top;
+  width: 160px;
+  color: red;
+}
+.noides p {
+  display: inline-block;
+  margin-top: 27px;
+}
+.noides p:nth-child(1){
+  width: 100px;
+  margin-right: 48px;
+}

@@ -1,0 +1,225 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  /* outline: solid 1px black; */
+}
+
+.container {
+  background-color: rgb(36,81,118);
+  width: 1200px;
+  height: 1000px;
+  height: 900px;
+}
+
+.header {
+  background-color: rgb(36,81,118);
+  width: 960px;
+  width: 100%;
+  height: 250px;
+}
+
+#upper-right {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 350px;
+}
+#text-size {
+  display: inline-block;
+  margin-left: 85px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: .9em;
+}
+#text-size span {
+  text-decoration: underline;
+  color: orange;
+}
+.search {
+  background-color: rgb(48, 45, 45);
+  margin: 5px;
+  width: 100%;
+  height: 55px;
+  border-radius: 10px;
+  box-shadow: 10px 5px 5px black;
+}
+.search input {
+  height: 20px;
+  margin-left: 40px;
+  margin-top: 15px;
+  width: 150px;
+  background-color: white;
+  color: black;
+}
+.search button {
+  background-color: darkblue;
+  color: white;
+  width: 40px;
+  height: 25px;
+}
+
+.nav {
+  margin: 10px 100px;
+  height: 50px;
+  background-color: rgb(69,125,173);
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.7em;
+  border-radius: 5px;
+  box-shadow: 5px 2px 2px black;
+  text-align: center;
+  padding-top: 15px;
+}
+.nav a {
+  /* margin: 10px 10px; */
+  background-color: rgb(69,125,173);
+  vertical-align: middle;
+  padding: 0px 15px;
+}
+
+.nav2 {
+  background-color: rgb(36,81,118);
+  display: inline-block;
+  width: 20%;
+  height: 300px;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 20px;
+  margin-left: 130px;
+}
+
+.nav2 ul li {
+  color: yellow;
+}
+.nav2 a {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+}
+li {
+  list-style-type: circle;
+  color: white;
+  list-style: inside;
+  padding: 5px;
+}
+
+.main {
+  background-color: rgb(36,81,118);
+  display: inline-block;
+  width: 67%;
+  height: 300px;
+  vertical-align: top;
+}
+
+.main p {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  padding: 20px;
+  padding: 15px;
+  text-align: center;
+  width: 80%;
+}
+
+.main p.zen {
+  color: yellow;
+  padding: 5px 0px;
+  font-style: italic;
+}
+
+.main p:nth-child(7) {
+   padding: 5px 0px;
+}
+
+.divider hr {
+  display: inline-block;
+  width: 400px;
+  color: cornflowerblue;
+  border-style: solid;
+  border-width: 2px;
+  margin-top: 10px;
+  margin-left: 40px;
+  margin-bottom: 5px;
+}
+#more-info {
+  background-color: white;
+  width: 100%;
+  height: 215px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: .7em;
+}
+
+#getting-started {
+  display: inline-block;
+  width: 35%;
+  margin-left: 120px;
+  min-height: 200px;
+}
+#getting-started h2 {
+  text-align: center;
+}
+#getting-started p {
+  font-size: 1.2em;
+  text-align: center;
+  padding: 0px 70px;
+}
+
+#getting-started ul {
+  margin-left: 110px;
+}
+#getting-started li, #applications li {
+  color: black;
+  list-style-type: square;
+  list-style: outside; 
+  text-align: center;
+  width: 240px;
+  font-size: 1.2em;
+  height: 9px;
+}
+#getting-started li span, #applications li span {
+  color: cornflowerblue;
+}
+#applications {
+  display: inline-block;
+  width: 35%;
+  background-color: white;
+  color: black;
+  vertical-align: top;
+  margin-left: 30px;
+  margin-left: 50px;
+}
+#applications h2 {
+  text-align: center;
+}
+#applications p {
+  font-size: 1.2em;
+  text-align: center;
+  padding: 0px 50px;
+}
+#applications ul {
+  margin-left: 80px;
+}
+#applications span {
+  color: cornflowerblue;
+}
+.footer {
+  /* background-color: indigo; */
+  width: 100%;
+  height: 80px;
+  text-align: center;
+  padding-top: 50px;
+  background: linear-gradient(rgb(36,81,118), rgb(36,81,150));
+  background: linear-gradient(rgb(36,81,118), rgb(36,81,170));
+}
+.footer a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2em;
+  color: cornflowerblue;
+  margin: 0px 35px;
+  text-decoration: none;
+}
+.footer p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: .7em;
+  padding-top: 20px;
+  color: cornflowerblue;
+}

@@ -1,0 +1,105 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+html {
+  padding: 0px;
+  margin: 0px;
+  height: 1000px;
+  width: 1290px;
+  background-color: white;
+}
+
+.container {
+  margin: 0px;
+  padding: 5px;
+  background-color: darkblue;
+  height: 1000px;
+  width: 1270px;
+}
+
+div.container div.header {
+  background-color: darkred;
+  margin: 10px;
+  height: 90px;
+  width: 1230px; 
+  border-radius: 20px;
+}
+
+.header h1 {
+  color: white;
+  padding-top: 25px; 
+  padding-left: 20px;
+}
+
+.navbar {
+  display: inline-block;
+  background-color: rgb(35, 79, 92);
+  color: cyan;
+  width: 210px;
+  height: 220px;
+  margin-left: 10px;
+  border-radius: 20px;
+  padding-top: 20px;
+  padding-left: 10px;
+  text-decoration: underline;
+}
+
+.navbar ul li {
+  padding-left: 5px;
+}
+
+.navbar p {
+  margin-left: 10px;
+}
+.main {
+  display: inline-block;
+  vertical-align: top;
+  background-color: black;
+  color: white;
+  width: 960px;
+  height: 440px;
+  border-radius: 20px;
+  margin: 0px 10px;
+  padding: 20px 20px;
+  font-size: .9em;
+}
+.main p {
+  padding: 15px 0px 10px;
+}
+.main ul li {
+  padding-bottom: 10px;
+}
+.topics {
+  color: cyan;
+  text-decoration: underline;
+}
+.syntax {
+  color: rgb(123, 108, 165)
+}
+
+.footer {
+  background-color: slategray;
+  border-radius: 20px;
+  width: 1230px; 
+  height: 60px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.footer p {
+  color: white;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+ul {
+  padding: 0px;
+  margin: 0 10px 0;
+  list-style-position: inside;
+}
+ul li {
+  padding: 0px;
+  margin: 0px;
+}

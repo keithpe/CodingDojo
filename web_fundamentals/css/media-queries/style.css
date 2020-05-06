@@ -1,0 +1,48 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  /* box-sizing includes the padding and border when calculating width */
+  box-sizing: border-box;
+  border: solid black 1px;
+}
+button {
+  background-color: blue;
+  color: white;
+}
+.book {
+  font-style: italic;
+}
+.col {
+  /* Set the universal stylings for all columns, regardless of screen size */
+  display: inline-block;
+  vertical-align: top;
+  padding: 20px;
+}
+.row {
+  /* set any stylings you would like for each row, regardless of screen size */
+  padding: 10px;
+  border: 3px solid black;
+}
+@media only screen and (max-width: 480px){
+  .sm-4 {
+    width: 99%;
+  }
+  .sm-0 {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 481px){
+  .med-2 {
+    width: 49%;
+  }
+}
+
+@media only screen and (min-width: 1024px){
+  .lg-1 {
+    width: 25%;
+  }
+  .lg-3 {
+    width: 75%;
+  }
+}

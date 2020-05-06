@@ -1,0 +1,53 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  /* outline: solid 1px black; */
+}
+.mypage {
+  width: 710px;
+  background-color: rgb(213,209,174)
+}
+.header {
+  display: inline-blocka; 
+  text-align: center;
+  padding: 25px;
+}
+.header img {
+  height: 100px;
+  vertical-align: bottom;
+}
+.header.container img {
+  height: 80px;
+}
+.header h1 {
+  display: inline-block;
+  vertical-align: bottom;
+}
+.main {
+  padding: 0px 20px 20px 20px;
+}
+.container {
+  display: inline-block;
+  height: 130px;
+}
+.container img {
+  width: 100px;
+  vertical-align: middle;
+  padding: 10px;
+  margin: 3px;
+}
+.container.skyblue img {
+  background-color: skyblue;
+  border: solid 2px black;
+}
+.container.salmon img{
+  background-color: salmon;
+  border: solid 2px black;
+}
+div.white {
+  display: inline-block
+}
+div.white img{
+  background-color: white;
+  border: none;
+}
