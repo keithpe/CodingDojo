@@ -93,9 +93,45 @@ def iterateDictionary(some_list):
 
 
 print('\n----------------------------------------------------------------------------------')
-print('Iterate through the list of students')
+print('Iterate through the list of students. First Version (hardcode key names)')
 print('----------------------------------------------------------------------------------\n')
 iterateDictionary(students)
+
+
+# ----------------------------------------------------------------------------------
+# (2a) Iterate through a list of dictionaries.  Use ternary operator for print
+#
+# I created this second iterateDictionary() function to use key name instead of
+# hardcoding 'first_name' and 'last_name' in the print statement
+# (see how I did it above).
+#
+# I didn't like hardcoding, but notice that we want a comma after the first_name
+# key and value, but NOT after the last_name key and value. So below I print a
+# different line (with and without comma), depending on value of the key (y).
+#
+# This uses the python ternary operator, which is weirder than in js or other
+# languages.
+#
+# From this site:
+# https://www.tutorialspoint.com/ternary-operator-in-python
+#
+# Sample of ternary operator
+#  print("x" if x> y else "y")
+# ----------------------------------------------------------------------------------
+
+def iterateDictionary_a(some_list):
+    for x in some_list:
+        for y in x:
+            print("{} - {}, ".format(y, x.get(y)), end='') if y == 'first_name' else print(
+                "{} - {} ".format(y, x.get(y)), end='')
+        print()
+    # print()
+
+
+print('\n----------------------------------------------------------------------------------')
+print('Iterate through the list of students. Second version (dynamic key names)')
+print('----------------------------------------------------------------------------------\n')
+iterateDictionary_a(students)
 
 # ----------------------------------------------------------------------------------
 # (3) Get values from a list of dictionaries
