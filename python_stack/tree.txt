@@ -6,11 +6,10 @@
     │   ├── flask_mysql
     │   └── flask_orm
     ├── my_environments
-    ├── python
+    ├── _python
     │   ├── data_structures
     │   ├── more_oop
     │   ├── oop
     │   └── python_fundamentals
     └── tree.txt
 
-12 directories, 1 file
