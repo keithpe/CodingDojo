@@ -9,7 +9,10 @@
 		}
 
 		#container {
-			background: url('background.jpg');
+			/* background: url('background.jpg'); */
+			background: url('./images/ocean.jpeg');
+			background-size: cover;
+			background-repeat: no-repeat;
 			width: 1000px;
 			height: 550px;
 		}
@@ -64,27 +67,43 @@
 	<!-- 2. (DONE) Make the hero move up/down/left/right -->
 	<!-- 3. (DONE) Display all the enemies -->
 	<!-- 4. (DONE) Make the enemies move -->
-	<!-- 5. When spacebar is pressed, have the hero shoot a bullet. -->
-	<!-- 6. .... -->
+	<!-- 5. (DONE) When spacebar is pressed, have the hero shoot a bullet. -->
+	<!-- 6. (DONE) Display 7 enemies instead of 4 -->
+	<!-- 7. Get another type of enemy aircraft to display. -->
+	<!-- 8. Collision for the airplanes - when hero collides with enemy have score go down by 500. -->
+	<!-- 9. (DONE) Collision detection for the bullet - Have the score go up by 10 when an enemy is struck down. -->
+	<!-- 10. Get the enemy to explode witn it is hit. -->
+	<!-- 11. When the bullet hits, make a sound. -->
 
 	<script>
+		var score = 0;
+
 		var hero = {
-			x: 300,
-			y: 300
+			x: 400,
+			y: 400
 		}
 
 		var enemies = [{
-			x: 150,
-			y: 50
+			x: 170,
+			y: 5
 		}, {
 			x: 250,
+			y: 30
+		}, {
+			x: 320,
 			y: 60
 		}, {
-			x: 350,
+			x: 400,
+			y: 80
+		}, {
+			x: 480,
 			y: 60
 		}, {
-			x: 450,
-			y: 50
+			x: 560,
+			y: 30
+		}, {
+			x: 640,
+			y: 5
 		}]
 
 		var bullets = [];
@@ -108,7 +127,7 @@
 
 				if (enemies[i].y > 540) {
 					enemies[i].y = 0;
-					enemies[i].x = Math.random() * 500;
+					enemies[i].x = Math.random() * (500 - 200) + 200;
 				}
 			}
 		}
@@ -119,6 +138,10 @@
 				output += "<div class='bullet' style='top:" + bullets[i].y + "px; left:" + bullets[i].x + "px;'></div>";
 			}
 			document.getElementById('bullets').innerHTML = output;
+		}
+
+		function displayScore() {
+			document.getElementById('score').innerHTML = score;
 		}
 
 		function moveBullets() {
@@ -137,21 +160,25 @@
 			displayBullets();
 			moveEnemies();
 			displayEnemies();
+			detectCollision();
+			displayScore();
 		}
 
 		function detectCollision() {
 			for (var i = 0; i < bullets.length; i++) {
+				// console.log('bullets', bullets[i].x, bullets[i].y)
 				for (var j = 0; j < enemies.length; j++) {
-					if (Math.abs(bullets[i].x - enemies[j].x) < 5 &&
-						Math.abs(bullets[i].y - enemies[j].y) < 5) {
-						console.log('bullet', i, ' and enemy collided')
-
+					// console.log('enemies', enemies[j].x, enemies[j].y)
+					if (Math.abs(bullets[i].x - enemies[j].x) < 15 &&
+						Math.abs(bullets[i].y - enemies[j].y) < 15) {
+						score += 10;
 					}
 				}
 			}
 		}
 
-		setInterval(gameLoop, 100);
+		// setInterval(gameLoop, 100);
+		setInterval(gameLoop, 50);
 
 		document.onkeydown = function (e) {
 			if (e.keyCode == 37) {
