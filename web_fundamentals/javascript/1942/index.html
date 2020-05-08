@@ -164,7 +164,7 @@
 
 				if (enemies[i].y > max_height + 30) {
 					enemies[i].y = 0;
-					enemies[i].x = Math.random() * (max - width - 100) + 100;
+					enemies[i].x = Math.random() * (max_width - 100) + 100;
 				}
 			}
 		}
@@ -224,11 +224,12 @@
 					Math.abs(hero.y - enemies[j].y) < 15) {
 					score += 500;
 					enemies[j].y = 0;
+					clearInterval(gameTimer);
 				}
 			}
 		}
 
-		setInterval(gameLoop, 100);
+		var gameTimer = setInterval(gameLoop, 100);
 
 		// Play sound when we fire bullets
 		var gun_fire = new sound("./sounds/photon.m4a");
