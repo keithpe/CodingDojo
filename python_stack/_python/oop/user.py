@@ -31,15 +31,36 @@ class User:		# declare a class and give it name User
     def transfer_money(self, other_user, amount):
         # have this method decrease the user's balance by the amount and
         # add that amount to other other_user's balance
-        pass
+        self.account_balance -= amount
+        other_user.account_balance += amount
 
 
-myUser = User("Keith Peterson", "kpeterson@mil.com")
+# Create 3 instances of the User class
+bobby = User("Robert Anderson", "r_anderson@email.com")
+teddy = User("Theodora Williamson", "teddy@email.com")
+val = User("Valeria Tortellini", "tory@email.com")
 
-print('myUser.name', myUser.name)
-print('myUser.email', myUser.email)
-print('myUser.balance', myUser.account_balance)
-myUser.make_deposit(500)
-myUser.display_user_balance()
-myUser.make_withdrawal(250)
-myUser.display_user_balance()
+# Have the first user make 3 deposits and 1 withdrawal and then display their balance
+bobby.make_deposit(100)
+bobby.make_deposit(50)
+bobby.make_deposit(250)
+bobby.make_withdrawal(100)
+bobby.display_user_balance()
+
+# Have the second user make 2 deposits and 2 withdrawals and then display their balance
+teddy.make_deposit(500)
+teddy.make_deposit(350)
+teddy.display_user_balance()
+
+# Have the third user make 1 deposits and 3 withdrawals and then display their balance
+val.make_deposit(5000)
+val.make_withdrawal(100)
+val.make_withdrawal(300)
+val.make_withdrawal(250)
+val.display_user_balance()
+
+# BONUS: Add a transfer_money method; have the first user transfer money to the third user
+# and then print both users' balances
+bobby.transfer_money(val, 100)
+bobby.display_user_balance()
+val.display_user_balance()
