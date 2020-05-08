@@ -15,3 +15,7 @@
 https://www.freesoundeffects.com/free-sounds/bomb-10076/
 
 ![my working 1942 game](./images/my-working-1942-game.png)
+
+### Video Demo of game running:
+
+![Video Demo of Game Running](https://youtu.be/j28VP-oyxFQ)
