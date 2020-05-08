@@ -122,10 +122,8 @@ iterateDictionary(students)
 def iterateDictionary_a(some_list):
     for x in some_list:
         for y in x:
-            print("{} - {}, ".format(y, x.get(y)), end='') if y == 'first_name' else print(
-                "{} - {} ".format(y, x.get(y)), end='')
-        print()
-    # print()
+            print("{} - {}, ".format(y, x.get(y)),
+                  end='') if y == 'first_name' else print("{} - {} ".format(y, x.get(y)))
 
 
 print('\n----------------------------------------------------------------------------------')
