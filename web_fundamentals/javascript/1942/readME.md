@@ -14,4 +14,4 @@
 **Sound effects from here**
 https://www.freesoundeffects.com/free-sounds/bomb-10076/
 
-![my working 1942 game](/images/my-working-1942-game.png)
+![my working 1942 game](./images/my-working-1942-game.png)
