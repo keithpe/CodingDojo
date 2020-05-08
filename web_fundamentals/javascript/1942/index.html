@@ -48,6 +48,38 @@
 			position: absolute;
 		}
 
+		.enemy4 {
+			background: url('1942.gif');
+			background-position: -30px -10px;
+			width: 28px;
+			height: 28px;
+			position: absolute;
+		}
+
+		.enemy5 {
+			background: url('1942.gif');
+			background-position: -60px -10px;
+			width: 28px;
+			height: 28px;
+			position: absolute;
+		}
+
+		.enemy6 {
+			background: url('1942.gif');
+			background-position: -120px -10px;
+			width: 25px;
+			height: 22px;
+			position: absolute;
+		}
+
+		.enemy7 {
+			background: url('1942.gif');
+			background-position: -120px -10px;
+			width: 25px;
+			height: 22px;
+			position: absolute;
+		}
+
 
 		.explosion {
 			background: url('1942.gif');
@@ -106,6 +138,9 @@
 		var max_width = 950;
 		var max_height = 500;
 
+		// Indicates game is over and hero can't move, enemy planes don't move, etc.
+		var game_over = false;
+
 		var score = 0;
 
 		var hero = {
@@ -148,13 +183,17 @@
 		function displayEnemies() {
 			// Changed to have several different types of enemy ships.
 			var output = '';
-			output += "<div class='enemy1' style='top:" + enemies[0].y + "px; left:" + enemies[0].x + "px;'></div>";
-			output += "<div class='enemy2' style='top:" + enemies[1].y + "px; left:" + enemies[1].x + "px;'></div>";
-			output += "<div class='enemy3' style='top:" + enemies[2].y + "px; left:" + enemies[2].x + "px;'></div>";
-			output += "<div class='enemy1' style='top:" + enemies[3].y + "px; left:" + enemies[3].x + "px;'></div>";
-			output += "<div class='enemy2' style='top:" + enemies[4].y + "px; left:" + enemies[4].x + "px;'></div>";
-			output += "<div class='enemy3' style='top:" + enemies[5].y + "px; left:" + enemies[5].x + "px;'></div>";
-			output += "<div class='enemy1' style='top:" + enemies[6].y + "px; left:" + enemies[6].x + "px;'></div>";
+			for (var i = 0; i < enemies.length; i++) {
+				// output += "<div class='enemy" + (i + 1).toString() + "' style='top:" + enemies[i].y + "px; left:" + enemies[i]
+				// .x + "px;'></div>"
+
+				output += "<div id='enemy" + (i).toString() + "' class='enemy" + (i + 1).toString() + "' style='top:" +
+					enemies[
+						i].y + "px; left:" + enemies[i]
+					.x + "px;'></div>"
+
+
+			}
 			document.getElementById('enemies').innerHTML = output;
 		}
 
@@ -213,6 +252,7 @@
 						enemies[j].y = 0;
 						enemies[j].x = Math.random() * (max_width - 100) + 100;
 						explosion.play();
+						explodePlane(j);
 					}
 				}
 			}
@@ -222,11 +262,21 @@
 			for (var j = 0; j < enemies.length; j++) {
 				if (Math.abs(hero.x - enemies[j].x) < 15 &&
 					Math.abs(hero.y - enemies[j].y) < 15) {
+					explodePlane(j);
 					score += 500;
 					enemies[j].y = 0;
 					clearInterval(gameTimer);
+					document.onkeydown = null;
+					game_over = true;
 				}
 			}
+		}
+
+		function explodePlane(index) {
+
+			// To display an explosion sprite instead of the enemy plane, change class of plane to be 
+			// 'explosion' instead of enemy[index]
+			document.getElementById("enemy" + index.toString()).classList.add("explosion");
 		}
 
 		var gameTimer = setInterval(gameLoop, 100);
