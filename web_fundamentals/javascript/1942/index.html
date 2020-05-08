@@ -9,7 +9,6 @@
 		}
 
 		#container {
-			/* background: url('background.jpg'); */
 			background: url('./images/ocean.jpeg');
 			background-size: cover;
 			background-repeat: no-repeat;
@@ -19,9 +18,9 @@
 
 		#hero {
 			background: url('1942.gif');
-			background-position: -85px -180px;
-			width: 28px;
-			height: 28px;
+			background-position: -40px -110px;
+			width: 50px;
+			height: 40px;
 			position: absolute;
 		}
 
@@ -32,6 +31,33 @@
 			height: 28px;
 			position: absolute;
 		}
+
+		.enemy2 {
+			background: url('1942.gif');
+			background-position: -60px -10px;
+			width: 28px;
+			height: 28px;
+			position: absolute;
+		}
+
+		.enemy3 {
+			background: url('1942.gif');
+			background-position: -120px -10px;
+			width: 25px;
+			height: 22px;
+			position: absolute;
+		}
+
+
+		.explosion {
+			background: url('1942.gif');
+			/* background-position: -30px -10px; */
+			background-position: -110px -35px;
+			width: 28px;
+			height: 28px;
+			position: absolute;
+		}
+
 
 		.bullet {
 			background: url('1942.gif');
@@ -69,7 +95,7 @@
 	<!-- 4. (DONE) Make the enemies move -->
 	<!-- 5. (DONE) When spacebar is pressed, have the hero shoot a bullet. -->
 	<!-- 6. (DONE) Display 7 enemies instead of 4 -->
-	<!-- 7. Get another type of enemy aircraft to display. -->
+	<!-- 7. (DONE) Get another type of enemy aircraft to display. -->
 	<!-- 8. Collision for the airplanes - when hero collides with enemy have score go down by 500. -->
 	<!-- 9. (DONE) Collision detection for the bullet - Have the score go up by 10 when an enemy is struck down. -->
 	<!-- 10. Get the enemy to explode witn it is hit. -->
@@ -79,9 +105,10 @@
 		var score = 0;
 
 		var hero = {
-			x: 400,
+			x: 390,
 			y: 400
 		}
+
 
 		var enemies = [{
 			x: 170,
@@ -106,6 +133,7 @@
 			y: 5
 		}]
 
+
 		var bullets = [];
 
 		function displayHero() {
@@ -114,10 +142,15 @@
 		}
 
 		function displayEnemies() {
+			// Changed to have several different types of enemy ships.
 			var output = '';
-			for (var i = 0; i < enemies.length; i++) {
-				output += "<div class='enemy1' style='top:" + enemies[i].y + "px; left:" + enemies[i].x + "px;'></div>";
-			}
+			output += "<div class='enemy1' style='top:" + enemies[0].y + "px; left:" + enemies[0].x + "px;'></div>";
+			output += "<div class='enemy2' style='top:" + enemies[1].y + "px; left:" + enemies[1].x + "px;'></div>";
+			output += "<div class='enemy3' style='top:" + enemies[2].y + "px; left:" + enemies[2].x + "px;'></div>";
+			output += "<div class='enemy1' style='top:" + enemies[3].y + "px; left:" + enemies[3].x + "px;'></div>";
+			output += "<div class='enemy2' style='top:" + enemies[4].y + "px; left:" + enemies[4].x + "px;'></div>";
+			output += "<div class='enemy3' style='top:" + enemies[5].y + "px; left:" + enemies[5].x + "px;'></div>";
+			output += "<div class='enemy1' style='top:" + enemies[6].y + "px; left:" + enemies[6].x + "px;'></div>";
 			document.getElementById('enemies').innerHTML = output;
 		}
 
@@ -177,8 +210,12 @@
 			}
 		}
 
-		// setInterval(gameLoop, 100);
-		setInterval(gameLoop, 50);
+		setInterval(gameLoop, 100);
+		// setInterval(gameLoop, 500);
+
+		// Play sound when we fire bullets
+		var mySound = new sound("photon.m4a");
+		var allow_fire = true;
 
 		document.onkeydown = function (e) {
 			if (e.keyCode == 37) {
@@ -189,14 +226,36 @@
 				hero.y += 10;
 			} else if (e.keyCode == 38) {
 				hero.y -= 10;
-			} else if (e.keyCode == 32) {
+			} else if (e.keyCode == 32 && allow_fire) {
+				mySound.stop();
+				mySound.play();
 				bullets.push({
-					x: hero.x + 5,
+					x: hero.x + 18,
 					y: hero.y - 15,
 				});
+				allow_fire = false;
+				setTimeout(function () {
+					allow_fire = true;
+				}, 2000);
 			}
 
 			displayHero()
+		}
+
+
+		function sound(src) {
+			this.sound = document.createElement("audio");
+			this.sound.src = src;
+			this.sound.setAttribute("preload", "auto");
+			this.sound.setAttribute("controls", "none");
+			this.sound.style.display = "none";
+			document.body.appendChild(this.sound);
+			this.play = function () {
+				this.sound.play();
+			}
+			this.stop = function () {
+				this.sound.pause();
+			}
 		}
 	</script>
 
