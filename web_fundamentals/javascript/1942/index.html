@@ -215,6 +215,8 @@
 
 		// Play sound when we fire bullets
 		var mySound = new sound("photon.m4a");
+
+		// Allow ability to delay firing
 		var allow_fire = true;
 
 		document.onkeydown = function (e) {
@@ -233,6 +235,10 @@
 					x: hero.x + 18,
 					y: hero.y - 15,
 				});
+
+				// After firing, set allow_fire to false
+				// And wait a few seconds before allowing more gun fire.
+
 				allow_fire = false;
 				setTimeout(function () {
 					allow_fire = true;
