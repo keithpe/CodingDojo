@@ -301,13 +301,16 @@
 
 			// Unhide the hidden attribute
 			document.getElementById("game_over").removeAttribute("hidden");
+			gameOver.play();
+
 		}
 
 		var gameTimer = setInterval(gameLoop, 100);
 
 		// Play sound when we fire bullets
-		var gun_fire = new sound("./sounds/photon.m4a");
+		var gunShot = new sound("./sounds/photon.m4a");
 		var explosion = new sound("./sounds/explosion.mp3");
+		var gameOver = new sound("./sounds/game-over.wav")
 
 		// Allow ability to delay firing
 		var allow_fire = true;
@@ -334,7 +337,7 @@
 					hero.y = 10;
 				}
 			} else if (e.keyCode == 32 && allow_fire) {
-				gun_fire.play();
+				gunShot.play();
 				bullets.push({
 					x: hero.x + 18,
 					y: hero.y - 15,
