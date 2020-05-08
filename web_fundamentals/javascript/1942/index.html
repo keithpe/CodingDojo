@@ -102,7 +102,7 @@
 	<!-- 11. (DONE) When the bullet hits, make a sound. -->
 
 	<script>
-		// Don't let the enemy ships move beyond the right side of the screen.
+		// Limit how far to the right and down the hero and enemy ships can move.
 		var max_width = 950;
 		var max_height = 500;
 
@@ -162,9 +162,9 @@
 			for (var i = 0; i < enemies.length; i++) {
 				enemies[i].y += 5;
 
-				if (enemies[i].y > 540) {
+				if (enemies[i].y > max_height + 30) {
 					enemies[i].y = 0;
-					enemies[i].x = Math.random() * (500 - 200) + 200;
+					enemies[i].x = Math.random() * (max - width - 100) + 100;
 				}
 			}
 		}
@@ -211,10 +211,7 @@
 						Math.abs(bullets[i].y - enemies[j].y) < 15) {
 						score += 10;
 						enemies[j].y = 0;
-						enemies[j].x += 25;
-						if (enemies[j].x >= max_width) {
-							enemies[j].x = 50;
-						}
+						enemies[j].x = Math.random() * (max_width - 100) + 100;
 						explosion.play();
 					}
 				}
