@@ -8,7 +8,7 @@
 - [x] (intermediate) Get another type of enemy airplane to show up
 - [x] (advanced) Collision Detection for the airplanes – when the hero collides with the enemy, have your score go down by 500.
 - [x] (advanced) Collision Detection for the bullet – Have the score go up by 10 when an enemy is struck down.
-- [ ] (advanced) Get the enemy to explode when it is hit
+- [x] (advanced) Get the enemy to explode when it is hit
 - [x] (advanced) When the bullet hits, make a sound.
 
 **Sound effects from here**
