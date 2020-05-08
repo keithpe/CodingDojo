@@ -22,6 +22,17 @@ class User:		# declare a class and give it name User
         # The specific user's account decreases the user's balance by the amount specified
         self.account_balance -= amount
 
+    # Add a display_user_balance method to the User class.
+    def display_user_balance(self):
+        print("The balance for {} is {}.".format(
+            self.name, self.account_balance))
+
+    # transfer_money(self, other_user, amount) -
+    def transfer_money(self, other_user, amount):
+        # have this method decrease the user's balance by the amount and
+        # add that amount to other other_user's balance
+        pass
+
 
 myUser = User("Keith Peterson", "kpeterson@mil.com")
 
@@ -29,6 +40,6 @@ print('myUser.name', myUser.name)
 print('myUser.email', myUser.email)
 print('myUser.balance', myUser.account_balance)
 myUser.make_deposit(500)
-print(myUser.account_balance)
+myUser.display_user_balance()
 myUser.make_withdrawal(250)
-print(myUser.account_balance)
+myUser.display_user_balance()
