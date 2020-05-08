@@ -207,7 +207,7 @@
 				// console.log('bullets', bullets[i].x, bullets[i].y)
 				for (var j = 0; j < enemies.length; j++) {
 					// console.log('enemies', enemies[j].x, enemies[j].y)
-					if (Math.abs(bullets[i].x - enemies[j].x) < 15 &&
+					if (Math.abs(bullets[i].x - enemies[j].x) < 20 &&
 						Math.abs(bullets[i].y - enemies[j].y) < 15) {
 						score += 10;
 						enemies[j].y = 0;
