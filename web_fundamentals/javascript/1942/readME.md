@@ -13,6 +13,7 @@
 
 **Sound effects from here**
 https://www.freesoundeffects.com/free-sounds/bomb-10076/
+http://www.classicgaming.cc/classics/pac-man/sounds
 
 ![my working 1942 game](./images/my-working-1942-game.png)
 
