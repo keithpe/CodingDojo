@@ -102,6 +102,10 @@
 	<!-- 11. (DONE) When the bullet hits, make a sound. -->
 
 	<script>
+		// Don't let the enemy ships move beyond the right side of the screen.
+		var max_width = 950;
+		var max_height = 500;
+
 		var score = 0;
 
 		var hero = {
@@ -208,6 +212,9 @@
 						score += 10;
 						enemies[j].y = 0;
 						enemies[j].x += 25;
+						if (enemies[j].x >= max_width) {
+							enemies[j].x = 50;
+						}
 						explosion.play();
 					}
 				}
@@ -234,14 +241,26 @@
 		var allow_fire = true;
 
 		document.onkeydown = function (e) {
-			if (e.keyCode == 37) {
+			if (e.keyCode == 37) { // Left
 				hero.x -= 10;
-			} else if (e.keyCode == 39) {
+				if (hero.x <= 10) {
+					hero.x = 10;
+				}
+			} else if (e.keyCode == 39) { // Right
 				hero.x += 10;
-			} else if (e.keyCode == 40) {
+				if (hero.x >= max_width) {
+					hero.x = max_width - 10;
+				}
+			} else if (e.keyCode == 40) { // Down
 				hero.y += 10;
-			} else if (e.keyCode == 38) {
+				if (hero.y >= max_height) {
+					hero.y = max_height - 10;
+				}
+			} else if (e.keyCode == 38) { // Up
 				hero.y -= 10;
+				if (hero.y <= 10) {
+					hero.y = 10;
+				}
 			} else if (e.keyCode == 32 && allow_fire) {
 				gun_fire.play();
 				bullets.push({
