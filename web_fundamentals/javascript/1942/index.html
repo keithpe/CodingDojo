@@ -109,11 +109,28 @@
 			font-size: 30px;
 			font-family: Arial;
 		}
+
+		#game_over {
+			display: hidden;
+			position: absolute;
+			border: solid gray 5px;
+			background-color: black;
+			color: white;
+			top: 100px;
+			left: 110px;
+			padding: 20px;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 2em;
+			z-index: 2;
+		}
 	</style>
 </head>
 
 <body>
 	<div id='container'>
+		<div hidden id='game_over'>
+			<h1>**** G A M E O V E R ****</h1>
+		</div>
 		<div id='hero'></div>
 		<div id='enemies'></div>
 		<div id='bullets'></div>
@@ -268,6 +285,7 @@
 					clearInterval(gameTimer);
 					document.onkeydown = null;
 					game_over = true;
+					displayGameOver(game_over);
 				}
 			}
 		}
@@ -277,6 +295,12 @@
 			// To display an explosion sprite instead of the enemy plane, change class of plane to be 
 			// 'explosion' instead of enemy[index]
 			document.getElementById("enemy" + index.toString()).classList.add("explosion");
+		}
+
+		function displayGameOver() {
+
+			// Unhide the hidden attribute
+			document.getElementById("game_over").removeAttribute("hidden");
 		}
 
 		var gameTimer = setInterval(gameLoop, 100);
