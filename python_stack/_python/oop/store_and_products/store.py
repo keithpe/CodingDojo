@@ -1,3 +1,11 @@
+# TODO: Finish these four items and then move on to the rest of the OOP section.
+#       Continue to do it as a list (array), not a dictionary.
+# NINJA BONUS: Add the inflation method to the Store class
+# NINJA BONUS: Add the set_clearance method to the Store class
+# NINJA BONUS: Modularize your code into 3 separate files
+# SENSEI BONUS: Update the product class to give each product a unique id.
+#               Update the sell_product method to accept the unique id.
+
 
 class Store:		# declare a class and give it name Store
     def __init__(self, name, products=[]):
