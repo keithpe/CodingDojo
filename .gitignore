@@ -1,3 +1,5 @@
 ## Ignore the environments for my python stack projects.
 
 python_stack/my_environments
+*.pyc
+
