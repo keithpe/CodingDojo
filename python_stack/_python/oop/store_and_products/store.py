@@ -13,22 +13,46 @@ class Store:		# declare a class and give it name Store
         self.products = products
 
     def show_products(self):
-        print("Store: {} sells these products: ".format(
-            self.name), end='')
-        for i in range(0, len(self.products), 1):
-            print(self.products[i]+', ', end='') if i < len(
-                self.products)-1 else print(self.products[i]+'. ')
+        print("\n**** Store: {} sells these products: ".format(self.name))
+        if len(self.products) == 0:
+            print("     -- No products in inventory --")
+        else:
+            for product in range(0, len(self.products), 1):
+                print("item: {} - ".format(product), end='')
+                self.products[product].print_info()
 
+        print("**** End of Inventory for Store: {} ****\n".format(self.name))
         return self
 
-    def add_product(self, new_product):
+    def add_product(self, name, price, category):
         # Takes a product and adds it to the store
-        self.products.append(new_product)
+        print("Adding: {}, price: ${}, category: {}".format(
+            name, price, category))
+        self.products.append(Products(name, price, category))
         return self
 
     def sell_product(self, product):
         # Removes a product from the store's list of products
-        self.products.remove(product)
+        # Product is the array index
+        # First print the product info for this item.
+        print("Selling item: {} - ".format(product), end='')
+        self.products[product].print_info()
+        # Then remove it from this store's list of products.
+        del self.products[product]
+        return self
+
+    def inflation(self, percent_increase):
+        # Increases the price of each product by the percent_increase
+        # given (use the method you wrote in the Product class!)
+        print("\n**** Storewide Inflation Calculation ****")
+        for product in range(0, len(self.products), 1):
+            print("Inflation updating item {} - ".format(product))
+            print("Old price: ", end='')
+            self.products[product].print_info()
+            self.products[product].update_price(percent_increase, True)
+            print("New price: ", end='')
+            self.products[product].print_info()
+        print("**** End Inflation Calculation ****")
         return self
 
 
@@ -58,20 +82,13 @@ class Products:		# declare a class and give it name Products
         return self
 
 
-rake = Products("Ultimate Rake", 35.50, "Garden")
-shovel = Products("Ultimate Shovel", 55.50, "Garden")
-hammer = Products("Golden Shovel", 155.50, "Garden")
-rake.print_info()
-shovel.print_info()
-hammer.print_info()
-
-hammer.update_price(0.10, True)
-hammer.print_info()
-
-store_165 = Store("Castle Rock", ["Ultimate Rake"])
+store_165 = Store("Castle Rock")
 store_165.show_products()
-store_165.add_product("Ultimate Shovel")
-store_165.add_product("Golden Shovel")
+store_165.add_product("Shovel", 35.50, "Garden Supplies")
+store_165.add_product("Rake", 15.50, "Garden Supplies")
+store_165.add_product("Lawn Sprinkler", 25.50, "Garden Supplies")
 store_165.show_products()
-store_165.sell_product("Golden Shovel")
+store_165.sell_product(1)
+store_165.show_products()
+store_165.inflation(.10)
 store_165.show_products()
