@@ -55,6 +55,20 @@ class Store:		# declare a class and give it name Store
         print("**** End Inflation Calculation ****")
         return self
 
+    def set_clearance(self, category, percent_discount):
+        # Updates all the products matching the given category by reducing
+        # the price by the percent_discount given (use the method you wrote
+        # in the Product class!)
+        print("\n**** Storewide Clearance Calculation ****")
+        for product in range(0, len(self.products), 1):
+            if self.products[product].category == category:
+                print(
+                    "Setting clearance price for item: {} - ".format(product), end='')
+                self.products[product].print_info()
+                self.products[product].update_price(0.10, False)
+        print("*** End of Storewide Clearance Calculation ***")
+        return self
+
 
 class Products:		# declare a class and give it name Products
     def __init__(self, name=None, price=None, category=None):
@@ -64,7 +78,7 @@ class Products:		# declare a class and give it name Products
 
     def print_info(self):
         # print the name of the product, its category, and its price.
-        print("Product: {}, Category: {}, Price: {}".format(
+        print("Product: {}, Category: {}, Price: {:04.2f}".format(
             self.name, self.category, self.price))
         return self
 
@@ -91,4 +105,6 @@ store_165.show_products()
 store_165.sell_product(1)
 store_165.show_products()
 store_165.inflation(.10)
+store_165.show_products()
+store_165.set_clearance("Garden Supplies", 0.10)
 store_165.show_products()
