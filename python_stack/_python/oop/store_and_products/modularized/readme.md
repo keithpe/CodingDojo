@@ -15,6 +15,8 @@ I've moved the Products class to the products.py file.
 
 I've moved the Store class to the store.py file, and imported the products module into the store module.
 
+I've added lines to main.py to import the classes from store.py and products.py.
+
 Here are the rest of the assignment requirements:
 
 # Assignment: Store & Products
