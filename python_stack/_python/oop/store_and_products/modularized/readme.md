@@ -41,8 +41,6 @@ Next, create a Product class that has 3 attributes: a name, a price, and a categ
 
 - set_clearance(self, category, percent_discount) - updates all the products matching the given category by reducing the price by the percent_discount given (use the method you wrote in the Product class!)
 
-* [x] Prevent PacMan from leaving the maze or going through the walls.
-
 * [x] Create a Store class with 2 attributes
 * [x] Create a Product class with 3 attributes
 * [x] Add the print_info method to the Product class
