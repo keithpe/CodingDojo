@@ -1,12 +1,6 @@
 # Modularized Store and Products assignment
 
-# Objectives
-
-- Practice creating classes
-- Practice associations between classes
-- Practice modularizing code
-
-# Goals
+## Goals
 
 These files included 'Modularizing' the project. I've created a main.py that has all the calls to
 the store class.
@@ -19,9 +13,9 @@ I've added lines to main.py to import the classes from store.py and products.py.
 
 Here are the rest of the assignment requirements:
 
-# Assignment: Store & Products
+## Assignment: Store & Products
 
-# Objectives:
+## Objectives:
 
 - Practice creating classes
 - Practice associations between classes
