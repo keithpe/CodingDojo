@@ -3,25 +3,39 @@ class User:		# declare a class and give it name User
     def __init__(self, name=None, email=None):
         self.name = name
         self.email = email
-        self.account = BankAccount(int_rate=0.02, balance=0)
+        self.accounts = []
+        print("***** Created account for '{}'c *****".format(self.name))
 
-    def make_deposit(self, amount):  # takes an argument that is the amount of the deposit
+    def open_account(self):
+        self.accounts.append(BankAccount())
+        print("***** Opened new account for '{}' *****.".format(self.name))
+        return self
+
+    # takes an argument that is the amount of the deposit
+    def make_deposit(self, amount, account):
         # the specific user's account increases by the amount of the value received
-        print(self.name)
-        self.account.deposit(amount)
+        print(
+            "***** Deposit for '{}', into account: '{}', ".format(self.name, account), end='')
+        self.accounts[account].deposit(amount)
         return self
 
     # adding the withdrawal method.
-    def make_withdrawal(self, amount):
+    def make_withdrawal(self, amount, account):
         # The specific user's account decreases the user's balance by the amount specified
-        print(self.name)
-        self.account.withdraw(amount)
+        print("***** Withdrawal for '{}', from account: '{}', ".format(self.name, account), end='')
+        self.accounts[account].withdraw(amount)
         return self
 
     # Add a display_user_balance method to the User class.
     def display_user_balance(self):
-        print(self.name)
-        self.account.display_account_info()
+        print("***** Balance info for '{}' *****".format(self.name))
+        if len(self.accounts) > 0:
+            for account in range(0, len(self.accounts), 1):
+                print("Account:{}: ".format(account), end='')
+                self.accounts[account].display_account_info()
+        else:
+            print('No Accounts Found')
+        print("***** End of Balance info for '{}' *****".format(self.name))
         return self
 
     # transfer_money(self, other_user, amount) -
@@ -64,8 +78,30 @@ class BankAccount:
 
 
 bobby = User("Robert Anderson", "r_anderson@email.com")
-bobby.make_deposit(100)
-bobby.make_deposit(100)
+bobby.open_account()
+bobby.open_account()
+bobby.make_deposit(100, 0)
+bobby.make_deposit(200, 1)
 bobby.display_user_balance()
-bobby.make_withdrawal(50)
+bobby.make_withdrawal(50, 1)
 bobby.display_user_balance()
+
+
+'''
+***** S A M P L E     O U T P U T *****
+
+***** Created account for 'Robert Anderson'c *****
+***** Opened new account for 'Robert Anderson' *****.
+***** Opened new account for 'Robert Anderson' *****.
+***** Deposit for 'Robert Anderson', into account: '0', Deposit: $100
+***** Deposit for 'Robert Anderson', into account: '1', Deposit: $200
+***** Balance info for 'Robert Anderson' *****
+Account:0: Balance: $100
+Account:1: Balance: $200
+***** End of Balance info for 'Robert Anderson' *****
+***** Withdrawal for 'Robert Anderson', from account: '1', Withdrawal: $50
+***** Balance info for 'Robert Anderson' *****
+Account:0: Balance: $100
+Account:1: Balance: $150
+***** End of Balance info for 'Robert Anderson' *****
+'''
