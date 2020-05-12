@@ -7,7 +7,7 @@
 
 What if we want to pass in a varying number of arguments, or want to capture multiple arguments into a single parameter? Placing an asterisk before the name of the parameter after the "normal" parameters does just that. The asterisk is called a splat operator.
 
-'''
+''' python
 def varargs(arg1, \*args):
 print("Got ", arg1, " and ", args)
 varargs("one") # output: Got one and ()
@@ -19,7 +19,7 @@ In this example, the first argument arg1 is assigned to the first method paramet
 
 Remember that a tuple is an iterable, just like a list. That means if we want to access each of the arguments passed over individually, we can use a loop:
 
-'''
+''' python
 def varargs(arg1, \*args):
 for a in args:
 print(a)
