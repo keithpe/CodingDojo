@@ -25,7 +25,7 @@ def coins(amt):
     return [quarters, dimes, nickels, pennies]
 
 
-class isCoins(unittest.TestCase):
+class CoinsTests(unittest.TestCase):
     # each method in this class is a test to be run
     def test1(self):
         self.assertEqual(coins(87), [3, 1, 0, 2])

@@ -10,7 +10,7 @@ def factorial(n):
         return 1
 
 
-class testFactorial(unittest.TestCase):
+class FactorialTests(unittest.TestCase):
     # each method in this class is a test to be run
 
     def test1(self):

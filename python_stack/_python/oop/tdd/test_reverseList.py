@@ -9,7 +9,7 @@ def reverseList(arr):
     return arr
 
 
-class isReverseList(unittest.TestCase):
+class ReverseListTests(unittest.TestCase):
     # each method in this class is a test to be run
     def test1(self):
         self.assertEqual(reverseList([1, 2, 3]), [3, 2, 1])

@@ -9,7 +9,7 @@ def fibonacci(n):
         return(fibonacci(n-1) + fibonacci(n-2))
 
 
-class testFibonacci(unittest.TestCase):
+class FibonacciTests(unittest.TestCase):
     # each method in this class is a test to be run
 
     def test1(self):
