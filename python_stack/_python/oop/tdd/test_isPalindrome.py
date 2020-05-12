@@ -3,7 +3,6 @@ import unittest
 
 
 def isPalindrome(word):
-    print("word", word)
     for i in range(0, int(len(word)/2), 1):
         if word[i] != word[len(word)-i-1]:
             return False
