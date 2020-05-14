@@ -174,12 +174,7 @@ class DLList:
 
 mylist = DLList()
 
-# Test add_to_front() and print_values()
-
 print("\n**************** Create new list with some names and print from head to tail **************")
-# mylist.add_to_front("keith").add_to_front(
-#     "eric").add_to_front("sydney").print_values()
-
 mylist.add_to_front("keith").add_to_front("sydney").print_values()
 
 print("\n**************** insert_at(eric, 1) ***( between sydney and keith *************************")
@@ -205,7 +200,6 @@ mylist.delete_from_tail().print_values()
 # Test printing nodes from the end of the list (tail), towards the head
 print("\n**************** Print from tail backwards ***********************************************\n")
 mylist.print_values_from_tail()
-
 
 # Add one more name (so we hav three)
 print("\n**************** Add new name josh********************************************************\n")
