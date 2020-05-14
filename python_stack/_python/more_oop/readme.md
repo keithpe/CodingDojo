@@ -28,6 +28,7 @@ class Zoo:
         print("-"*30, self.name, "-"*30)
         for animal in self.animals:
             animal.display_info()
+
 zoo1 = Zoo("John's Zoo")
 zoo1.add_lion("Nala")
 zoo1.add_lion("Simba")
