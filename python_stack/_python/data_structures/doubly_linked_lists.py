@@ -26,7 +26,25 @@ class DLList:
         # otherwise we're adding the new node to the head of the list
         self.head = new_node
         new_node.next = current_head
+
+        # Point the node that WAS at the head (first), and WAS pointing to None
+        # to the new_node, and the new node prev pointer will point to None.
+        current_head.prev = new_node
         new_node.prev = None
+        return self
+
+    def add_to_end(self, value):  # add a new node to the end of the list,
+        # First, test if list is empty, and just call add_to_front()
+        if self.head == None and self.tail == None:
+            self.add_to_front(value)
+            return self
+        # Otherwise, add new item at end of list
+        new_node = DLNode(value)        # Create the new node
+        current_tail = self.tail        # Save the current last item (tail)
+        self.tail.next = new_node       # Point current last item to new node
+        new_node.next = None            # new node is new last/tail item in list
+        new_node.prev = current_tail    # Point new node prev to previous last item
+        self.tail = new_node            # New node is now last item
         return self
 
     def print_values(self):
@@ -36,12 +54,30 @@ class DLList:
             runner = runner.next
         return self
 
+    # Print all the values in the list, starting at the END (tail) of the list
+    # This will print the list items in the reverse order of the print_values() method.
+    # This helped me test that my previous pointers are correct.
+    def print_values_from_tail(self):
+        runner = self.tail
+        while runner != None:
+            print(runner.value)
+            runner = runner.prev
+        return self
+
 
 mylist = DLList()
 
 # Test add_to_front() and print_values()
+
+print("\n**************** Create new list with some names and print from head to tail **************")
 mylist.add_to_front("keith").add_to_front(
     "eric").add_to_front("sydney").print_values()
 
-# Now test add_to_back()
-# mylist.add_to_back("arlene").print_values()
+print("\n*************** Test add_to_end('arlene') ***********************************************\n")
+
+# Now test add_to_end()
+mylist.add_to_end("arlene").print_values()
+
+# Test printing nodes from the end of the list (tail), towards the head
+print("\n**************** Print from tail backwards ***********************************************\n")
+mylist.print_values_from_tail()
