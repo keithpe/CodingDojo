@@ -18,12 +18,13 @@ class Animal:
         print("He is {} happy.".format(self.show_happiness().lower()))
         return self
 
-    def feed(self):
-        # Increase health and happiness levels by 10
-        pass
-
     def speak(self):
         print("{} says hello!".format(self.name))
+        return self
+
+    def feed(self):
+        self.health += 10
+        self.happiness += 10
         return self
 
     def show_health(self):
@@ -75,6 +76,12 @@ class Lion(Animal):
     # Child overwrites the parent. Roar!
     def speak(self):
         print("{} says RRRRRRRROAR!!!!!!".format(self.name))
+
+    # Child overwrites the parent (eating makes Lions very healthy and Happy)
+    def feed(self):
+        self.health += 25
+        self.happiness += 25
+        return self
 
 
 class Tiger(Animal):
