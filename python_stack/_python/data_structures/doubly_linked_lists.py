@@ -61,7 +61,7 @@ class DLList:
 
     def delete_from_tail(self):
         # If the list is empty, just exit
-        if (self.tail == None):
+        if self.tail == None:
             return self
 
         # List is not empty delete the last item
@@ -70,7 +70,48 @@ class DLList:
         new_tail_item.next = None
         return self
 
+    def delete_val(self, value):
+        # Check for empty list
+        if self.head == None:
+            return self
+
+        # List is not empty. Traverse list for first occurance of item with value
+        runner = self.head
+        while runner != None:
+            if runner.value == value:
+                # If we're trying to delete the last item in the list
+                # just set tail and head to None and exit
+                if runner.prev == None and runner.next == None:
+                    self.head = self.tail = None
+                    return self
+
+                # If this is the first item there is no previous item
+                if runner.prev == None:
+                    # Just point the head to the new first item
+                    self.head = runner.next
+                else:
+                    runner.prev.next = runner.next
+
+                # If this is the last item this is no next item
+                if runner.next == None:
+                    # Just point the tail to the new item
+                    self.tail = runner.prev
+                else:
+                    runner.next.prev = runner.prev
+
+                return self
+
+            else:   # Keep traversiing
+                runner = runner.next
+
+        return self
+
     def print_values(self):
+        # Check for empty list
+        if self.head == None and self.tail == None:
+            print("*** Empty List: Nothing to print ***")
+            return self
+
         runner = self.head
         while runner != None:
             print(runner.value)
@@ -81,6 +122,11 @@ class DLList:
     # This will print the list items in the reverse order of the print_values() method.
     # This helped me test that my previous pointers are correct.
     def print_values_from_tail(self):
+        # Check for empty list
+        if self.head == None and self.tail == None:
+            print("*** Empty List: Nothing to print ***")
+            return self
+
         runner = self.tail
         while runner != None:
             print(runner.value)
@@ -116,3 +162,24 @@ mylist.delete_from_tail().print_values()
 # Test printing nodes from the end of the list (tail), towards the head
 print("\n**************** Print from tail backwards ***********************************************\n")
 mylist.print_values_from_tail()
+
+
+# Add one more name (so we hav three)
+print("\n**************** Add new name josh********************************************************\n")
+mylist.add_to_front("josh").print_values()
+
+# Add delete by value
+print("\n**************** Delete by value - eric **************************************************\n")
+mylist.delete_val("eric").print_values()
+
+print("\n**************** Delete by value - josh **************************************************\n")
+mylist.delete_val("josh").print_values()
+
+print("\n**************** Delete by value - keith *************************************************\n")
+mylist.delete_val("keith").print_values()
+
+
+print("\n**************** Print again, from tail to head ******************************************\n")
+mylist.print_values_from_tail()
+
+print("\n*************************************** Done *********************************************\n")
