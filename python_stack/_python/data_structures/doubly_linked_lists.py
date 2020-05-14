@@ -106,6 +106,44 @@ class DLList:
 
         return self
 
+    def insert_at(self, val, n):
+        # Check for 0th node position, or empty list. In either case just call add_to_front()
+        if n == 0 or self.head == None:
+            self.add_to_front(val)
+            return self
+
+        # Count nodes and insert just before node=n
+        new_node = DLNode(val)
+        node = 0
+        runner = self.head
+        while runner != None:
+            if node == n:
+                # Insert here, just before current
+
+                # New node points to the current
+                new_node.next = runner
+
+                # New node prev points to what current previous pointed to
+                new_node.prev = runner.prev
+
+                # Point item before the current item to the new node, instead of current item
+                runner.prev.next = new_node
+
+                # Runner previous now points to the new node
+                runner.prev = new_node
+
+                return self
+
+            # Location to insert new node not found. Keep traversing and counting node position.
+            runner = runner.next
+            node += 1
+
+        # We're at the last item in the list. The nth Value is larger than the list size.
+        # Insert here, at the end of the list. Just call add_to_back()
+        self.add_to_end(val)
+
+        return self
+
     def print_values(self):
         # Check for empty list
         if self.head == None and self.tail == None:
@@ -139,8 +177,13 @@ mylist = DLList()
 # Test add_to_front() and print_values()
 
 print("\n**************** Create new list with some names and print from head to tail **************")
-mylist.add_to_front("keith").add_to_front(
-    "eric").add_to_front("sydney").print_values()
+# mylist.add_to_front("keith").add_to_front(
+#     "eric").add_to_front("sydney").print_values()
+
+mylist.add_to_front("keith").add_to_front("sydney").print_values()
+
+print("\n**************** insert_at(eric, 1) ***( between sydney and keith *************************")
+mylist.insert_at("eric", 1).print_values()
 
 print("\n*************** Test add_to_end('arlene') ***********************************************\n")
 
@@ -152,11 +195,11 @@ print("\n**************** Print from tail backwards ****************************
 mylist.print_values_from_tail()
 
 # Test deleting from head/begining of list
-print("\n**************** Delete first item in list (sydeny) ***********************************************\n")
+print("\n**************** Delete first item in list (sydeny) **************************************\n")
 mylist.delete_from_head().print_values()
 
 # Test deleting from end/tail of list
-print("\n**************** Delete last item in list (arlene) ***********************************************\n")
+print("\n**************** Delete last item in list (arlene) ***************************************\n")
 mylist.delete_from_tail().print_values()
 
 # Test printing nodes from the end of the list (tail), towards the head
