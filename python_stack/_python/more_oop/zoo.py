@@ -30,20 +30,14 @@ class Animal:
     def show_health(self):
         if self.health > 90:
             status = "Awesome!!!!"
-        elif self.health > 80:
-            status = "Great!"
         elif self.health > 70:
             status = "Pretty Good!"
         elif self.health > 60:
             status = "Normal"
         elif self.health > 50:
             status = "Not Well"
-        elif self.health > 40:
-            status = "Poor"
         elif self.health > 30:
-            status = "Very Poor"
-        elif self.health > 20:
-            status = "Very Bad!"
+            status = "Poor"
         elif self.health > 10:
             status = "Horrible"
         else:
@@ -62,6 +56,7 @@ class Animal:
             status = "Not Very"
         else:
             status = "Not at all"
+
         return status
 
 
