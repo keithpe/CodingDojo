@@ -38,6 +38,7 @@ class DLList:
         if self.head == None and self.tail == None:
             self.add_to_front(value)
             return self
+
         # Otherwise, add new item at end of list
         new_node = DLNode(value)        # Create the new node
         current_tail = self.tail        # Save the current last item (tail)
@@ -45,6 +46,28 @@ class DLList:
         new_node.next = None            # new node is new last/tail item in list
         new_node.prev = current_tail    # Point new node prev to previous last item
         self.tail = new_node            # New node is now last item
+        return self
+
+    def delete_from_head(self):  # Delete the first item in the list
+        # If the list is empty just exit
+        if (self.head == None):
+            return self
+
+        # List is not empty delete the first item
+        new_head_item = self.head.next          # This will be the new 'first/head' item
+        self.head = new_head_item               # point head to new first item
+        new_head_item.prev = None               # Set prev pointer of new first item
+        return self
+
+    def delete_from_tail(self):
+        # If the list is empty, just exit
+        if (self.tail == None):
+            return self
+
+        # List is not empty delete the last item
+        new_tail_item = self.tail.prev          # This will be the new 'last/tail' item
+        self.tail = new_tail_item
+        new_tail_item.next = None
         return self
 
     def print_values(self):
@@ -77,6 +100,18 @@ print("\n*************** Test add_to_end('arlene') *****************************
 
 # Now test add_to_end()
 mylist.add_to_end("arlene").print_values()
+
+# Test printing nodes from the end of the list (tail), towards the head
+print("\n**************** Print from tail backwards ***********************************************\n")
+mylist.print_values_from_tail()
+
+# Test deleting from head/begining of list
+print("\n**************** Delete first item in list (sydeny) ***********************************************\n")
+mylist.delete_from_head().print_values()
+
+# Test deleting from end/tail of list
+print("\n**************** Delete last item in list (arlene) ***********************************************\n")
+mylist.delete_from_tail().print_values()
 
 # Test printing nodes from the end of the list (tail), towards the head
 print("\n**************** Print from tail backwards ***********************************************\n")
