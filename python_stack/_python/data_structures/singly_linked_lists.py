@@ -36,11 +36,12 @@ class SList:
     def remove_from_front(self):
         if self.head == None:
             print("The list is empty, nothing to remove.")
-            return self
+            return None
 
+        removed_value = self.head.value
         runner = self.head
         self.head = runner.next
-        return self
+        return removed_value
 
     # Remove the last node and return its value
     def remove_from_back(self):
@@ -50,31 +51,35 @@ class SList:
         runner2 = self.head
         # If there is only one node in this list just point self.head to None.
         if runner1.next == None:
+            removed_value = self.head.value
             self.head = None
-            return self
+            return removed_value
 
         while runner1.next != None:
             runner2 = runner1
             runner1 = runner1.next
+        removed_value = runner1.value
         runner2.next = None
-        return self
+        return removed_value
 
     def remove_val(self, val):
         # Remove the first node with the given value
         # Special case: Check if the first item in the list is a match
         runner1 = runner2 = self.head
         if runner1.value == val:
+            removed_value = runner1.value
             self.head = runner1.next
-            return self
+            return removed_value
 
         while runner1 != None:
             if runner1.value == val:
+                removed_value = runner1.value
                 runner2.next = runner1.next
-                return self
+                return removed_value
             else:
                 runner2 = runner1
                 runner1 = runner1.next
-        return self
+        return None
 
     def insert_at(self, val, n):
         # Check for 0th node position, or empty list. In either case just call add_to_front()
@@ -114,16 +119,28 @@ mylist.add_to_front("loretta").add_to_front("bobby").add_to_front("josh").add_to
     "eric").add_to_back("sydney").print_values()
 
 print("\n**** remove from front ************************************************\n")
-mylist.remove_from_front().print_values()
+print("Removing front node:{}".format(mylist.remove_from_front()))
+mylist.print_values()
+
 print("\n**** remove from back *************************************************\n")
-mylist.remove_from_back().print_values()
+print("Removing back node:{}".format(mylist.remove_from_back()))
+mylist.print_values()
+
 print("\n*** remove val(keith) First item in the list **************************\n")
-mylist.remove_val("keith").print_values()
+print("Removing first val item in the list:{}".format(mylist.remove_val("keith")))
+mylist.print_values()
+
 print("\n*** remove val(josh) **************************************************\n")
-mylist.remove_val("josh").print_values()
+print("Removing first val item in the list:{}".format(mylist.remove_val("josh")))
+mylist.print_values()
+
 print("\n**** remove val(loretta) *** Last item in the list ********************\n")
-mylist.remove_val("loretta").print_values()
+print("Removing first val item in the list:{}".format(
+    mylist.remove_val("loretta")))
+mylist.print_values()
+
 print("\n********** insert_at() ************************************************\n")
 mylist.insert_at("Insert at 0", 0).insert_at(
     "Insert at 3", 3).insert_at("Insert at 4", 4).insert_at("Insert at 100 (beyond end of list. Defaults to add_to_back()", 100).print_values()
+
 print("\n***********************************************************************\n")
