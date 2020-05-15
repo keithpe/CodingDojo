@@ -2,4 +2,5 @@
 
 python_stack/my_environments
 *.pyc
+*.bak
 
