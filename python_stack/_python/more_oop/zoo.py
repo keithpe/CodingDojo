@@ -108,3 +108,33 @@ terry.display_info()
 barry = Bear('Bartholomew Benny', 2, 30, 60, 130)
 barry.speak()
 barry.display_info()
+
+#################################################################################################
+# Zoo class. Add animals to the zoo
+#################################################################################################
+
+
+class Zoo:
+    def __init__(self, zoo_name):
+        self.animals = []
+        self.name = zoo_name
+
+    def add_lion(self, name, age):
+        self.animals.append(Lion(name, age))
+
+    def add_tiger(self, name, age):
+        self.animals.append(Tiger(name, age))
+
+    def print_all_info(self):
+        print("-"*30, self.name, "-"*30)
+        for animal in self.animals:
+            animal.display_info()
+
+
+zoo1 = Zoo("John's Zoo")
+
+zoo1.add_lion("Nala", 5)
+zoo1.add_lion("Simba", 10)
+zoo1.add_tiger("Rajah", 3)
+print("Print ALL Zoo info")
+zoo1.print_all_info()
