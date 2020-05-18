@@ -1,0 +1,18 @@
+Use MySQLWorkbench to connect to your localhost.
+
+Learn how to use MySQL workbench to do queries directly in the database. To connect to a specific database, runUSE [databasename] in the query box.
+
+Once you're connected a database, try the queries that you would need to make a CRUD application (create, read, update, delete). 
+In other words, use the SQL commands INSERT, SELECT, UPDATE, and DELETE.
+
+Create a text file with the commands you used to query the database. Upload the text file below.
+
+SELECT first_name, last_name from  users WHERE  last_name like "O%";
+SELECT concat_ws(' ', first_name, last_name) AS full_name from  users WHERE  last_name like "O%";
+
+SET SQL_SAFE_UPDATES = 0;
+UPDATE users SET first_name = 'Donny Boy', last_name='Oberson' WHERE first_name = 'Donny';
+
+DELETE FROM users WHERE id = 6;
+
+
