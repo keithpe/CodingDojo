@@ -36,4 +36,6 @@ SELECT countries.name AS Country , cities.name AS City, cities.district AS Distr
 8. What query would you run to summarize the number of countries in each region? The query should display the name of the region 
 and the number of countries. Also, the query should arrange the result by the number of countries in descending order. (2)
 
+SELECT countries.region AS Region, count(countries.name) AS Countries  FROM countries GROUP BY countries.region ORDER BY Countries DESC
+
 Note: You may download this PDF file displaying the expected results from the queries - Expected Results (World)
