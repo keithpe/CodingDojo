@@ -9,7 +9,8 @@
 
 <body>
     <h1>The Dojo Survey</h1>
-    <form action="result">
+    <form action="/result" method="post">
+        {% csrf_token %}
         <label for="name">Your Name:</label>
         <input type="text" name="name" id="name">
         <br>
@@ -32,7 +33,7 @@
         <label for="comments">Comments:</label><br>
         <textarea name="comments" rows="10" cols="30" placeholder="Add your comments"></textarea>
         <br>
-        <input type="submit">
+        <button type="submit">Submit</button>
     </form>
 </body>
 
