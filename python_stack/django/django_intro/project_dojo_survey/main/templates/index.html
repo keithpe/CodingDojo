@@ -14,14 +14,14 @@
     <form action="/result" method="post">
         {% csrf_token %}
         <div id="prompts">
-            <label for="name">Your Name:</label>
-            <label for="location">Dojo Location:</label>
-            <label for="language">Favorite Language:</label>
-            <label for="comment">Comments:</label><br>
+            <label class="prompt" for="name">Your Name:</label>
+            <label class="prompt" for="location">Dojo Location:</label>
+            <label class="prompt" for="language">Favorite Language:</label>
+            <label class="prompt" for="comment">Comments:</label><br>
         </div>
 
         <div id="info">
-            <input type="text" name="name" id="name">
+            <input type="text" name="name" id="name" required>
             <select id="location" name="location">
                 <option value="SanJose">San Jose</option>
                 <option value="Seattle">Seattle</option>
@@ -38,8 +38,26 @@
         <div id='comment'>
             <textarea name="comment" rows="10" cols="30" placeholder="Add your comment" maxlength=200></textarea>
         </div>
+        <div id="notifications">
+            <p>Would you like to receive notifications?</p>
+            <label id="notification-label" for="yes">Yes</label>
+            <input type="radio" id="yes" name="notifications" value="yes" checked>
+            <label id="notification-label" for="No">No</label>
+            <input type="radio" id="no" name="notifications" value="no">
+        </div>
+        <div id="newsletters">
+            <div>
+                <p>Would you like to receive our newsletters?</p>
+                <input type="checkbox" id="careful_coding" name="careful_coding" checked>
+                <label for="careful_coding">Careful Coding</label>
+            </div>
+            <div>
+                <input type="checkbox" id="daily_blog" name="daily_blog" checked>
+                <label for="daily_blog">Daily Blog</label>
+            </div>
+        </div>
         <br>
-        <button type="submit">Submit</button>
+        <button type=" submit">Submit</button>
     </form>
 </body>
 

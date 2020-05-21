@@ -6,19 +6,21 @@ form {
     border: solid black 1px;
     padding: 10px;
     width: 355px;
-    height: 310px;
+    height: 350px;
 }
 
 #prompts {
     display: inline-block;
     vertical-align: top;
     width: 150px;
-    height: 80px;
+    height: 100px;
     padding-left: 40px;
     margin-bottom: 5px;
     text-align: right;
-    /* background-color: yellow; */
-    /* border: black solid 1px; */
+}
+
+#prompt {
+    display: inline-block;
 }
 
 #info {
@@ -27,9 +29,7 @@ form {
     padding-left: 5px;
     margin-bottom: 5px;
     width: 150px;
-    height: 80px;
-    /* background-color: cyan; */
-    /* border: black solid 1px; */
+    height: 100px;
 }
 
 #comment {
@@ -37,14 +37,20 @@ form {
     margin: 0;
     width: 342px;
     height: 100px;
-    /* background-color: orange; */
-    /* border: black solid 1px; */
+}
+
+#comment_result {
+    margin-top: 30px;
+    padding: 5px;
+    width: 342px;
+    height: 100px;
+    border-top: black solid 1px;
 }
 
 button {
     position: absolute;
     left: 40px;
-    top: 280px;
+    top: 320px;
     margin-top: 10px;
     display: block;
     font-size: 1em;
@@ -64,7 +70,6 @@ p {
 
 label {
     line-height: 21px;
-    display: block;
 }
 
 select {
@@ -77,4 +82,16 @@ textarea {
     resize: none;
     height: 95px;
     width: 320px;
+}
+
+#notifications {
+    padding: 5px;
+}
+
+#newsletters {
+    padding: 5px;
+}
+
+#notification-label {
+    display: inline
 }
