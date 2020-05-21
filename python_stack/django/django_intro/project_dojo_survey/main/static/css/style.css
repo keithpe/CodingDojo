@@ -13,9 +13,9 @@ form {
     display: inline-block;
     vertical-align: top;
     width: 150px;
-    height: 100px;
+    height: 85px;
     padding-left: 40px;
-    margin-bottom: 5px;
+    margin-bottom: 1px;
     text-align: right;
 }
 
@@ -27,20 +27,20 @@ form {
     display: inline-block;
     vertical-align: top;
     padding-left: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 1px;
     width: 150px;
-    height: 100px;
+    height: 85px;
 }
 
 #comment {
     padding: 5px;
-    margin: 0;
+    margin: 0 0 15px 0;
     width: 342px;
     height: 100px;
 }
 
 #comment_result {
-    margin-top: 30px;
+    margin-top: 50px;
     padding: 5px;
     width: 342px;
     height: 100px;
