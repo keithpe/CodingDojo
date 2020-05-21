@@ -8,8 +8,7 @@
 
 Create a Django project with a single app called time_display. When you go to localhost:8000 or localhost:8000/time_display, this should run a method in your controller file (views.py) that renders a template displaying the current date and time.
 
-![Assignment Sketch](/images/time.png)
-Format: ![Sketch of what the web page should look like](url)
+![Assignment Sketch](./images/time.png)
 
 There are many ways to get the current time in Python. For example, you could have views.py import gmtime, strftime from 'time' and pass the appropriate string to the render method. For example, your views.py might look something like this:
 
