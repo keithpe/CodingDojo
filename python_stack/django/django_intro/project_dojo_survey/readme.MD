@@ -28,6 +28,12 @@ It's always a good idea to print request.POST to see if the form is delivering a
 - [x] NINJA BONUS: Include a set of radio buttons on your form
 - [x] SENSEI BONUS: Include a set of checkboxes on your form
 
+Dojo Survey Revisited items:
+
+- [x] Alter function that handles form data to return a redirect
+- [x] Store form data in request.session
+- [x] Redirect to view that shows new user's information
+
 ### My finished survey form screens
 
 ![My finished survey index form](./images/my_finished_survey1.png)
