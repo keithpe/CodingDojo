@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dojo Survey</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
-    <h1>The Dojo Survey</h1>
+    <!-- <h1>The Dojo Survey</h1> -->
     <form action="/result" method="post">
         {% csrf_token %}
         <label for="name">Your Name:</label>
@@ -31,7 +33,7 @@
         </select>
         <br>
         <label for="comment">Comments:</label><br>
-        <textarea name="comment" rows="10" cols="30" placeholder="Add your comment"></textarea>
+        <textarea name="comment" rows="10" cols="30" placeholder="Add your comment" maxlength=200></textarea>
         <br>
         <button type="submit">Submit</button>
     </form>

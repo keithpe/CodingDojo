@@ -11,11 +11,21 @@
 
 <body>
     <form action="/" method="GET">
-        <h1>Submitted Info:</h1>
-        <p>Name: {{ name }}</p>
-        <p>Dojo Location: {{ location }}</p>
-        <p>Favorite Language: {{ language }}</p>
-        <p>Comment: {{ comment }}</p>
+        <h2>Submitted Info:</h2>
+        <div id='prompts'>
+            <p>Name:</p>
+            <p>Dojo Location:</p>
+            <p>Favorite Language:</p>
+            <p>Comment:</p>
+        </div>
+        <div id='info'>
+            <p>{{ name }}</p>
+            <p>{{ location }}</p>
+            <p>{{ language }}</p>
+        </div>
+        <div id='comment'>
+            <p>{{ comment }}</p>
+        </div>
         <button type="Submit">Go Back</button>
     </form>
 </body>
