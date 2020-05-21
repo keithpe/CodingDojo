@@ -22,15 +22,15 @@
             <p>Comment:</p>
         </div>
         <div id='info'>
-            <p>{{ name }}</p>
-            <p>{{ location }}</p>
-            <p>{{ language }}</p>
-            <p>{{ notifications }}</p>
-            <p>{{ careful_coding }}</p>
-            <p>{{ daily_blog }}</p>
+            <p>{{ request.session.name }}</p>
+            <p>{{ request.session.location }}</p>
+            <p>{{ request.session.language }}</p>
+            <p>{{ request.session.notifications }}</p>
+            <p>{{ request.session.careful_coding }}</p>
+            <p>{{ request.session.daily_blog }}</p>
         </div>
         <div id='comment_result'>
-            <p>{{ comment }}</p>
+            <p>{{ request.session.comment }}</p>
         </div>
         <button type="Submit">Go Back</button>
     </form>

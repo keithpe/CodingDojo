@@ -1,11 +1,11 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, redirect, HttpResponse
 
 
 def index(request):
     return render(request, 'index.html')
 
 
-def result(request):
+def processResults(request):
     if request.method == "POST":
         print('request.POST[]', request.POST)
         name = request.POST["name"]
@@ -27,13 +27,20 @@ def result(request):
             daily_blog = 'no'
 
         comment = request.POST["comment"]
-        context = {
-            'name': name,
-            'location': location,
-            'language': language,
-            'notifications': notifications,
-            'careful_coding': careful_coding,
-            'daily_blog': daily_blog,
-            'comment': comment
-        }
-    return render(request, 'result.html', context)
+
+        # Assign session values
+        request.session['name'] = name
+        request.session['location'] = location
+        request.session['language'] = language
+        request.session['notifications'] = notifications
+        request.session['careful_coding'] = careful_coding
+        request.session['daily_blog'] = daily_blog
+        request.session['comment'] = comment
+
+    return redirect('/showResults')
+
+
+def showResults(request):
+    print('Inside showResults() via redirect')
+    print('requestion.session["name"]', request.session['name'])
+    return render(request, 'result.html')
