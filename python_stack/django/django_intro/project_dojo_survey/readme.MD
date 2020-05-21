@@ -11,7 +11,6 @@
 The goal is to help you get familiar with sending POST requests through a form and displaying that information. Consider the below example as a guide.
 
 ![Assignment Sketch1](./images/survey-form.png)
-![Assignment Sketch2](./images/survey-form2.png)
 
 When you build this, please make sure that your program meets the following criteria:
 
