@@ -34,7 +34,22 @@ Dojo Survey Revisited items:
 - [x] Store form data in request.session
 - [x] Redirect to view that shows new user's information
 
+## Assignment: Random Word Generator
+
+The **Random Word** assignment had us add a second app, named random_word to the Dojo_Survey Project.
+
+Add an app to your previous project called 'random_word'. This app will render a template with a random 14-character "word" that also display a counter for the number of words generated. The first time you use this app, it should say 'attempt #1'. Each time you generate a new random keyword, it should increment the attempt figure. The purpose of this assignment is to reinforce your use of session
+
+- [x] Create a new app
+- [x] Have the /random_word route display a random string and counter
+- [x] When the generate button is clicked or the page is refreshed, display a new random string and increment the counter by 1
+- [x] Add a reset route that resets the counter
+
 ### My finished survey form screens
 
 ![My finished survey index form](./images/my_finished_survey1.png)
 ![My finished survey results form](./images/my_finished_survey2.png)
+
+### My finished RANDOM WORD screen.
+
+![My finished Random Word screen](./images/my_finished_random_word_screen.png)
