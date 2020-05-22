@@ -31,4 +31,4 @@ https://github.com/keithpe/CodingDojo/tree/master/python_stack/django/django_int
 
 ### My finished Random Word Screen
 
-![my finished random word screen](./images/my_finished_word_screen.png)
+![my finished random word screen](./images/my_finished_random_word_screen.png)
