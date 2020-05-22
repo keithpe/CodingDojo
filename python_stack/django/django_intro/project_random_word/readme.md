@@ -21,10 +21,10 @@ For generating a random word, check out this StackOverflow question, which shows
 
 As the goal of this assignment is to really help you get familiar with creating a new app, setting up routing, views, templates, etc, we've given you some hints. :)
 
-- Create a new app
-- Have the /random_word route display a random string and counter
-- When the generate button is clicked or the page is refreshed, display a new random string and increment the counter by 1
-- Add a reset route that resets the counter
+- [x] Create a new app
+- [x] Have the /random_word route display a random string and counter
+- [x] When the generate button is clicked or the page is refreshed, display a new random string and increment the counter by 1
+- [x] Add a reset route that resets the counter
 
 **See the Dojo Survey assignment to see how I added Random Word as a second app in that project.**
 https://github.com/keithpe/CodingDojo/tree/master/python_stack/django/django_intro/project_dojo_survey
