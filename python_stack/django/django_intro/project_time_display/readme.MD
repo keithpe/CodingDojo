@@ -34,4 +34,6 @@ Recognize that working with time - especially timezones - is among the more frus
 - [x] Incorporate your own custom stylesheet
 - [x] NINJA BONUS: Come up with a different way to retrieve the datetime
 
+### My finished web page:
+
 ![My finished web page](./images/my_finished_web_page.png)
