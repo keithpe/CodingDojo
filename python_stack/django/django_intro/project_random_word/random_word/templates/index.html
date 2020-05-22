@@ -10,7 +10,12 @@
 </head>
 
 <body>
-    <h1>Random Word Generator</h1>
+    <form action="random_word" method="post">
+        {% csrf_token %}
+        <h3>Random Word (attempt #{{request.session.attempt}})</h3>
+        <h1>{{request.session.word}}</h1>
+        <button type="submit">Generate</button>
+    </form>
 </body>
 
 </html>

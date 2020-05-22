@@ -1,3 +1,27 @@
 * {
     font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+form {
+    margin: 20px;
+    height: 300px;
+}
+
+h1 {
+    display: inline-block;
+    min-height: 35px;
+    min-width: 400px;
+}
+
+button {
+    margin: auto;
+    display: block;
+    font-size: 1.2em;
+    background-color: blue;
+    color: white;
+    height: 50px;
+    width: 100px;
+    border: none;
+    border-radius: 5px;
 }
