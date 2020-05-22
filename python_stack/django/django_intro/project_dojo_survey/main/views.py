@@ -8,10 +8,6 @@ def index(request):
 def processResults(request):
     if request.method == "POST":
         print('request.POST[]', request.POST)
-        name = request.POST["name"]
-        location = request.POST["location"]
-        language = request.POST["language"]
-        notifications = request.POST['notifications']
 
         # checkbox has no value if not checked. Check for the existance
         # of the dictionary key in the POST[] dictionary.
@@ -26,21 +22,17 @@ def processResults(request):
         else:
             daily_blog = 'no'
 
-        comment = request.POST["comment"]
-
         # Assign session values
-        request.session['name'] = name
-        request.session['location'] = location
-        request.session['language'] = language
-        request.session['notifications'] = notifications
+        request.session['name'] = request.POST['name']
+        request.session['location'] = request.POST['location']
+        request.session['language'] = request.POST['language']
+        request.session['notifications'] = request.POST['notifications']
         request.session['careful_coding'] = careful_coding
         request.session['daily_blog'] = daily_blog
-        request.session['comment'] = comment
+        request.session['comment'] = request.POST['comment']
 
     return redirect('/showResults')
 
 
 def showResults(request):
-    print('Inside showResults() via redirect')
-    print('requestion.session["name"]', request.session['name'])
     return render(request, 'result.html')
