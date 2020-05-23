@@ -32,13 +32,28 @@ def process_money(request):
     elif request.POST['location'] == 'casino':
         gold_this_turn = random.randint(0, 50)
 
-    # Update the total amount of gold and the activity log entry.
-    request.session['gold'] += gold_this_turn
+    # Determine if we're adding or removing gold from the gold stash
+    if random.randint(0, 1) == 0:
+        increase = False
+    else:
+        increase = True
+
+    print("increase", increase)
+
+    # Get date info for activity log.
     time = datetime.now().strftime("%Y/%m/%d %I:%M %p")
 
-    # Add the newest log entry to the beginning of the log.
-    request.session[
-        'activity_log'] = f"Earned {gold_this_turn} golds from the {request.POST['location']} ({time})\n" + request.session['activity_log']
+    # Update the total amount of gold and the activity log entry.
+    if increase == True:
+        request.session['gold'] += gold_this_turn
+        request.session['activity_log'] = f"Earned {gold_this_turn} golds from the {request.POST['location']} ({time})\n" + \
+            request.session['activity_log']
+        request.session['increase'] = False
+    else:
+        request.session['gold'] -= gold_this_turn
+        request.session['activity_log'] = f"Entered a {request.POST['location']} and lost {gold_this_turn} golds... Ouch. ({time})\n" + \
+            request.session['activity_log']
+        request.session['increase'] = False
 
     return redirect('/')
 
