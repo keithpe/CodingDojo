@@ -16,7 +16,7 @@
         <p class='your_gold_data'>{{ request.session.gold }}</p>
         <div id='locations'>
             <div id='farm' class="locations">
-                <form action="process_money" method="post">
+                <form action="process_money" method="get">
                     {% csrf_token %}
                     <p class='location heading'>Farm</p>
                     <p>(earns 10-20 golds)</p>
@@ -26,7 +26,7 @@
                 </form>
             </div>
             <div id='cave' class="locations">
-                <form action="process_money" method="post">
+                <form action="process_money" method="get">
                     {% csrf_token %}
                     <p class='location heading'>Cave</p>
                     <p>(earns 5-10 golds)</p>
@@ -35,7 +35,7 @@
                 </form>
             </div>
             <div id='house' class="locations">
-                <form action="process_money" method="post">
+                <form action="process_money" method="get">
                     {% csrf_token %}
                     <p class='location heading'>House</p>
                     <p>(earns 2-5 golds)</p>
@@ -44,7 +44,7 @@
                 </form>
             </div>
             <div id='casino' class="locations">
-                <form action="process_money" method="post">
+                <form action="process_money" method="get">
                     {% csrf_token %}
                     <p class='location heading'>Casino</p>
                     <p>(earns 0-50 golds)</p>
