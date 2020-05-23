@@ -25,3 +25,7 @@ For now, save the activity log in session
 - [ ] Have the "/process_money" POST route increase/decrease the user's gold by an appropriate amount and redirect to the root route
 - [ ] NINJA BONUS: Refactor your code so the location is being passed in the URL rather than via a form
 - [ ] SENSEI BONUS: Have the user specify the win conditions before starting, and then implement them in the game (# of moves, goal for gold)
+
+### My finished Ninja Gold app:
+
+![My finished Ninja Gold App](./images/my_finished_ninja_gold_app.png)
