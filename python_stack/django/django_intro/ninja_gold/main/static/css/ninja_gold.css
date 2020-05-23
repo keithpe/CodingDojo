@@ -5,9 +5,13 @@
     box-sizing: border-box;
 }
 
+h1 {
+    margin-left: 25px;
+}
+
 .your_gold_prompt {
     display: inline-block;
-    margin: 0 5px 0 20px;
+    margin: 0 5px 0 25px;
 }
 
 .your_gold_data {
@@ -73,11 +77,14 @@
     border-radius: 5px;
     display: block;
     margin: 0 auto;
-    margin-top: 60px;
+    margin-top: 50px;
+}
+
+.locations .heading {
+    font-size: 1.4em;
 }
 
 #activities {
-    background-color: lightgreen;
     width: 95%;
     min-width: 950px;
     height: 150px;
@@ -86,8 +93,7 @@
 }
 
 .activities {
-    border: solid black 1px;
-    color: red;
-    padding: 0;
+    border-bottom: solid black 1px;
+    padding: 0 0 0 5px;
     margin: 0;
 }
