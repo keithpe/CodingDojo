@@ -41,7 +41,7 @@ def process_money(request):
     print("increase", increase)
 
     # Get date info for activity log.
-    time = datetime.now().strftime("%Y/%m/%d %I:%M %p")
+    time = datetime.now().strftime("%Y/%m/%d %I:%M:%S %p")
 
     # Update the total amount of gold and the activity log entry.
     if increase == True:
