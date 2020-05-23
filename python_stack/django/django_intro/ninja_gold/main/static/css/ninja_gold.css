@@ -84,11 +84,15 @@ h1 {
     font-size: 1.4em;
 }
 
+#activities_title {
+    margin: 10px 0 0 25px;
+}
+
 #activities {
     width: 95%;
     min-width: 950px;
     height: 150px;
-    margin: 10px 0 15px 20px;
+    margin: 2px 0 15px 20px;
     border: solid black 1px;
 }
 
