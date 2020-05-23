@@ -46,12 +46,12 @@ def process_money(request):
     # Update the total amount of gold and the activity log entry.
     if increase == True:
         request.session['gold'] += gold_this_turn
-        request.session['activity_log'] = f"Earned {gold_this_turn} golds from the {request.POST['location']} ({time})\n" + \
+        request.session['activity_log'] = f"<p class='green log_entry'>Earned {gold_this_turn} golds from the {request.POST['location']} ({time})\n</p>" + \
             request.session['activity_log']
         request.session['increase'] = False
     else:
         request.session['gold'] -= gold_this_turn
-        request.session['activity_log'] = f"Entered a {request.POST['location']} and lost {gold_this_turn} golds... Ouch. ({time})\n" + \
+        request.session['activity_log'] = f"<p class='red log_entry'>Entered a {request.POST['location']} and lost {gold_this_turn} golds... Ouch. ({time})\n</p>" + \
             request.session['activity_log']
         request.session['increase'] = False
 

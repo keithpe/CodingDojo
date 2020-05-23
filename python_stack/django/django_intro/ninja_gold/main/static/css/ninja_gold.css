@@ -91,6 +91,8 @@ h1 {
     min-width: 950px;
     height: 150px;
     margin: 2px 0 15px 20px;
+    border: solid black 1px;
+    overflow: scroll;
 }
 
 #activity_log {
@@ -99,6 +101,11 @@ h1 {
     resize: none;
     padding: 5px 5px 5px 5px;
     overflow: scroll;
+}
+
+.log_entry {
+    margin: 0;
+    padding: 1px 5px 1px 5px;
 }
 
 .green {
