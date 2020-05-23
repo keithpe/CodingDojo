@@ -1,0 +1,93 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    color: blue;
+    /* outline: solid black 1px; */
+    box-sizing: border-box;
+}
+
+.your_gold_prompt {
+    display: inline-block;
+    margin: 0 5px 0 20px;
+}
+
+.your_gold_data {
+    display: inline-block;
+}
+
+#locations {
+    display: inline-block;
+    width: 96%;
+    min-width: 950px;
+    height: 200px;
+    margin: 0 0 0 20px;
+}
+
+#farm {
+    display: inline-block;
+    vertical-align: top;
+    width: 23%;
+    height: 200px;
+    margin: 0 2% 0 0;
+}
+
+#cave {
+    display: inline-block;
+    vertical-align: top;
+    width: 23%;
+    height: 200px;
+    margin: 0 2% 0 0;
+}
+
+#house {
+    display: inline-block;
+    vertical-align: top;
+    width: 23%;
+    height: 200px;
+    margin: 0 2% 0 0;
+}
+
+#casino {
+    display: inline-block;
+    vertical-align: top;
+    width: 23%;
+    height: 200px;
+    margin: 0 0.5% 0 0;
+}
+
+.locations {
+    border: solid black 1px;
+}
+
+.locations p {
+    text-align: center;
+}
+
+.locations button {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+    background-color: blue;
+    color: white;
+    border: none;
+    height: 35px;
+    width: 110px;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 60px;
+}
+
+#activities {
+    background-color: lightgreen;
+    width: 95%;
+    min-width: 950px;
+    height: 150px;
+    margin: 10px 0 15px 20px;
+    border: solid black 1px;
+}
+
+.activities {
+    border: solid black 1px;
+    color: red;
+    padding: 0;
+    margin: 0;
+}

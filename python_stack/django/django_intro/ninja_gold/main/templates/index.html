@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Gold</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/ninja_gold.css' %}">
+</head>
+
+<body>
+    <h1>Ninja Gold</h1>
+    <div>
+        <p class='your_gold_prompt'>Your Gold:</p>
+        <p class='your_gold_data'>120304</p>
+        <div id='locations'>
+            <div id='farm' class="locations">
+                <p class='location'>Farm</p>
+                <p>(earns 10-20 golds)</p>
+                <button class="locations">Find Gold!</button>
+            </div>
+            <div id='cave' class="locations">
+                <p class='location'>Cave</p>
+                <p>(earns 5-10 golds)</p>
+                <button class="locations">Find Gold!</button>
+            </div>
+            <div id='house' class="locations">
+                <p class='location'>House</p>
+                <p>(earn2 2-5 golds)</p>
+                <button class="locations">Find Gold!</button>
+            </div>
+            <div id='casino' class="locations">
+                <p class='location'>Casino</p>
+                <p>(earns 0-50 golds)</p>
+                <button class="locations">Find Gold!</button>
+            </div>
+        </div>
+        <div id='activities'>
+            <p class="activities">Earned 15 golds from the farm! (2013/09/13 6:15 pm)</p>
+            <p class="activities">Entered a casino and lost 50 golds... Ouch. (2013/09/03 4:04 pm)</p>
+        </div>
+    </div>
+</body>
+
+</html>
