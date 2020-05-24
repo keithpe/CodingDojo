@@ -9,7 +9,7 @@ def index(request):
     if not 'gold' in request.session:
         request.session['gold'] = 0
     if not 'activity_log' in request.session:
-        request.session['activity_log'] = ""
+        request.session['activity_log'] = []
 
     return render(request, 'index.html')
 
@@ -45,13 +45,13 @@ def process_money(request):
     # Update the total amount of gold and the activity log entry.
     if increase == True:
         request.session['gold'] += gold_this_turn
-        request.session['activity_log'] = f"<p class='green log_entry'>Earned {gold_this_turn} golds from the {request.GET['location']} ({time})\n</p>" + \
-            request.session['activity_log']
+        request.session['activity_log'].insert(0,
+                                               f"<p class='green log_entry'>Earned {gold_this_turn} golds from the {request.GET['location']} ({time})\n</p>")
         request.session['increase'] = False
     else:
         request.session['gold'] -= gold_this_turn
-        request.session['activity_log'] = f"<p class='red log_entry'>Entered a {request.GET['location']} and lost {gold_this_turn} golds... Ouch. ({time})\n</p>" + \
-            request.session['activity_log']
+        request.session['activity_log'].insert(0,
+                                               f"<p class='red log_entry'>Entered a {request.GET['location']} and lost {gold_this_turn} golds... Ouch. ({time})\n</p>")
         request.session['increase'] = False
 
     return redirect('/')
@@ -60,5 +60,5 @@ def process_money(request):
 def reset(request):
     if 'gold' in request.session:
         request.session['gold'] = 0
-        request.session['activity_log'] = ""
+        request.session['activity_log'] = []
         return redirect('/')

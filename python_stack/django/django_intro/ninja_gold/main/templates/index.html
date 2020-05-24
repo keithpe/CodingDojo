@@ -55,8 +55,12 @@
         </div>
         <p id="activities_title">Activities:</p>
         <div id='activities'>
-            <!-- <textarea name="activity_log" id="activity_log">{{ request.session.activity_log }}</textarea> -->
-            {% autoescape off %}{{ request.session.activity_log}} {% endautoescape %}
+            <!-- Use a for loop to display all the log entries in the array to this div -->
+            <!-- The p tag element is part of the tag so we could also include class green or red -->
+            <!-- to print the line correctly, depending on whether we're increase or decreasing the users gold -->
+            {% for item in request.session.activity_log %}
+            {% autoescape off %}{{ item }}{% endautoescape %}
+            {% endfor %}
         </div>
     </div>
 </body>
