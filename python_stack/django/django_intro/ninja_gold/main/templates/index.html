@@ -55,7 +55,6 @@
         </div>
         <p id="activities_title">Activities:</p>
         <div id='activities'>
-            <!-- <textarea name="activity_log" id="activity_log">{{ request.session.activity_log }}</textarea> -->
             {% autoescape off %}{{ request.session.activity_log}} {% endautoescape %}
         </div>
     </div>
