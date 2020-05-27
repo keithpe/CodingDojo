@@ -69,11 +69,13 @@ Notice how the blogs and surveys routes all begin with the same pattern, but the
 
 ```python
 urlpatterns = [
-    path('/blogs', include('apps.blog_app.urls')),
-    path('/surveys', include('apps.survey_app.urls')),
-    path('', include('apps.users_app.urls')),
+    path('blogs/', include('apps.blog_app.urls')),
+    path('surveys/', include('apps.survey_app.urls')),
+    path('users/', include('apps.users_app.urls')),
 ]
 ```
+
+**NOTE: The above path values were incorrect in the original assignment instructions on the CodingDojo site. They are correct here.**
 
 Then, in the respective blogs and surveys app urls.py files, we only need to include the remainder of the route to match!
 

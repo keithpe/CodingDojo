@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Django Project</title>
+</head>
+
+<body>
+    <h1>First Django Project</h1>
+    <h3>Multiple Apps</h3>
+    <p>With Django, it's easy to create multiple apps that can be used across multiple projects. Let's say that you're a
+        freelancer and have worked with many clients in the past. Say that almost every single project you've worked on,
+        the client/project wants their own blogs, surveys, and user management system. Instead of having to re-create
+        these modules each time from scratch, you decide to create three independent apps that you can utilize across
+        all of these projects.</p>
+
+    <p>Add 3 additional apps, blogs, surveys and users to your project from the First Django Project assignment. (If
+        you've forgotten how to create just an app, refer to all of step 5 (a-e) in the Creating a Django Project
+        module.)</p>
+
+    <h3>The root route for this site - localhost:8000/, renders this html page. Test this site with the routes
+        below.</h3>
+    <h4>blogs</h4>
+    <ul>
+        <li>
+            /blogs - display the string "placeholder to later display a list of all blogs" with a method named "index"
+        </li>
+        <li>/blogs/new - display the string "placeholder to display a new form to create a new blog" with a method named
+            "new"
+        </li>
+        <li>
+            /blogs/create - redirect to the "/blogs" route with a method called "create"
+        </li>
+        <li>
+            /blogs/<number> - display the string "placeholder to display blog number: {{number}}" with a method named
+                "show"
+        </li>
+        <li>
+            /blogs/&lt;number&gt;/edit - display the string "placeholder to edit blog {{number}}" with a method named
+            "edit"
+        </li>
+        <li>
+            /blogs/&lt;number&gt;/delete - redirect to the "/blogs" route with a method called "destroy" </li>
+    </ul>
+    <h4>surveys</h4>
+    <ul>
+        <li>
+            /surveys - display the string "placeholder to display all the surveys created"
+        </li>
+        <li>
+            /surveys/new - display "placeholder for users to add a new survey"
+        </li>
+    </ul>
+
+    <h4>users</h4>
+    <ul>
+        <li>
+            /register - display the string "placeholder for users to create a new user record"
+        </li>
+        <li>
+            /login - display the string "placeholder for users to log in"
+        </li>
+        <li>
+            /users/new - have the same method that handles /register also handle the url request of /users/new
+        </li>
+        <li>
+            /users - display the string "placeholder to later display all the list of users"
+        </li>
+    </ul>
+</body>
+
+</html>

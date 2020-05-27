@@ -16,4 +16,4 @@ def login(request):
 
 
 def new(request):
-    return redirect('/register')
+    return redirect('/users/register')
