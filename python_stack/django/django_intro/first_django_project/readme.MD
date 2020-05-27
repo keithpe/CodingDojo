@@ -95,3 +95,5 @@ Then, in the respective blogs and surveys app urls.py files, we only need to inc
 - [ ] Complete the /users/new route
 - [ ] Complete the /users route
 - [ ] NINJA BONUS: Have the root route utilize the same method as the /blogs route
+
+![Rendered_Root_Route](./rendered_root_route.png
