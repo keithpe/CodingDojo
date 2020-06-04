@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authors</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/authors.css' %}">
+
+</head>
+
+<body>
+    <form id="add_author" action="add_author" method="post">
+        {% csrf_token %}
+        <h3>Add an Author</h3>
+        <label for="first_name">First Name</label>
+        <input id="first_name" , name="first_name" type="text">
+        <br><label for="last_name">Last Name</label>
+        <input id="last_name" , name="last_name" type="text">
+        <br><br><label for="notes">Notes</label>
+        <br><textarea name="notes" id="notes" cols="30" rows="10"></textarea>
+        <br><input type="submit" value="Add">
+    </form>
+    <form id="list_authors" action="show_authors">
+        {% csrf_token %}
+        <h4 id="id_heading">ID</h4>
+        <h4 id="name_heading">Name</h4>
+        <h4 id="action_heading">Action</h4>
+        <div id="author_list">
+            {% autoescape off %}{{ request.session.author_list}} {% endautoescape %}
+        </div>
+    </form>
+</body>
+
+</html>
