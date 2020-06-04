@@ -1,0 +1,87 @@
+Here are the OS shell commands I used during this assignment:
+
+python manage.py makemigrations
+python manage.py migrate
+python manage.py shell
+
+Once in the django shell here are the commands I executed during the assignment
+
+from dojo_ninjas_app.models import *
+
+Query: Create 3 new dojos
+
+Dojo.objects.create(name='Seattle', city='Bellevue', state='WA')
+Dojo.objects.create(name='Denver', city='Castle Rock', state='CA')
+Dojo.objects.create(name='Dallas', city='Dallas', state='TX')
+
+Query: Delete the 3 dojos you just created
+
+You could delete one at a time, by using get (or filter)
+
+Dojo.objects.get(id=1).delete()
+Dojo.objects.get(id=2).delete()
+Dojo.objects.get(id=3).delete()
+
+Or you could delete ALL of them in one command:
+
+Dojo.objects.all().delete()
+
+Query: Create 3 ninjas that belong to the first dojo
+
+First I created a variable for the first Dojo:
+first_dojo = Dojo.objects.get(id=4)
+Then I stuff the first_dojo variable (containing the instance of that first Dojo record)
+
+Ninja.objects.create(first_name='Keith', last_name='Peterson', dojo=first_dojo)
+Ninja.objects.create(first_name='Sydney', last_name='Wolfson', dojo=first_dojo)
+Ninja.objects.create(first_name='Jesse', last_name='Marin', dojo=first_dojo)
+
+Query: Create 3 ninjas that belong to the second dojo
+
+This time instead of creating a variable to store the 'second ninja' I just do instance
+all in one statement
+
+Ninja.objects.create(first_name='Robert', last_name='Anderson', dojo=Dojo.objects.get(id=5))
+Ninja.objects.create(first_name='Alice', last_name='Williams', dojo=Dojo.objects.get(id=5))
+Ninja.objects.create(first_name='Judy', last_name='Bloom', dojo=Dojo.objects.get(id=5))
+
+Query: Create 3 ninjas that belong to the third dojo
+
+Again, I create the three new Ninjas using one command for each new Ninja
+Ninja.objects.create(first_name='Danny', last_name='Lucent', dojo=Dojo.objects.get(id=6))
+Ninja.objects.create(first_name='Rose', last_name='Mortensen', dojo=Dojo.objects.get(id=6))
+Ninja.objects.create(first_name='Bobby', last_name='McGee', dojo=Dojo.objects.get(id=6))
+
+Query: Retrieve all the ninjas from the first dojo
+
+this_dojo = Dojo.objects.get(id=4)
+ninjas = Ninja.objects.filter(dojo=this_dojo)
+Or do it in one line:
+ninjas = Ninja.objects.filter(dojo=Dojo.objects.get(id=4))
+
+Query: Retrieve all the ninjas from the last dojo
+
+ninjas = Ninja.objects.filter(dojo=Dojo.objects.get(id=6))
+
+Add a new text field called "desc" to your Dojo class
+desc = models.TextField()
+
+Create and run the migration files to update the table in your database. If needed, provide a default value of "old dojo"
+
+From terminal shell prompt:
+python manage.py makemigrations
+python manage.py migrate
+I used 'old desc' when prompted.
+
+I got back into the python shell
+python manage.py shell
+
+Query: Create a new dojo
+
+Dojo.objects.create(name='Chicago', city='Chicago', state='IL')
+
+Submit your .txt file that contains all the queries you ran in the shell
+
+
+
+
