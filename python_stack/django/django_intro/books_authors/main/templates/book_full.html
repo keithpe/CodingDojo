@@ -11,8 +11,26 @@
     <h4>{{ this_book.title }}</h4>
     <p> ID:{{ this_book.id }}</p>
     <p> Desc:{{ this_book.desc }}</p>
+    <a href="/">Back</a>
     <br>
     <h4>Authors</h4>
+    <div>
+        {% for author in this_book.authors.all %}
+        <p>
+            {{ author.first_name}} {{author.last_name }}
+        </p>
+        {% endfor %}
+    </div>
+    <form action="add_author_to_book" method="post">
+        {% csrf_token %}
+        <input id="book_id" name="book_id" type="hidden" value={{ this_book.id }}>
+        <select name="authors" id="authors">
+            {% for author in all_authors %}
+            <option value="{{ author.id }}">{{ author.first_name }} {{ author.last_name }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Add">
+    </form>
 </body>
 
 </html>
