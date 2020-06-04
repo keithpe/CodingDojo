@@ -21,7 +21,8 @@ def index(request):
 def add_book(request):
 
     # Add the book to our database
-    new_book = Book.objects.create(title=request.POST['title'])
+    new_book = Book.objects.create(
+        title=request.POST['title'], desc=request.POST['desc'])
 
     return redirect('/')
 
@@ -45,3 +46,18 @@ def add_author(request):
         first_name=request.POST['first_name'], last_name=request.POST['last_name'], notes=request.POST['notes'])
 
     return redirect('/authors')
+
+
+def author_full(request, id):
+    return render(request, 'author_full.html')
+
+
+def book_full(request, id):
+    this_book = Book.objects.get(id=id)
+    print('this_book', this_book)
+    print('this_book.title,id', this_book.title, id)
+    # request.session['this_book'] = this_book
+    context = {
+        'this_book': this_book
+    }
+    return render(request, 'book_full.html', context)
