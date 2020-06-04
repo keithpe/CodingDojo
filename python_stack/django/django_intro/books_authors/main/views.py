@@ -56,9 +56,6 @@ def book_full(request, id):
     this_book = Book.objects.get(id=id)
     all_authors = Author.objects.all()
 
-    print('this_book', this_book)
-    print('this_book.title,id', this_book.title, id)
-    # request.session['this_book'] = this_book
     context = {
         'this_book': this_book,
         'all_authors': all_authors,
@@ -67,14 +64,10 @@ def book_full(request, id):
 
 
 def add_author_to_book(request):
-    print('INSIDE ADD_AUTHOR_TO_BOOK')
-    print("request.POST", request.POST)
-    print("book ID", request.POST['book_id'])
-    print("author ID", request.POST['authors'])
+
+    # Retrieve current book and author to add to the book
     this_book = Book.objects.get(id=request.POST['book_id'])
     this_author = Author.objects.get(id=request.POST['authors'])
-    print('book title', this_book.title)
-    print('author first_name', this_author.first_name)
 
     # Add author to book
     this_book.authors.add(this_author)
