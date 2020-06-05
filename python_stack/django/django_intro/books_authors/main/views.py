@@ -35,7 +35,8 @@ def authors(request):
     request.session['author_list'] = ''
 
     for author in all_authors:
-        request.session['author_list'] += f"<p id='author_id'>{author.id}</p><p id='author_name'>{author.first_name+' '+ author.last_name}</p><p id='author_action'>VIEW\n</p>"
+        # request.session['author_list'] += f"<p id='author_id'>{author.id}</p><p id='author_name'>{author.first_name+' '+ author.last_name}</p><p id='author_action'>VIEW\n</p>"
+        request.session['author_list'] += f"<p id='author_id'>{author.id}</p><p id='author_name'>{author.first_name+' '+ author.last_name}</p><p id='author_action'><a href='author/{author.id}'>view</a>\n</p>"
 
     return render(request, 'authors.html')
 
@@ -49,7 +50,14 @@ def add_author(request):
 
 
 def author_full(request, id):
-    return render(request, 'author_full.html')
+    this_author = Author.objects.get(id=id)
+    all_books = Book.objects.all()
+
+    context = {
+        'this_author': this_author,
+        'all_books': all_books,
+    }
+    return render(request, 'author_full.html', context)
 
 
 def book_full(request, id):
@@ -73,3 +81,14 @@ def add_author_to_book(request):
     this_book.authors.add(this_author)
 
     return redirect('/book/'+str(this_book.id))
+
+
+def add_book_to_author(request):
+    # Retrieve current book and author to add to the book
+    this_author = Author.objects.get(id=request.POST['author_id'])
+    this_book = Book.objects.get(id=request.POST['books'])
+
+    # Add author to book
+    this_author.books.add(this_book)
+
+    return redirect('/author/'+str(this_author.id))
