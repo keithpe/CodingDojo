@@ -17,7 +17,7 @@
 - [x] Create a form on the specific author template that has a dropdown of all the books in the database. The "Add" button should add the selected book to the given author.
 - [x] SENSEI BONUS: Have the dropdown menus only include authors or books not yet associated with the given book or author, respectively
 
-### My finished Gold app:
+### My finished app:
 
 ![My finished App 1](my_finished_main.png)
 ![My finished App 1](my_finished_full_books.png)
