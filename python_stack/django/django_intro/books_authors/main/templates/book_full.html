@@ -5,32 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Books</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/book_full.css' %}">
 </head>
 
 <body>
-    <h4>{{ this_book.title }}</h4>
-    <p> ID:{{ this_book.id }}</p>
-    <p> Desc:{{ this_book.desc }}</p>
-    <a href="/">Back</a>
-    <br>
-    <h4>Authors</h4>
-    <div>
+    <div id='book_data'>
+        <h4>Title: {{ this_book.title }}</h4>
+        <h4> ID: {{ this_book.id }}</h4>
+        <h4> Desc:</h4>
+        <p> {{ this_book.desc }}</p>
+    </div>
+    <a id='back' href="/">Back</a>
+    <div id='authors_for_this_book'>
+        <h4>ID Authors</h4>
         {% for author in this_book.authors.all %}
         <p>
-            {{ author.first_name}} {{author.last_name }}
+            {{ author.id }} {{ author.first_name}} {{author.last_name }}
         </p>
         {% endfor %}
     </div>
-    <form action="add_author_to_book" method="post">
-        {% csrf_token %}
-        <input id="book_id" name="book_id" type="hidden" value={{ this_book.id }}>
-        <select name="authors" id="authors">
-            {% for author in all_authors %}
-            <option value="{{ author.id }}">{{ author.first_name }} {{ author.last_name }}</option>
-            {% endfor %}
-        </select>
-        <input type="submit" value="Add">
-    </form>
+    <div id="new_authors">
+        <form action="add_author_to_book" method="post">
+            {% csrf_token %}
+            <input id="book_id" name="book_id" type="hidden" value={{ this_book.id }}>
+            <select name="authors" id="authors">
+                {% for author in all_authors %}
+                <option value="{{ author.id }}">{{ author.first_name }} {{ author.last_name }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Add">
+        </form>
+    </div>
 </body>
 
 </html>
