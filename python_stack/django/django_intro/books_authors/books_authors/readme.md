@@ -3,10 +3,9 @@
 ### Objectives:
 
 - Practice incorporating a many-to-many relationship in a full-stack application
+- Using the same project from the previous assignment, create an application that does the following:
 
-Using the same project from the previous assignment, create an application that does the following:
-
-![Assignment Sketch1](./Books_Authors.png)
+![Assignment Sketch1](Books_Authors.png)
 
 - [x] Add a template for creating books that also displays a table of all books in the database
 - [x] Complete the route for adding a book to the database
@@ -20,4 +19,6 @@ Using the same project from the previous assignment, create an application that 
 
 ### My finished Gold app:
 
-![My finished Ninja Gold App](./images/my_finished_ninja_gold_app.png)
+![My finished App 1](my_finished_main.png)
+![My finished App 1](my_finished_full_books.png)
+![My finished App 1](my_finished_full_authors.png)
