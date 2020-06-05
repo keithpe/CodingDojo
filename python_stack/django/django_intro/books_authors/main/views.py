@@ -35,8 +35,7 @@ def authors(request):
     request.session['author_list'] = ''
 
     for author in all_authors:
-        # request.session['author_list'] += f"<p id='author_id'>{author.id}</p><p id='author_name'>{author.first_name+' '+ author.last_name}</p><p id='author_action'>VIEW\n</p>"
-        request.session['author_list'] += f"<p id='author_id'>{author.id}</p><p id='author_name'>{author.first_name+' '+ author.last_name}</p><p id='author_action'><a href='author/{author.id}'>view</a>\n</p>"
+        request.session['author_list'] += f"<p id='author_id'>{author.id}</p><p id='author_name'>{author.first_name+' '+ author.last_name}</p><p id='author_action'><a href='author/{author.id}'>view</a> <a href='author/{author.id}/delete'>del</a>\n</p>"
 
     return render(request, 'authors.html')
 
@@ -92,3 +91,11 @@ def add_book_to_author(request):
     this_author.books.add(this_book)
 
     return redirect('/author/'+str(this_author.id))
+
+
+def del_author(request, id):
+    # Retrieve current author
+    this_author = Author.objects.get(id=id)
+    this_author.delete()
+
+    return redirect('/authors')
