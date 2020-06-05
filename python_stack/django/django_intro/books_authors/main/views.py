@@ -13,7 +13,7 @@ def index(request):
     request.session['book_list'] = ''
 
     for book in all_books:
-        request.session['book_list'] += f"<p id='book_id'>{book.id}</p><p id='book_title'>{book.title}</p><p id='book_action'><a href='book/{book.id}'>view</a>\n</p>"
+        request.session['book_list'] += f"<p id='book_id'>{book.id}</p><p id='book_title'>{book.title}</p><p id='book_action'><a href='book/{book.id}'>view</a> <a href='book/{book.id}/delete'>del</a>\n</p>"
 
     return render(request, 'index.html')
 
@@ -99,3 +99,12 @@ def del_author(request, id):
     this_author.delete()
 
     return redirect('/authors')
+
+
+def del_book(request, id):
+    # Retrieve current book
+    this_book = Book.objects.get(id=id)
+    print('title', this_book.title)
+    this_book.delete()
+
+    return redirect('/')
