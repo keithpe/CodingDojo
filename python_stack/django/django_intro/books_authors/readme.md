@@ -20,5 +20,6 @@
 ### My finished app:
 
 ![My finished App 1](my_finished_main.png)
-![My finished App 1](my_finished_full_book.png)
-![My finished App 1](my_finished_full_author.png)
+![My finished App 2](my_finished_full_book.png)
+![My finished App 3](my_finished_authors.png)
+![My finished App 4](my_finished_full_author.png)
