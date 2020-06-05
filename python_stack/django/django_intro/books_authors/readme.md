@@ -3,17 +3,22 @@
 ### Objectives:
 
 - Practice incorporating a many-to-many relationship in a full-stack application
+- Using the same project from the previous assignment, create an application that does the following:
 
-Using the same project from the previous assignment, create an application that does the following:
+![Assignment Sketch1](Books_Authors.png)
 
-![Assignment Sketch1](./images/ninja-gold-ci.png)
+- [x] Add a template for creating books that also displays a table of all books in the database
+- [x] Complete the route for adding a book to the database
+- [x] Add a template that displays a specific book and its details, including all the authors associated with the given book
+- [x] Create a form on the specific book template that has a dropdown of all the authors in the database. The "Add" button should add the selected author to the given book.
+- [x] Add a template for creating authors that also displays a table of all authors in the database
+- [x] Complete the route for adding an author to the database
+- [x] Add a template that displays a specific author and its details, including all the books associated with the given author
+- [x] Create a form on the specific author template that has a dropdown of all the books in the database. The "Add" button should add the selected book to the given author.
+- [x] SENSEI BONUS: Have the dropdown menus only include authors or books not yet associated with the given book or author, respectively
 
-- [x] Create a new project/app
-- [x] Have the root route render the main Ninja Gold page
-- [x] Have the "/process_money" POST route increase/decrease the user's gold by an appropriate amount and redirect to the root route
-- [x] NINJA BONUS: Refactor your code so the location is being passed in the URL rather than via a form
-- [ ] SENSEI BONUS: Have the user specify the win conditions before starting, and then implement them in the game (# of moves, goal for gold)
+### My finished app:
 
-### My finished Ninja Gold app:
-
-![My finished Ninja Gold App](./images/my_finished_ninja_gold_app.png)
+![My finished App 1](my_finished_main.png)
+![My finished App 1](my_finished_full_books.png)
+![My finished App 1](my_finished_full_authors.png)
