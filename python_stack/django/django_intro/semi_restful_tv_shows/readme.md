@@ -31,4 +31,4 @@ Create a new Django project following the specifications provided in this wirefr
 
 ### My finished project:
 
-![My finished App 1](my_finished_project.pdf)
+![My finished App 1](my_finished_project.png)
