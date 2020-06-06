@@ -29,6 +29,17 @@ Create a new Django project following the specifications provided in this wirefr
 - [x] /shows/<id>/destroy - POST - method should delete the show with the specified id from the database, then redirect to /shows
 - [x] Have your root route redirect to /shows
 
+### Second Assignment VALIDATION
+
+- [x] Validate the Add a TV Show form to ensure all fields are populated appropriately before adding to the database.
+- [x] Display errors on the Add a TV Show form if the information is invalid.
+- [x] Validate the Edit Show form with the same validations as creation.
+- [x] Display errors on the Edit Show form if the information is invalid.
+- [x] NINJA BONUS: Ensure the Release Date is in the past.
+- [x] NINJA BONUS: Allow the description to be optional. If a description is provided, though, it should still be at least 10 characters.
+- [ ] SENSEI BONUS: Validate that a TV show with that title does not already exist in the database before creating or updating.
+- [ ] SENSEI BONUS: Do uniqueness validations (including displaying errors) for creating and updating using AJAX!
+
 ### My finished project:
 
 ![My finished App 1](my_finished_project.png)
