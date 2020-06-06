@@ -58,3 +58,8 @@ def display_show(request, id):
     this_show = Show.objects.get(id=id)
     context = {'this_show': this_show}
     return render(request, 'show_one.html', context)
+
+
+def delete_show(request, id):
+    Show.objects.filter(id=id).delete()
+    return redirect('/shows')
