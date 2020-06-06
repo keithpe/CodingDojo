@@ -63,8 +63,8 @@ def edit_show(request, id):
     this_show = Show.objects.get(id=id)
 
     # Store existing record data into request.session, but only the first time
-    if not request.session['title']:
-        print('INSIDE NOT REQUEST.SESSION')
+    # once we're inside an editing session we'll pull the data from the form (request.POST).
+    if 'title' not in request.session:
         request.session['title'] = this_show.title
         request.session['network'] = this_show.network
         request.session['release_date'] = this_show.release_date.strftime(
@@ -107,6 +107,9 @@ def update_show(request, id):
 
     # save() uses the 'auto_now=True', query filter update does not.
     this_show.save()
+
+    # Clear requestion.session
+    del request.session['title']
 
     return redirect('/shows/'+str(this_show.id))
 
