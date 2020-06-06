@@ -12,8 +12,9 @@ class ShowManager(models.Manager):
             errors["title"] = "Show title should be at least 2 characters"
         if len(postData['network']) < 3:
             errors["network"] = "Show network should be at least 3 characters"
-        if len(postData['description']) < 10:
-            errors["description"] = "Show description should be at least 10 characters"
+        # Allow empty description but if its not empty it needs to have at least 10 characters
+        if len(postData['description']) > 0 and len(postData['description']) < 10:
+            errors["description"] = "Show description can be empty, otherwise it needs to be at least 10 characters"
         if datetime.strptime(postData['release_date'], "%Y-%m-%d") > datetime.today():
             errors["release_date"] = "Show release date cannot be in the future"
         return errors
