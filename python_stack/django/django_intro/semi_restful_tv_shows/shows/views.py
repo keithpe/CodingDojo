@@ -48,9 +48,13 @@ def update_show(request, id):
     # Code to update posted data to record in database, then redirect
     this_show = Show.objects.get(id=id)
 
-    # Update the existing record
-    Show.objects.filter(id=id).update(title=request.POST['title'], network=request.POST['network'],
-                                      release_date=request.POST['release_date'], description=request.POST['description'])
+    this_show.title = request.POST['title']
+    this_show.network = request.POST['network']
+    this_show.release_date = request.POST['release_date']
+    this_show.description = request.POST['description']
+
+    # save() uses the 'auto_now=True', query filter update does not.
+    this_show.save()
 
     return redirect('/shows/'+str(this_show.id))
 
