@@ -62,12 +62,14 @@ def create_show(request):
 def edit_show(request, id):
     this_show = Show.objects.get(id=id)
 
-    # Store in session
-    request.session['title'] = this_show.title
-    request.session['network'] = this_show.network
-    request.session['release_date'] = this_show.release_date.strftime(
-        '%Y-%m-%d')
-    request.session['description'] = this_show.description
+    # Store existing record data into request.session, but only the first time
+    if not request.session['title']:
+        print('INSIDE NOT REQUEST.SESSION')
+        request.session['title'] = this_show.title
+        request.session['network'] = this_show.network
+        request.session['release_date'] = this_show.release_date.strftime(
+            '%Y-%m-%d')
+        request.session['description'] = this_show.description
 
     # Convert to string so we can stuff it in the value of the edit screen
     this_show.release_date = this_show.release_date.strftime('%Y-%m-%d')
