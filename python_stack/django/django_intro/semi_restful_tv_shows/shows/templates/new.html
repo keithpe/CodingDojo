@@ -13,6 +13,7 @@
 <body>
     <!-- If we've been redirected back to this form from the basic_validator load previous values, even the invalid ones -->
     <form action='/shows/create' method='POST' class='container'>
+        {% csrf_token %}
         <a href='/shows'>Go Back</a><br><br>
         {% if messages %}
         <ul class="messages">
@@ -21,7 +22,6 @@
             {% endfor %}
         </ul>
         {% endif %}
-        {% csrf_token %}
         <div class="form-group">
             <label for="title">Title</label>
             <input type="text" class="form-control" id="title" name="title" value="{{ request.session.title }}">

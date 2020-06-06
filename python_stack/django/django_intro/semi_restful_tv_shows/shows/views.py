@@ -62,6 +62,13 @@ def create_show(request):
 def edit_show(request, id):
     this_show = Show.objects.get(id=id)
 
+    # Store in session
+    request.session['title'] = this_show.title
+    request.session['network'] = this_show.network
+    request.session['release_date'] = this_show.release_date.strftime(
+        '%Y-%m-%d')
+    request.session['description'] = this_show.description
+
     # Convert to string so we can stuff it in the value of the edit screen
     this_show.release_date = this_show.release_date.strftime('%Y-%m-%d')
 
@@ -70,6 +77,24 @@ def edit_show(request, id):
 
 
 def update_show(request, id):
+
+    # Pass the post data to the validation method and save response in the errors variable
+    errors = Show.objects.basic_validator(request.POST)
+
+    if len(errors) > 0:
+        # loop through each key-value pair and make a flash message
+        for key, value in errors.items():
+            messages.error(request, value)
+
+        # Save form info so we can display it back in the form when we get redirected.
+        request.session['title'] = request.POST['title']
+        request.session['network'] = request.POST['network']
+        request.session['description'] = request.POST['description']
+        request.session['release_date'] = request.POST['release_date']
+
+        # redirect the user back to the form to fix the errors
+        return redirect('/'+str(id)+'/edit')
+
     # Code to update posted data to record in database, then redirect
     this_show = Show.objects.get(id=id)
 
