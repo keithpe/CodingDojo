@@ -22,6 +22,7 @@ def create_show(request):
     new_show = Show.objects.create(title=request.POST['title'], network=request.POST['network'],
                                    release_date=request.POST['release_date'], description=request.POST['description'])
 
+    # TODO: Move this to a function?
     # Store in session
     request.session['title'] = new_show.title
     request.session['network'] = new_show.network
@@ -56,6 +57,7 @@ def update_show(request, id):
 
 def display_show(request, id):
     this_show = Show.objects.get(id=id)
+    this_show.release_date = this_show.release_date.strftime('%B %d, %Y')
     context = {'this_show': this_show}
     return render(request, 'show_one.html', context)
 
