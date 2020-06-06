@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Show</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+</head>
+
+<body>
+    <div class='container-fluid'>
+        <a href='/shows'>Go Back</a><br><br>
+        <h1>TV Show {{ request.session.id }}</h1>
+        <h2>Title: {{ request.session.title }}</h2>
+        <h3>Network: {{ request.session.network }}</h3>
+        <h3>Release Date: {{ request.session.release_date }}</h3>
+        <h3>Description:</h3>
+        <h3>{{ request.session.description }}</h3>
+    </div>
+    <div class='container-fluid'>
+        <p>Last Updated: {{ request.session.updated_at }}</p>
+        <a href="">Edit</a> | <a href="">Delete</a>
+    </div>
+</body>
+
+</html>
