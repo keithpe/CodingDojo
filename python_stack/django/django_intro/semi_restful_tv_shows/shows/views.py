@@ -1,9 +1,17 @@
 from django.shortcuts import render, redirect, HttpResponse
+from django.contrib import messages
 from shows.models import *
 import datetime
 
 
 def index(request):
+
+    # Delete any old session data
+    request.session['title'] = ''
+    request.session['network'] = ''
+    request.session['description'] = ''
+    request.session['release_date'] = ''
+
     all_shows = Show.objects.all()
     context = {'all_shows': all_shows}
     return render(request, 'index.html', context)
@@ -18,11 +26,28 @@ def add_show(request):
 # Process new record from new.html (add_show)
 def create_show(request):
 
+    # Pass the post data to the validation method and save response in the errors variable
+    errors = Show.objects.basic_validator(request.POST)
+
+    if len(errors) > 0:
+        # Loop through each key-value pair and make a flash message
+        for key, value in errors.items():
+            messages.error(request, value)
+
+        # Save form info so we can display it back in the form when we get redirected.
+        request.session['title'] = request.POST['title']
+        request.session['network'] = request.POST['network']
+        request.session['description'] = request.POST['description']
+        request.session['release_date'] = request.POST['release_date']
+
+        # redirect the user back to the form to fix the errors
+        return redirect('/new')
+
     # Code to create new show record
     new_show = Show.objects.create(title=request.POST['title'], network=request.POST['network'],
                                    release_date=request.POST['release_date'], description=request.POST['description'])
 
-    # TODO: Move this to a function?
+    # TODO: Move request.session assignments to a function?
     # Store in session
     request.session['title'] = new_show.title
     request.session['network'] = new_show.network
