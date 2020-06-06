@@ -45,8 +45,16 @@ def edit_show(request, id):
 
 def update_show(request, id):
     # Code to update posted data to record in database, then redirect
-    return redirect('/shows/'+str(show.id))
+    this_show = Show.objects.get(id=id)
+
+    # Update the existing record
+    Show.objects.filter(id=id).update(title=request.POST['title'], network=request.POST['network'],
+                                      release_date=request.POST['release_date'], description=request.POST['description'])
+
+    return redirect('/shows/'+str(this_show.id))
 
 
 def display_show(request, id):
-    return render(request, 'show_one.html')
+    this_show = Show.objects.get(id=id)
+    context = {'this_show': this_show}
+    return render(request, 'show_one.html', context)

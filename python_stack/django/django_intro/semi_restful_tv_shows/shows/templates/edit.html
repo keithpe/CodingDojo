@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <form action='/shows/edit' method='POST' class='container'>
+    <form action='/shows/{{ this_show.id }}/update' method='POST' class='container'>
         {% csrf_token %}
         <a href='/shows'>Go Back</a><br><br>
         <div class="form-group">

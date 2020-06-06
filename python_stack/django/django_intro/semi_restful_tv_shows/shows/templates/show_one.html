@@ -12,15 +12,15 @@
 <body>
     <div class='container-fluid'>
         <a href='/shows'>Go Back</a><br><br>
-        <h1>TV Show {{ request.session.id }}</h1>
-        <h2>Title: {{ request.session.title }}</h2>
-        <h3>Network: {{ request.session.network }}</h3>
-        <h3>Release Date: {{ request.session.release_date }}</h3>
+        <h1>TV Show {{ this_show.id }}</h1>
+        <h2>Title: {{ this_show.title }}</h2>
+        <h3>Network: {{ this_show.network }}</h3>
+        <h3>Release Date: {{ this_show.release_date }}</h3>
         <h3>Description:</h3>
-        <h3>{{ request.session.description }}</h3>
+        <h3>{{ this_show.description }}</h3>
     </div>
     <div class='container-fluid'>
-        <p>Last Updated: {{ request.session.updated_at }}</p>
+        <p>Last Updated: {{ this_show.updated_at }}</p>
         <a href="">Edit</a> | <a href="">Delete</a>
     </div>
 </body>
