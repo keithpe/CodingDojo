@@ -28,7 +28,9 @@
                     <th scope="row">{{ show.id }}</th>
                     <td>{{ show.title }}</td>
                     <td>{{ show.network }}</td>
-                    <td>{{ show.release_date|date:"F d, Y" }}</td>
+                    <td>{{ show.release_date|date:"F j, Y" }}</td>
+                    <!-- The DATE_FORMAT uses month abbreviations (N instead of F -->
+                    <!-- <td>{{ show.release_date|date:"DATE_FORMAT" }}</td> -->
                     <td><a href="/shows/{{ show.id }}">Show</a>|<a href="/shows/{{ show.id }}/edit">Edit</a>|<a
                             href="/shows/{{ show.id }}/delete">Delete</a></td>
                 </tr>
