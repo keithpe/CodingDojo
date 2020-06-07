@@ -6,20 +6,24 @@ import datetime
 
 def index(request):
 
-    # Delete any old session data
-    request.session['title'] = ''
-    request.session['network'] = ''
-    request.session['description'] = ''
-    request.session['release_date'] = ''
+    # Delete the request.sesssion when we're displaying all shows
+    if 'title' in request.session:
+        del request.session['title']
 
     all_shows = Show.objects.all()
     context = {'all_shows': all_shows}
     return render(request, 'index.html', context)
 
-# Display add form
-
 
 def add_show(request):
+
+    # Set the session to blank
+    if 'title' not in request.session:
+        request.session['title'] = ''
+        request.session['network'] = ''
+        request.session['description'] = ''
+        request.session['release_date'] = ''
+
     return render(request, 'new.html')
 
 
