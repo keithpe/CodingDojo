@@ -15,7 +15,8 @@
     <div class="container-fluid">
         <br>
         <h2>Add a new Course</h2>
-        <form action="" method="post">
+        <form action="/add_course" method="post">
+            {% csrf_token %}
             <label for="name">Name</label>
             <input type="text" id="name" name="name"><br><br>
             <label for="description">Description</label><br>
