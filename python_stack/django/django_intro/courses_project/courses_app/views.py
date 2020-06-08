@@ -46,3 +46,18 @@ def add_course(request):
         print("Inside ADD COURSE, NOT A POST method")
 
     return redirect('/show')
+
+
+def delete_course(request, id):
+    print('request.POST', request.POST, id)
+
+    # Get the record we want to delete and pass it to delete.html
+    this_course = Course.objects.get(id=id)
+    context = {'this_course': this_course}
+
+    return render(request, "delete.html", context)
+
+
+def destroy_course(request, id):
+    Course.objects.filter(id=id).delete()
+    return redirect('/show')

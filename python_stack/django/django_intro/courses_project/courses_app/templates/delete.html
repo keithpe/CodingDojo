@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete course {{ this_course.id }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <br><br><br>
+        <!-- <table class="table table-bordered"> -->
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <td colspan="2">
+                        <h4>Are you sure you want to delete the following course?</h4>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Name</th>
+                    <td>{{ this_course.name }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Description</th>
+                    <td>{{ this_course.description.text}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="/show">
+            <button class="btn btn-primary">No</button>
+        </a>
+        <a href="/{{ this_course.id }}/destroy">
+            <button class="btn btn-danger">Yes! I want to delete this</button>
+        </a>
+    </div>
+</body>
+
+</html>

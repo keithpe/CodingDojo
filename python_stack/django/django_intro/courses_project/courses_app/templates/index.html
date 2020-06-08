@@ -51,10 +51,8 @@
                         <td>{{ course.name }}</td>
                         <td>{{ course.description.text }}</td>
                         <td>{{ course.created_at}}</td>
-                        <td>remove</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
+                        <td><a href="/{{ course.id }}/delete">Remove</a> </td>
+                    </tr> {% endfor %} </tbody>
             </table>
         </div>
     </div>
