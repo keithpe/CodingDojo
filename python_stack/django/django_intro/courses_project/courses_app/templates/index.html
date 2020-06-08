@@ -5,11 +5,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 </head>
 
 <body>
-    <h2>Add a new Course</h2>
-    <h2>Courses</h2>
+    <div class="container-fluid">
+        <br>
+        <h2>Add a new Course</h2>
+        <form action="" method="post">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name"><br><br>
+            <label for="description">Description</label><br>
+            <textarea id="description" name="description" rows="4" cols="50"></textarea><br>
+            <br><input type="submit" value="Add" class="btn btn-primary">
+        </form>
+        <div>
+            <br>
+            <h2>Courses</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Course Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Date Added</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>How to be a ninja</td>
+                        <td>This is the first course entered</td>
+                        <td>Dec 1st 2013 5:34PM</td>
+                        <td>remove</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 
 </html>
