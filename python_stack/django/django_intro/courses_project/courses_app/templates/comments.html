@@ -36,7 +36,7 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th scope="col">Id</th>
+                        <!-- <th scope="col">Id</th> -->
                         <th scope="col">Comments</th>
                         <th scope="col">Date Added</th>
                         <th scope="col">Actions</th>
@@ -45,7 +45,7 @@
                 <tbody>
                     {% for comment in these_comments %}
                     <tr>
-                        <th scope="row">{{ comment.id }}</th>
+                        <!-- <th scope="row">{{ comment.id }}</th> -->
                         <td>{{ comment.text }}</td>
                         <td>{{ comment.created_at}}</td>
                         <td><a href="/{{ comment.id }}/delete_comment">Remove</a></td>
