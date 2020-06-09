@@ -29,7 +29,8 @@
                     <form class="form-group" action="/process_order" method="post">
                         {% csrf_token %}
                         <td>{{product.description}}</td>
-                        <td><input type="hidden" name="price" value="{{product.price}}">{{product.price}}</td>
+                        <!-- <td><input type="hidden" name="price" value="{{product.price}}">{{product.price}}</td> -->
+                        <td><input type="hidden" name="id" value="{{product.id}}">{{product.id}}</td>
                         <td><select class="custom-select" name="quantity">
                                 <option value="1">1</option>
                                 <option value="2">2</option>

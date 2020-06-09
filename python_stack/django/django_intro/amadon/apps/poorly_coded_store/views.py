@@ -14,9 +14,16 @@ def process_order(request):
     # Process the order here. We don't want to process
     # in the same method that we render the checkout page.
 
+    # Use the product id number from the form and look it up in the
+    # product table to get the price (we dont want to trust the user)
+    this_product = Product.objects.get(id=request.POST['id'])
+
     # Calculate the order amounts here
     quantity_from_form = int(request.POST["quantity"])
-    price_from_form = float(request.POST["price"])
+
+    # Use the price we retrieved from the product table
+    price_from_form = float(this_product.price)
+
     total_charge = quantity_from_form * price_from_form
     print('total_charge', total_charge)
 
