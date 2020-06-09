@@ -25,7 +25,7 @@ Make a new Django project and application, and complete the functionality of the
 - [x] For each course, have a link to remove that renders a page as shown in the second wireframe
 - [x] If the user selects "No," redirect to the root route. If the user selects "Yes," delete the course and redirect to the root route
 - [x] NINJA BONUS: Make the description a separate class and have the description field of the Course class be a one-to-one relationship with Description
-- [ ] NINJA BONUS: For each course, have a link to comment that renders a page with a form to make comments and a list of all comments for that course
+- [x] NINJA BONUS: For each course, have a link to comment that renders a page with a form to make comments and a list of all comments for that course
 - [ ] SENSEI BONUS: Use AJAX for the remove functionality, prompting with a modal and processing the remove accordingly (No--close the modal without deleting, Yes--close the modal and delete the entry)
 
 ### My finished project:
