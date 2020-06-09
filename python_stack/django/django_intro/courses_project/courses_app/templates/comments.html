@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses</title>
+    <title>Comments</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -14,8 +14,10 @@
 <body>
     <div class="container-fluid">
         <br>
-        <h2>Add a new Course</h2>
-        <form action="/new" method="post">
+        <a href="/show">Back to Course List</a>
+        <br><br>
+        <h2>Add a new Comment for {{ this_course.name }}</h2>
+        <form action="/{{this_course.id}}/new_comment" method="post">
             {% csrf_token %}
             {% if messages %}
             <ul class="messages">
@@ -24,35 +26,29 @@
                 {% endfor %}
             </ul>
             {% endif %}
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" value="{{ request.session.name }}"><br><br>
-            <label for=" description">Description</label><br>
-            <textarea id="description" name="description" rows="4"
-                cols="50">{{ request.session.description }}</textarea><br>
+            <label for=" comment">Comment</label><br>
+            <textarea id="comment" name="comment" rows="4" cols="50">{{ request.session.description }}</textarea><br>
             <br><input type="submit" value="Add" class="btn btn-primary">
         </form>
         <div>
             <br>
-            <h2>Courses</h2>
+            <h2>Comments</h2>
             <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th scope="col">Id</th>
-                        <th scope="col">Course Name</th>
-                        <th scope="col">Description</th>
+                        <th scope="col">Comments</th>
                         <th scope="col">Date Added</th>
                         <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for course in all_courses %}
+                    {% for comment in these_comments %}
                     <tr>
-                        <th scope="row">{{ course.id }}</th>
-                        <td>{{ course.name }}</td>
-                        <td>{{ course.description.text }}</td>
-                        <td>{{ course.created_at}}</td>
-                        <td><a href="/{{ course.id }}/delete">Remove</a> <a
-                                href="/{{ course.id }}/comments">Comments</a></td>
+                        <th scope="row">{{ comment.id }}</th>
+                        <td>{{ comment.text }}</td>
+                        <td>{{ comment.created_at}}</td>
+                        <td><a href="/{{ comment.course.id }}/delete">Remove</a></td>
                     </tr> {% endfor %} </tbody>
             </table>
         </div>

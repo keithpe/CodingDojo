@@ -31,3 +31,10 @@ class Course(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = CourseManager()
+
+
+class Comment(models.Model):
+    text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)

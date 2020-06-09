@@ -7,4 +7,6 @@ urlpatterns = [
     path('new', views.add_course),
     path('<id>/delete', views.delete_course),
     path('<id>/destroy', views.destroy_course),
+    path('<id>/comments', views.show_comments),
+    path('<id>/new_comment', views.add_comment),
 ]
