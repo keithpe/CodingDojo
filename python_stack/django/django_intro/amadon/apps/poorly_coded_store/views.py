@@ -30,9 +30,12 @@ def process_order(request):
     # Print to the terminal and create the order record
     print("Charging credit card...")
 
-    # TODO: Add a try/catch for this order creation
-    Order.objects.create(
-        quantity_ordered=quantity_from_form, total_price=total_charge)
+    try:
+        Order.objects.create(
+            quantity_ordered=quantity_from_form, total_price=total_charge)
+    except:
+        print("An exception occurred")
+        return redirect("/")
 
     # Store current order info
     request.session['quantity_from_form'] = quantity_from_form
