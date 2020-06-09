@@ -75,19 +75,18 @@ def show_comments(request, id):
 
 def add_comment(request, id):
     this_course = Course.objects.get(id=id)
-    print('this_course.id', this_course.id)
     this_comment = Comment(text=request.POST['comment'])
     this_comment.course_id = id
-    print('this_comment.text=', this_comment.text)
     this_comment.save()
-    print('comment saved')
     this_course.comment = this_comment
-    print('comment assignemd to the course')
     this_course.save()
-    print('course resaved')
-
-    # Blank session values after we successfully add a record.
-    #request.session['comment'] = ''
 
     print('about to redirect to comments')
     return redirect('/'+str(this_course.id)+'/comments')
+
+
+def delete_comment(request, id):
+    this_comment = Comment.objects.get(id=id)
+    course_id = this_comment.course_id
+    Comment.objects.filter(id=id).delete()
+    return redirect('/'+str(course_id)+'/comments')

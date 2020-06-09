@@ -48,7 +48,7 @@
                         <th scope="row">{{ comment.id }}</th>
                         <td>{{ comment.text }}</td>
                         <td>{{ comment.created_at}}</td>
-                        <td><a href="/{{ comment.course.id }}/delete">Remove</a></td>
+                        <td><a href="/{{ comment.id }}/delete_comment">Remove</a></td>
                     </tr> {% endfor %} </tbody>
             </table>
         </div>
