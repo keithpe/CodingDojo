@@ -29,8 +29,13 @@ class UserManager(models.Manager):
         if not result:
             errors['email'] = 'Invalid email address'
 
+        # Check if the email is unique (not already in the database)
+        existing_user = User.objects.filter(email=postData['email'])
+
+        if existing_user:
+            errors['email_exists'] = 'That email is already in our database'
+
         # Check for empty Birthday
-        print('birthday=', postData['birthday'])
         if postData['birthday'] == '':
             errors['birthday_empty'] = 'Please enter your birthday'
         else:
