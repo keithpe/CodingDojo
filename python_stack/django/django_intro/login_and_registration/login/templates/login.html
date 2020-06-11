@@ -11,43 +11,46 @@
 
 <body>
     <div class="container">
-        <form action="registration" method="POST">
-            {% csrf_token %}
-            {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-            <h2>Registration</h2><br>
-            <label for="first_name">First Name</label>
-            <input type="text" id="first_name" name="first_name" value={{request.session.first_name}}><br>
-            <label for="last_name">Last Name</label>
-            <input type="text" id="last_name" name="last_name" value={{request.session.last_name}}><br>
-            <label for="email">Email</label>
-            <input type="text" id="email" name="email" value={{request.session.email}}><br>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" value={{request.session.password}}><br>
-            <label for="confirm_pw">Confirm PW</label>
-            <input type="password" id="confirm_pw" name="confirm_pw" value={{request.session.confirm_pw}}><br>
-            <label for="birthday">Birthday</label>
-            <input type="date" id="birthday" name="birthday" value={{request.session.birthday}}><br>
-            <input type="submit" value="Register">
-            <input type="hidden" name='process' id='process' value='registered'>
-        </form>
+        <div class="form_group">
+            <form action="registration" method="POST">
+                {% csrf_token %}
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                <br>
+                <h2>Registration</h2><br>
+                <label class="col-sm-2" for="first_name">First Name</label>
+                <input type="text" id="first_name" name="first_name" value={{request.session.first_name}}><br>
+                <label class="col-sm-2" for="last_name">Last Name</label>
+                <input type="text" id="last_name" name="last_name" value={{request.session.last_name}}><br>
+                <label class="col-sm-2" for="email">Email</label>
+                <input type="text" id="email" name="email" value={{request.session.email}}><br>
+                <label class="col-sm-2" for="password">Password</label>
+                <input type="password" id="password" name="password" value={{request.session.password}}><br>
+                <label class="col-sm-2" for="confirm_pw">Confirm PW</label>
+                <input type="password" id="confirm_pw" name="confirm_pw" value={{request.session.confirm_pw}}><br>
+                <label class="col-sm-2" for="birthday">Birthday</label>
+                <input type="date" id="birthday" name="birthday" value={{request.session.birthday}}><br><br>
+                <input class="btn btn-primary col-sm-2" type="submit" value="Register">
+                <input type="hidden" name='process' id='process' value='registered'>
+            </form>
+        </div>
     </div>
 
-    <br><br>
     <div class="container">
         <form action="login" method="POST">
             {% csrf_token %}
-            <h2>Login</h2><br>
-            <label for="email">Email</label>
+            <br>
+            <h2>Login</h2>
+            <label class="col-sm-2" for="email">Email</label>
             <input type="text" id="email" name="email"><br>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password"><br>
-            <input type="submit" value="Login">
+            <label class="col-sm-2" for="password">Password</label>
+            <input type="password" id="password" name="password"><br><br>
+            <input class="btn btn-primary col-sm-2" type="submit" value="Login">
             <input type="hidden" name='process' id='process' value='logged in'>
         </form>
     </div>
