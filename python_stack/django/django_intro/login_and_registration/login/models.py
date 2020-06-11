@@ -1,5 +1,10 @@
 from django.db import models
 import re
+import datetime
+
+# Need to install dateutil to use dateutil.relativedelta (for determing age in years)
+# pip install python-dateutil
+from dateutil.relativedelta import relativedelta
 
 
 class UserManager(models.Manager):
@@ -23,6 +28,25 @@ class UserManager(models.Manager):
         result = re.match(pattern, postData['email'])
         if not result:
             errors['email'] = 'Invalid email address'
+
+        # Check for empty Birthday
+        print('birthday=', postData['birthday'])
+        if postData['birthday'] == '':
+            errors['birthday_empty'] = 'Please enter your birthday'
+        else:
+            # Check for valid Birthday (in the past)
+            if datetime.datetime.strptime(postData['birthday'], '%Y-%m-%d') > datetime.datetime.now():
+                errors['birthday_in_past'] = 'Birthday cannot be in the future'
+
+            # Calculate time between now and users birthday (we want to know if they're at least 13 years old)
+            now = datetime.datetime.now()
+            user_birthday = datetime.datetime.strptime(
+                postData['birthday'], '%Y-%m-%d')
+            difference = relativedelta(now, user_birthday)
+
+            # Check for user over 13
+            if difference.years < 13:
+                errors['user_age_gt_13'] = 'You must be at least 13 years old'
 
         return errors
 

@@ -20,7 +20,7 @@
                 {% endfor %}
             </ul>
             {% endif %}
-            <h2>Registration</h2>
+            <h2>Registration</h2><br>
             <label for="first_name">First Name</label>
             <input type="text" id="first_name" name="first_name" value={{request.session.first_name}}><br>
             <label for="last_name">Last Name</label>
@@ -31,15 +31,18 @@
             <input type="password" id="password" name="password" value={{request.session.password}}><br>
             <label for="confirm_pw">Confirm PW</label>
             <input type="password" id="confirm_pw" name="confirm_pw" value={{request.session.confirm_pw}}><br>
+            <label for="birthday">Birthday</label>
+            <input type="date" id="birthday" name="birthday" value={{request.session.birthday}}><br>
             <input type="submit" value="Register">
             <input type="hidden" name='process' id='process' value='registered'>
         </form>
     </div>
 
+    <br><br>
     <div class="container">
         <form action="login" method="POST">
             {% csrf_token %}
-            <h2>Login</h2>
+            <h2>Login</h2><br>
             <label for="email">Email</label>
             <input type="text" id="email" name="email"><br>
             <label for="password">Password</label>

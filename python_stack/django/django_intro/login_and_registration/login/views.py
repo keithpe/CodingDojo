@@ -24,9 +24,17 @@ def registration(request):
             request.session['last_name'] = request.POST['last_name']
             request.session['email'] = request.POST['email']
             request.session['password'] = request.POST['password']
+            request.session['birthday'] = request.POST['birthday']
 
         # redirect the user back to the form to fix the errors
         return redirect('/')
+
+    # Create the user record for this new user,
+    # this_user = User(first_name=request.session['first_name'],
+    #                  last_name=request.session['last_name'], email=request.session['email'], password=request.session['password'], birthday=request.session['birthday'])
+
+    # And save it.
+    # this_user.save()
 
     # Save the first name so we can display it on the success page.
     request.session['first_name'] = request.POST['first_name']
