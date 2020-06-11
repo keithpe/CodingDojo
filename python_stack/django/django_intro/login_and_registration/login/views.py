@@ -30,11 +30,11 @@ def registration(request):
         return redirect('/')
 
     # Create the user record for this new user,
-    # this_user = User(first_name=request.session['first_name'],
-    #                  last_name=request.session['last_name'], email=request.session['email'], password=request.session['password'], birthday=request.session['birthday'])
+    this_user = User(first_name=request.POST['first_name'],
+                     last_name=request.POST['last_name'], email=request.POST['email'], password=request.POST['password'], birthday=request.POST['birthday'])
 
     # And save it.
-    # this_user.save()
+    this_user.save()
 
     # Save the first name so we can display it on the success page.
     request.session['first_name'] = request.POST['first_name']
