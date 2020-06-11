@@ -10,22 +10,14 @@ def index(request):
 def registration(request):
     # Process the registration form
 
-    print("inside the registration method")
-
-    request.session.flush()
     request.session['process'] = request.POST['process']
 
-    print("About to run validator")
     errors = User.objects.basic_validator(request.POST)
-    print("Finished running validator")
 
-    print("About to check for errors")
     if errors:
         # Loop through each key-value pair and make a flash message
         for key, value in errors.items():
             messages.error(request, value)
-
-            print('error:', value)
 
             # Save form info so we can display it back in the form when we get redirected.
             request.session['first_name'] = request.POST['first_name']
@@ -36,11 +28,11 @@ def registration(request):
         # redirect the user back to the form to fix the errors
         return redirect('/')
 
-        # Reset the request.session values
-        request.session['first_name'] = ""
-        request.session['last_name'] = ""
-        request.session['email'] = ""
-        request.session['password'] = ""
+    # Save the first name so we can display it on the success page.
+    request.session['first_name'] = request.POST['first_name']
+
+    # Set a session variable to indicate that we've successfully logged in. (access to success page will require it.)
+    request.session['status'] = 'success'
 
     return redirect('login/success')
 
@@ -59,4 +51,14 @@ def logout(request):
 
 
 def success(request):
+    # Check if the status key exists in the request.session dictionary.
+    # If it doesn't or if it's not set to 'success' than we'll redirect to the login page
+    # We don't want someone to be able to access this page from their browser UNLESS they successfully login to the server
+    if 'status' in request.session:
+        if request.session['status'] != 'success':
+            request.session.flush()
+            return redirect('/')
+    else:
+        return redirect('/')
+
     return render(request, 'success.html')
