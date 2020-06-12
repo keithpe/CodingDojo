@@ -35,8 +35,10 @@ def delete_message(request):
     # Get them message
     this_message = Message.objects.get(id=request.POST['message_id'])
 
-    # Delete the message
-    this_message.delete()
+    # Only allow the user who created this message to delete it
+    if this_message.user_id == request.session['userid']:
+        # Delete the message
+        this_message.delete()
 
     return redirect('/wall')
 
@@ -57,7 +59,9 @@ def delete_comment(request):
     # Get the comment
     this_comment = Comment.objects.get(id=request.POST['comment_id'])
 
-    # Delete the comment
-    this_comment.delete()
+    # Only allow the user who created this comment to delete it
+    if this_comment.user_id == request.session['userid']:
+        # Delete the comment
+        this_comment.delete()
 
     return redirect('/wall')

@@ -44,7 +44,7 @@
                     <!-- Messages for this user-->
                     {% for message in user.messages.all %}
                     <br>
-                    <h6>{{ message.user.first_name }} {{ message.user.last_name }} {{ message.created_at }}</h6>
+                    <h5>{{ message.user.first_name }} {{ message.user.last_name }} {{ message.created_at }}</h5>
                     <p>{{ message.message }}</p>
                     <form action="delete_message" method="post">
                         {% csrf_token %}
@@ -57,8 +57,8 @@
                     <div class="container-fluid col-11" style='background-color: lightgreen;'>
                         {% for comment in message.comments.all %}
                         <br>
-                        <h6>{{ comment.user.first_name }} {{ comment.user.last_name }} -
-                            {{ comment.created_at }}</h6>
+                        <h5>{{ comment.user.first_name }} {{ comment.user.last_name }} -
+                            {{ comment.created_at }}</h5>
                         <p>{{ comment.comment }}</p>
                         <form action="delete_comment" method="post">
                             {% csrf_token %}
