@@ -21,8 +21,10 @@
             </div>
             <a class='col col-1' href="/logout">log off</a>
         </div>
+
         <!-- Post a message -->
-        <div class="container-fluid">
+        <div class="container-fluid col-12">
+
             <form action="create_message" method="post">
                 {% csrf_token %}
                 <br>
@@ -32,12 +34,45 @@
                 <input class='btn btn-primary' type="submit" value='Post a Message'>
             </form>
             <br>
+
             <div class='container-fluid'>
-                {% for item in all_messages %}
-                <h6>{{ request.session.first_name }} {{ request.session.last_name }} - {{ item.created_at }}</h6>
-                <div class='col-9'>
-                    <p>{{ item.message }}</p>
+
+                <!-- The user -->
+                {% for user in all_users  %}
+                <div class='col-12' style='background-color: lightblue;'>
+                    <br>
+
+                    <!-- Messages for this user-->
+                    {% for message in user.messages.all %}
+                    <h6>{{ message.user.first_name }} {{ message.user.last_name }} {{ message.created_at }}</h6>
+                    <p>{{ message.message }}</p>
+
+                    <!-- comments for this message -->
+                    <div class="container-fluid col-11" style='background-color: lightgreen;'>
+                        <br>
+                        {% for comment in message.comments.all %}
+                        <h6>{{ comment.user.first_name }} {{ comment.user.last_name }} -
+                            {{ comment.created_at }}</h6>
+                        <p>{{ comment.comment }}</p>
+                        {% endfor %}
+
+                        <!-- Add a comment for this message -->
+                        <form action="create_comment" method="post">
+                            {% csrf_token %}
+                            <label for="comment">Post a comment</label><br>
+                            <textarea class='col-10' name="comment" id="comment" cols="70" rows="3"
+                                style='resize:none;'></textarea><br>
+                            <input class='btn btn-success' type="submit" value='Post a Comment'>
+                            <input type="hidden" name="message_id" id="message_id" value={{message.id}}>
+                        </form>
+                        <br>
+
+                    </div>
+                    <br>
+
+                    {% endfor %}
                 </div>
+                <br>
                 {% endfor %}
             </div>
         </div>
