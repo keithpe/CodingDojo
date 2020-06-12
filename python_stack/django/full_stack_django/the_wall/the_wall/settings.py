@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'login',
+    'coding_dojo_wall',
 
     'django.contrib.admin',
     'django.contrib.auth',
