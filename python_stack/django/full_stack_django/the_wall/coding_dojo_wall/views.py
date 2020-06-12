@@ -2,6 +2,15 @@ from django.shortcuts import render, redirect, HttpResponse
 from login.models import *
 from coding_dojo_wall.models import *
 
+# Use pytz with datetime.datetime.now() to get timezone aware (UTC as timezone), so th call to now can be
+# compared to the created_at date stored in darabase (which also has UTC time zone value)
+# now = 2020-06-12 22:14:13.176717+00:00
+# rather than now = 2020-06-12 22:14:13.176717
+# So we call the now method with tz=pytz.utc
+# now = datetime.datetime.now(tz=pytz.utc)
+# Used in delete_message method below
+import pytz
+
 
 def index(request):
     # return HttpResponse('Inside the CODING DOJO WALL index method')
@@ -32,11 +41,19 @@ def create_message(request):
 
 def delete_message(request):
 
-    # Get them message
+    # Get the message
     this_message = Message.objects.get(id=request.POST['message_id'])
 
-    # Only allow the user who created this message to delete it
-    if this_message.user_id == request.session['userid']:
+    # Calculate time between now and created_at filed of message record.
+    now = datetime.datetime.now(tz=pytz.utc)
+    difference = now - this_message.created_at
+
+    # Only delete the message if the difference in seconds (between now and created_at) is less than 1800
+    # (30 minutes * 60 (seconds/minute) = 1800)
+
+    # Only allow the user who created this message to delete it AND only if it was created within 30 minutes of now
+    if this_message.user_id == request.session['userid'] and (difference.seconds <= 1800):
+
         # Delete the message
         this_message.delete()
 
