@@ -51,9 +51,9 @@
                 <h2>Login</h2>
                 <form action="login" method="POST">
                     {% csrf_token %}
-                    <label class="col-lg-2" for="email">Email</label>
+                    <label class="col-lg-3" for="email">Email</label>
                     <input class="col-lg-7" type="text" id="email" name="email"><br>
-                    <label class="col-lg-2" for="password">Password</label>
+                    <label class="col-lg-3" for="password">Password</label>
                     <input class="col-lg-7" type="password" id="password" name="password"><br><br>
                     <input class="btn btn-primary col-sm-4" type="submit" value="Login">
                     <input type="hidden" name='process' id='process' value='logged in'>

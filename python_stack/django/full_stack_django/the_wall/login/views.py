@@ -68,6 +68,7 @@ def login(request):
             # if we get True after checking the password, we may put the user id in session
             request.session['userid'] = logged_user.id
             request.session['first_name'] = logged_user.first_name
+            request.session['last_name'] = logged_user.last_name
 
             # Set a session variable to indicate that we've successfully logged in. (access to success page will require it.)
             request.session['status'] = 'success'

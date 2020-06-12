@@ -10,10 +10,37 @@
 </head>
 
 <body>
-    <div class='container'>
-        <h2>CodingDojo Wall</h2>
-        <h4>Welcome {{ first_name }}</h4>
-        <a href="/logout">log off</a>
+    <div class='container-fluid'>
+        <br>
+        <div class='row border-bottom border-dark'>
+            <div class='col col-9'>
+                <h2>CodingDojo Wall</h2>
+            </div>
+            <div class='col col-2'>
+                <h5>Welcome {{ request.session.first_name }}</h5>
+            </div>
+            <a class='col col-1' href="/logout">log off</a>
+        </div>
+        <!-- Post a message -->
+        <div class="container-fluid">
+            <form action="create_message" method="post">
+                {% csrf_token %}
+                <br>
+                <label for="message">Post a message</label><br>
+                <textarea class='col-10' name="message" id="message" cols="70" rows="5"
+                    style='resize:none;'></textarea><br>
+                <input class='btn btn-primary' type="submit" value='Post a Message'>
+            </form>
+            <br>
+            <div class='container-fluid'>
+                {% for item in all_messages %}
+                <h6>{{ request.session.first_name }} {{ request.session.last_name }} - {{ item.created_at }}</h6>
+                <div class='col-9'>
+                    <p>{{ item.message }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 </body>
 

@@ -1,3 +1,18 @@
 from django.db import models
+import datetime
 
-# Create your models here.
+from login.models import User
+
+
+class Message(models.Model):
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+
+class Comment(models.Model):
+    comment = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    message = models.ForeignKey(Message, on_delete=models.CASCADE)
