@@ -30,6 +30,10 @@ def create_message(request):
     return redirect('/wall')
 
 
+def delete_message(request):
+    return redirect('/wall')
+
+
 def create_comment(request):
     # Create a comment object
     this_comment = Comment(
@@ -38,4 +42,8 @@ def create_comment(request):
     # Save the message object
     this_comment.save()
 
+    return redirect('/wall')
+
+
+def delete_comment(request):
     return redirect('/wall')
