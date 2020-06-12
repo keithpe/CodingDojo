@@ -24,7 +24,6 @@ def registration(request):
             request.session['first_name'] = request.POST['first_name']
             request.session['last_name'] = request.POST['last_name']
             request.session['email'] = request.POST['email']
-            request.session['password'] = request.POST['password']
             request.session['birthday'] = request.POST['birthday']
 
         # redirect the user back to the form to fix the errors
