@@ -53,8 +53,5 @@ Allow the user to delete his/her own message but only if the message was made in
 
 ### My finished project:
 
-**Login**
 ![My finished App 1](my_finished_project_login.png)
-
-**The Wall**
 ![My finished App 2](my_finished_project.png)
