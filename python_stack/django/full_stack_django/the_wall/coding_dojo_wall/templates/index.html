@@ -46,27 +46,32 @@
                     <br>
                     <h6>{{ message.user.first_name }} {{ message.user.last_name }} {{ message.created_at }}</h6>
                     <p>{{ message.message }}</p>
-                    <form action="delete_message">
+                    <form action="delete_message" method="post">
+                        {% csrf_token %}
                         <input class='btn btn-danger' type="submit" value='Delete Message'>
+                        <input type="hidden" name="message_id" id="message_id" value={{message.id}}>
                         <br><br>
                     </form>
 
                     <!-- comments for this message -->
                     <div class="container-fluid col-11" style='background-color: lightgreen;'>
                         {% for comment in message.comments.all %}
+                        <br>
                         <h6>{{ comment.user.first_name }} {{ comment.user.last_name }} -
                             {{ comment.created_at }}</h6>
                         <p>{{ comment.comment }}</p>
-                        <form action="delete_comment">
+                        <form action="delete_comment" method="post">
+                            {% csrf_token %}
                             <input class='btn btn-danger btn-sm' type="submit" value='Delete Comment'>
+                            <input type="hidden" name="comment_id" id="comment_id" value={{comment.id}}>
                         </form>
-                        <br>
                         {% endfor %}
 
                         <!-- Add a comment for this message -->
                         <form action="create_comment" method="post">
                             {% csrf_token %}
-                            <label for="comment">Post a comment</label><br>
+                            <!-- <label for="comment">Post a comment</label><br> -->
+                            <br>
                             <textarea class='col-10' name="comment" id="comment" cols="70" rows="3"
                                 style='resize:none;'></textarea><br>
                             <input class='btn btn-success' type="submit" value='Post a Comment'>

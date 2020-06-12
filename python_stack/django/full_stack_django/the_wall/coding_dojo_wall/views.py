@@ -31,6 +31,13 @@ def create_message(request):
 
 
 def delete_message(request):
+
+    # Get them message
+    this_message = Message.objects.get(id=request.POST['message_id'])
+
+    # Delete the message
+    this_message.delete()
+
     return redirect('/wall')
 
 
@@ -46,4 +53,11 @@ def create_comment(request):
 
 
 def delete_comment(request):
+
+    # Get the comment
+    this_comment = Comment.objects.get(id=request.POST['comment_id'])
+
+    # Delete the comment
+    this_comment.delete()
+
     return redirect('/wall')
