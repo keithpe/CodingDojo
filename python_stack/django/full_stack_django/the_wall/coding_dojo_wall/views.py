@@ -15,13 +15,13 @@ import pytz
 def index(request):
     # return HttpResponse('Inside the CODING DOJO WALL index method')
 
-    # Get all the posted messages for the currently logged in user (request.session['user_id'])
-    all_messages = Message.objects.filter(user=request.session['userid'])
+    # TODO Should we change this to ONLY retrieve messages going back a month (how big is too big?)
+    all_messages = Message.objects.all().order_by('-created_at')
     all_users = User.objects.all()
 
     context = {
-        'all_messages': all_messages,
         'all_users': all_users,
+        'all_messages': all_messages,
     }
 
     return render(request, 'index.html', context)

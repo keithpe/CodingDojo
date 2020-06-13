@@ -37,12 +37,10 @@
 
             <div class='container-fluid'>
 
-                <!-- The user -->
-                {% for user in all_users  %}
+                <!-- Loop through all the messages (sorted by date, most reecent first -->
+                {% for message in all_messages %}
                 <div class='col-12' style='background-color: lightblue;'>
 
-                    <!-- Messages for this user-->
-                    {% for message in user.messages.all %}
                     <br>
                     <h5>{{ message.user.first_name }} {{ message.user.last_name }} {{ message.created_at }}</h5>
                     <p>{{ message.message }}</p>
@@ -82,7 +80,6 @@
                     </div>
                     <br>
 
-                    {% endfor %}
                 </div>
                 <br>
                 {% endfor %}
