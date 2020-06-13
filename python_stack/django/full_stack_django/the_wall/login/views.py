@@ -42,12 +42,14 @@ def registration(request):
     this_user.save()
 
     # Save the first name so we can display it on the success page.
-    request.session['first_name'] = request.POST['first_name']
+    request.session['userid'] = this_user.id
+    request.session['first_name'] = this_user.first_name
+    request.session['last_name'] = this_user.last_name
 
     # Set a session variable to indicate that we've successfully logged in. (access to success page will require it.)
     request.session['status'] = 'success'
 
-    return redirect('login/success')
+    return redirect('/wall')
 
 
 def login(request):
