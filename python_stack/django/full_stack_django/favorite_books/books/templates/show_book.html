@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <title>Show Book {{book.title}}</title>
+</head>
+
+<body>
+    <div class='container-fluid'>
+        <div class="row col-12 border-bottom border-dark">
+            <div class='col col-11'>
+                <h2>Welcome, first_name!</h2>
+            </div>
+            <a class='col col-1' href="">Log Out</a>
+        </div>
+        <div class='container-fluid row'>
+            <div class='col col-6'>
+                <br>
+                <h3>BOOK TITLE HERE</h3><br>
+                <p>Added by: NAME HERE</p>
+                <p>Added On: DATE @ TIME</p>
+                <p>Last Updated on: DATE @ TIME</p>
+                <p>Description:</p>
+                <p>Description Goes Here</p>
+            </div>
+            <div clas='col col-6'>
+                <br>
+                <h3>Users Who Like This Book:</h3>
+                <p>User One</p>
+                <p>User Two</p><br>
+                <a href="">Add to Favorites</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
