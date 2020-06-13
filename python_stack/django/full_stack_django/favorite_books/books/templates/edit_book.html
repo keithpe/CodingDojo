@@ -13,7 +13,7 @@
     <div class='container-fluid'>
         <div class="row col-12 border-bottom border-dark">
             <div class='col col-10'>
-                <h2>Welcome, first_name!</h2>
+                <h2>Welcome, {{ request.session.first_name }}!</h2>
             </div>
             <p class='col col-2'><a href="/books">Home</a> | <a href="/logout">Log Out</a></p>
             <!-- <a class='col col-1' href="">Home</a> | <a class='col col-1' href="">Log Out</a> -->
@@ -21,13 +21,14 @@
         <div class='container-fluid row'>
             <div class='col col-6'>
                 <br>
-                <h3>BOOK TITLE HERE</h3><br>
-                <p>Added by: NAME HERE</p>
-                <p>Added On: DATE @ TIME</p>
-                <p>Last Updated on: DATE @ TIME</p>
+                <h3>{{ this_book.title }}</h3><br>
+                <p>Added by: {{ this_book.user.first_name }} {{ this_book.user.last_name }}</p>
+                <p>Added On: {{ this_book.created_at }}</p>
+                <p>Last Updated on: {{ this_book.updated_at }}</p>
                 <p>Description:</p>
                 <form action="books/1/edit" method="post">
-                    <textarea name="" id="" cols="30" rows="10" style="resize: none;"></textarea><br>
+                    <textarea name="" id="" cols="30" rows="10"
+                        style="resize: none;">{{ this_book.description }}</textarea><br>
                     <input class="btn btn-primary" type="submit" value="Update">
                     <button class="btn btn-danger">Delete</button>
                 </form>

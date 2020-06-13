@@ -13,9 +13,9 @@
     <div class='container-fluid'>
         <div class="row col-12 border-bottom border-dark">
             <div class='col col-11'>
-                <h2>Welcome, first_name!</h2>
+                <h2>Welcome, {{ request.session.first_name }}!</h2>
             </div>
-            <a class='col col-1' href="">Log Out</a>
+            <a class='col col-1' href="/logout">Log Out</a>
         </div>
         <div class='container-fluid row'>
             <div class='col col-6'>
@@ -36,8 +36,13 @@
                 <h3>All Books</h3>
                 <div>
                     {% for book in all_books %}
-                    <p><a href="/books/{{book.id}}/edit">{{ book.title }}</a></p>
-                    <p>Added by {{ book.user.first_name }}</p>
+                    <p style="height: 1px"><a href="/books/{{book.id}}/edit">{{ book.title }}</a></p>
+                    <p style="height: 1px">(Added by {{ book.user.first_name }} {{ book.user.last_name }})</p>
+                    {% if this_user in book.users_who_like.all %}
+                    <p>This is one of your favorites!!</p>
+                    {% else %}
+                    <p><a href="/books/{{book.id}}/add_to_favorites">***Add to your Favorites</a></p>
+                    {% endif %}
                     {% endfor %}
                 </div>
             </div>

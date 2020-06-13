@@ -12,4 +12,4 @@ class Book(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(
         User, related_name="books", on_delete=models.CASCADE)
-    favorites = models.ManyToManyField(User)
+    users_who_like = models.ManyToManyField(User, related_name="liked_books")
