@@ -53,7 +53,8 @@
 
                     <!-- comments for this message -->
                     <div class="container-fluid col-11" style='background-color: lightgreen;'>
-                        {% for comment in message.comments.all %}
+                        <!-- Sort comments in reverse order, most recent first -->
+                        {% for comment in message.comments.all|dictsortreversed:"created_at" %}
                         <br>
                         <h5>{{ comment.user.first_name }} {{ comment.user.last_name }} -
                             {{ comment.created_at }}</h5>
