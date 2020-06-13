@@ -49,7 +49,7 @@ def registration(request):
     # Set a session variable to indicate that we've successfully logged in. (access to success page will require it.)
     request.session['status'] = 'success'
 
-    return redirect('/wall')
+    return redirect('/books')
 
 
 def login(request):
@@ -76,7 +76,7 @@ def login(request):
             request.session['status'] = 'success'
 
             # return redirect('login/success')
-            return redirect('/wall')
+            return redirect('/books')
 
     return redirect('/')
 
