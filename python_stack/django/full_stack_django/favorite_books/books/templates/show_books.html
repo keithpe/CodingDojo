@@ -21,13 +21,20 @@
             <div class='col col-7'>
                 <br>
                 <h3>Add a Favorite Book</h3><br>
-                <form action="new" method="post">
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                <form action="new" method="POST">
                     {% csrf_token %}
                     <label for="title">Title</label><br>
-                    <input type="text" name="title" id="title" class="col-9"><br><br>
+                    <input type="text" name="title" id="title" value="{{request.session.title}}" class="col-9"><br><br>
                     <label for="description">Description</label><br>
                     <textarea name="description" id="description" cols="60" rows="5"
-                        style='resize:none;'></textarea><br>
+                        style='resize:none;'>{{request.session.description}}</textarea><br>
                     <input type="submit" value="Add" class="btn btn-primary">
                 </form>
             </div>

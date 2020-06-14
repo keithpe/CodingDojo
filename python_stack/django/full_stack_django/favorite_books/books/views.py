@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect, HttpResponse
+from django.contrib import messages
 from login.models import *
 from books.models import *
 
 
 def show_books(request):
-    # return HttpResponse('Inside show_books method')
 
     # Get the user that is signed in, we want to check
     # which books the current user has liked/favorited
@@ -18,9 +18,6 @@ def show_books(request):
 
 
 def show_book(request, id):
-    print("inside show_book")
-    print('request', request)
-    print('request.META', request.META['HTTP_REFERER'])
 
     this_book = Book.objects.get(id=id)
     this_user = User.objects.get(id=request.session['userid'])
@@ -32,6 +29,24 @@ def show_book(request, id):
 
 def create_book(request):
 
+    # If this isn't a post request redirect to the main books route
+    if request.method == 'GET':
+        return redirect('/books')
+
+    errors = Book.objects.basic_validator(request.POST)
+
+    if errors:
+        # Loop through each key-value pair and make a flash message
+        for key, value in errors.items():
+            messages.error(request, value)
+
+            # Save form info so we can display it back in the form when we get redirected.
+            request.session['title'] = request.POST['title']
+            request.session['description'] = request.POST['description']
+
+        # redirect the user back to the form to fix the errors
+        return redirect('/books/new')
+
     # Create new book object
     new_book = Book(title=request.POST['title'],
                     description=request.POST['description'], user_id=request.session['userid'])
@@ -39,6 +54,10 @@ def create_book(request):
     # Save new book object
     new_book.save()
     new_book.users_who_like.add(new_book.user_id)
+
+    # Blank the title and description text in session, so they don't show up the next time we create a book.
+    request.session['title'] = ''
+    request.session['description'] = ''
 
     # Do we want to redirect to the edit page?
     # return redirect('/books/'+str(new_book.id)+'/edit')
