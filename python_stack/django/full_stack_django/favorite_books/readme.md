@@ -6,7 +6,7 @@
 
 Say we wanted to create a website where users can upload their favorite books and other users on the website can indicate whether that book is also one of their favorites. For the database diagram, we come up with the following, realizing that there can be more than one relationship between two tables:
 
-![Assignment Sketch](favorite_books_ERD.PNG)
+![Assignment Sketch](./images/favorite_books_ERD.PNG)
 
 Let's review the two distinct relationships between the users and books tables.
 
@@ -30,7 +30,20 @@ class Book(models.Model):
 
 This is exactly what related_name provides!
 
-![related_nameMM.png](./images/related_nameMM.PNG)
+```python
+class User(models.Model):
+   first_name = models.CharField(max_length=255)
+   last_name = models.CharField(max_length=255)
+   # liked_books = a list of books a given user likes
+   # books_uploaded = a list of books uploaded by a given user
+
+class Book(models.Model):
+   title = models.CharField(max_length=255)
+   uploaded_by = models.ForeignKey(User, related_name="books_uploaded")
+      # the user who upladed a given book
+   users_who_like = models.ManyToManyField(User, related_name="liked_books")
+      # a list of users who like a given book
+```
 
 According to this,
 
