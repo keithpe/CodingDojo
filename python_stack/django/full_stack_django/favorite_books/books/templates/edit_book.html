@@ -44,15 +44,17 @@
             <div clas='col col-6'>
                 <br>
                 <h3>Users Who Like This Book:</h3>
-                {% for user in this_book.users_who_like.all %}
-                {% if this_user.id == user.id and this_user in this_book.users_who_like.all %}
-                <p>{{user.first_name}} {{user.last_name}} <a
-                        href="/books/{{this_book.id}}/remove_from_favorites">Un-Favorite</a></p>
-                {% else %}
-                <p>{{user.first_name}} {{user.last_name}}</p>
-                {% endif %}
-                {% endfor %}
-                {% if not this_user in this_book.users_who_like.all %}
+                <ul>
+                    {% for user in this_book.users_who_like.all %}
+                    {% if this_user.id == user.id and this_user in this_book.users_who_like.all %}
+                    <li>{{user.first_name}} {{user.last_name}} <a
+                            href="/books/{{this_book.id}}/remove_from_favorites">Un-Favorite</a></li>
+                    {% else %}
+                    <li>{{user.first_name}} {{user.last_name}}</li>
+                    {% endif %}
+                    {% endfor %}
+                    {% if not this_user in this_book.users_who_like.all %}
+                </ul>
                 <p><a href="/books/{{this_book.id}}/add_to_favorites">Add to my Favorites</a></p>
                 {% endif %}
             </div>
