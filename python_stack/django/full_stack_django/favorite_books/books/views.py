@@ -33,6 +33,8 @@ def create_book(request):
     if request.method == 'GET':
         return redirect('/books')
 
+    # Get a list of the errors form basic_validation
+    # We'll use django messages to display error messages above the form
     errors = Book.objects.basic_validator(request.POST)
 
     if errors:
@@ -69,17 +71,15 @@ def create_book(request):
 def add_to_favorites(request, id):
 
     # TODO: Need to add a try/except
+
     # Get the book object for this book id
     this_book = Book.objects.get(id=id)
 
     # Add this user to the favorites for this book.
     this_book.users_who_like.add(request.session['userid'])
 
-    # TODO: Where should this return to? The SHOW BOOKS page OR the SHOW BOOK page?
-    #      User can add to favorites from the SHOW BOOKS and SHOW BOOK pages
-    #      It would be nice if it could return to the correct page. Can we go back?
+    # Use HTTP_REFERER to return to the previous page (SHOW_BOOKS or SHOW_BOOK)
     return redirect(request.META['HTTP_REFERER'])
-    # return redirect('/books/'+id)
 
 
 def remove_from_favorites(request, id):

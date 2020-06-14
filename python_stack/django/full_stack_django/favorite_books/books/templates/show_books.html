@@ -11,16 +11,23 @@
 
 <body>
     <div class='container-fluid'>
+
+        <!-- Display welcome banner at top of page -->
         <div class="row col-12 border-bottom border-dark">
             <div class='col col-11'>
                 <h2>Welcome, {{ request.session.first_name }}!</h2>
             </div>
             <a class='col col-1' href="/logout">Log Out</a>
         </div>
+
         <div class='container-fluid row'>
+
+            <!-- Add a favorite book section -->
             <div class='col col-7'>
                 <br>
                 <h3>Add a Favorite Book</h3><br>
+
+                <!-- Display any validation errors here in the messages -->
                 {% if messages %}
                 <ul class="messages">
                     {% for message in messages %}
@@ -28,6 +35,8 @@
                     {% endfor %}
                 </ul>
                 {% endif %}
+
+                <!-- Form for adding a new favorite book -->
                 <form action="new" method="POST">
                     {% csrf_token %}
                     <label for="title">Title</label><br>
@@ -38,11 +47,14 @@
                     <input type="submit" value="Add" class="btn btn-primary">
                 </form>
             </div>
+
+            <!-- List of ALL the books added -->
             <div class='col col-5'>
                 <br>
                 <h3>All Books</h3>
                 <div>
                     {% for book in all_books %}
+
                     <!-- If this user created this book allow them to edit or delete it, otherwise they can only view it -->
                     {% if request.session.userid == book.user_id %}
                     <p style="height: 1px"><a href="/books/{{book.id}}/edit">{{ book.title }}</a></p>

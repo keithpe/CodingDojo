@@ -11,13 +11,16 @@
 
 <body>
     <div class='container-fluid'>
+
+        <!-- Display welcome banner at top of page -->
         <div class="row col-12 border-bottom border-dark">
             <div class='col col-10'>
                 <h2>Welcome, {{ request.session.first_name }}!</h2>
             </div>
-            <!-- <a class='col col-1' href="">Log Out</a> -->
             <p class='col col-2'><a href="/books">Home</a> | <a href="/logout">Log Out</a></p>
         </div>
+
+        <!-- Display book info to users who did not post this book -->
         <div class='container-fluid row'>
             <div class='col col-6'>
                 <br>
@@ -28,6 +31,8 @@
                 <p><strong>Description:</strong></p>
                 <p>{{this_book.description}}</p>
             </div>
+
+            <!-- Display list of users who like/favorited this book -->
             <div clas='col col-6'>
                 <br>
                 <h3>Users Who Like This Book:</h3>
