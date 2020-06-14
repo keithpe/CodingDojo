@@ -18,7 +18,7 @@
             <a class='col col-1' href="/logout">Log Out</a>
         </div>
         <div class='container-fluid row'>
-            <div class='col col-6'>
+            <div class='col col-7'>
                 <br>
                 <h3>Add a Favorite Book</h3><br>
                 <form action="new" method="post">
@@ -31,17 +31,22 @@
                     <input type="submit" value="Add" class="btn btn-primary">
                 </form>
             </div>
-            <div clas='col col-6'>
+            <div class='col col-5'>
                 <br>
                 <h3>All Books</h3>
                 <div>
                     {% for book in all_books %}
+                    <!-- If this user created this book allow them to edit or delete it, otherwise they can only view it -->
+                    {% if request.session.userid == book.user_id %}
                     <p style="height: 1px"><a href="/books/{{book.id}}/edit">{{ book.title }}</a></p>
+                    {% else %}
+                    <p style="height: 1px"><a href="/books/{{book.id}}">{{ book.title }}</a></p>
+                    {% endif %}
                     <p style="height: 1px">(Added by {{ book.user.first_name }} {{ book.user.last_name }})</p>
                     {% if this_user in book.users_who_like.all %}
                     <p>This is one of your favorites!!</p>
                     {% else %}
-                    <p><a href="/books/{{book.id}}/add_to_favorites">***Add to your Favorites</a></p>
+                    <p><a href="/books/{{book.id}}/add_to_favorites">Add to your Favorites</a></p>
                     {% endif %}
                     {% endfor %}
                 </div>

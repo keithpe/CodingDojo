@@ -16,28 +16,39 @@
                 <h2>Welcome, {{ request.session.first_name }}!</h2>
             </div>
             <p class='col col-2'><a href="/books">Home</a> | <a href="/logout">Log Out</a></p>
-            <!-- <a class='col col-1' href="">Home</a> | <a class='col col-1' href="">Log Out</a> -->
         </div>
         <div class='container-fluid row'>
             <div class='col col-6'>
                 <br>
-                <h3>{{ this_book.title }}</h3><br>
-                <p>Added by: {{ this_book.user.first_name }} {{ this_book.user.last_name }}</p>
-                <p>Added On: {{ this_book.created_at }}</p>
-                <p>Last Updated on: {{ this_book.updated_at }}</p>
-                <p>Description:</p>
-                <form action="books/1/edit" method="post">
-                    <textarea name="" id="" cols="30" rows="10"
+                <form action="/books/{{this_book.id}}/update" method="post">
+                    {% csrf_token %}
+                    <label for="title">Title:</label>
+                    <input class="col-8" type="text" name="title" id="title" value="{{this_book.title}}">
+                    <p>Added by: {{ this_book.user.first_name }} {{ this_book.user.last_name }}</p>
+                    <p>Added On: {{ this_book.created_at }}</p>
+                    <p>Last Updated on: {{ this_book.updated_at }}</p>
+                    <p>Description:</p>
+                    <textarea name="description" id="description" cols="50" rows="10"
                         style="resize: none;">{{ this_book.description }}</textarea><br>
                     <input class="btn btn-primary" type="submit" value="Update">
-                    <button class="btn btn-danger">Delete</button>
+                    <input formaction="/books/{{this_book.id}}/delete" class="btn btn-danger" type="submit"
+                        value="Delete">
                 </form>
             </div>
             <div clas='col col-6'>
                 <br>
                 <h3>Users Who Like This Book:</h3>
-                <p>User One <a href=''>Un-Favorite (if this is current user)</a></p>
-                <p>User Two</p><br>
+                {% for user in this_book.users_who_like.all %}
+                {% if this_user.id == user.id and this_user in this_book.users_who_like.all %}
+                <p>{{user.first_name}} {{user.last_name}} <a
+                        href="/books/{{this_book.id}}/remove_from_favorites">Un-Favorite</a></p>
+                {% else %}
+                <p>{{user.first_name}} {{user.last_name}}</p>
+                {% endif %}
+                {% endfor %}
+                {% if not this_user in this_book.users_who_like.all %}
+                <p><a href="/books/{{this_book.id}}/add_to_favorites">Add to my Favorites</a></p>
+                {% endif %}
             </div>
         </div>
     </div>
