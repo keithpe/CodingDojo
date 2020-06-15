@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <title>Dojo Reads</title>
+</head>
+
+<body>
+    <div class='container-fluid'>
+        <br>
+
+        <!-- Display welcome banner with user name and links to add book review AND logout -->
+        <div class='row col col-12 border-dark border-bottom'>
+            <h2 class='col-lg-10'>Welcome, NAME_HERE!</h2>
+            <div class='col-lg-2'>
+                <a href="/books">Home</a> |
+                <a href="/logout"> Logout</a>
+            </div>
+        </div><br><br>
+
+        <div class='row col col-12'>
+            <!-- Add a new Book Title and a Review -->
+            <div class='col col-6'>
+                <h3>Add a new Book Title and a Review:</h3>
+                <div class='col col-11'>
+                    <form action="create" method="post">
+                        {% csrf_token %}
+                        <label for="title">Book Title:</label>
+                        <input type="text" name="title" id="title">
+                        <br><br>
+                        <input type="submit" value="Add Book and Review" class="btn btn-primary">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
