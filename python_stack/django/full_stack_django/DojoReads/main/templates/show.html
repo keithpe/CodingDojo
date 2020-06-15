@@ -15,7 +15,7 @@
 
         <!-- Display welcome banner with user name and links to add book review AND logout -->
         <div class='row col col-12 border-dark border-bottom'>
-            <h2 class='col-lg-10'>Welcome, NAME_HERE!</h2>
+            <h2 class='col-lg-10'>Welcome, {{request.session.first_name}}!</h2>
             <div class='col-lg-2'>
                 <a href="/books">Home</a> |
                 <a href="/logout"> Logout</a>
@@ -25,22 +25,36 @@
         <div class='row col col-12'>
             <!-- Display list of recent book reviews (top 5?) -->
             <div class='col col-6'>
-                <h3>BOOK TITLE HERE:</h3>
-                <h4>Author: AUTHOR NAME HERE</h4>
-                <h3>Reviews:</h3>
+                <h3>{{this_book.title}}</h3>
+                <h4>Author: {{this_book.author.name}}</h4><br>
+                <h3 class="border-bottom border-dark">Reviews:</h3>
                 <div class='col col-11'>
-                    <p>RATING: STARS DISPLAY HERE</p>
-                    <p>USER NAME AND REVIEW HERE</p>
-                    <p>Posted On: POSTED DATE HERE | <a href="">Delete this Review - If review created by user</a></p>
+                    <!-- for review in this_book_reviews -->
+                    {% for review in this_book_reviews %}
+                    <p style="height: 10px;">Rating:{{review.rating}}</p>
+                    <p style="height: 10px"><a href="">{{review.user.first_name}}</a> says: <em>{{ review.text}}</em>
+                    </p>
+                    <p style="height: 1px;"><em>Posted on {{review.created_at}}</em></p>
+                    {% endfor %}
                 </div>
             </div>
 
             <!-- Display full list of other books with review -->
             <div class='col col-6'>
                 <h3>Add a Review:</h3>
-                <form action="">
-                    <p>REVIEW TEXT GOES HERE</p>
-
+                <form action="create_review/{{this_book.id}}" method="post">
+                    {% csrf_token %}
+                    <label for="review">Add a Review:</label><br>
+                    <textarea name="review" id="review" cols="30" rows="10" style='resize: none'
+                        placeholder="Enter your review"></textarea><br><br>
+                    <label for="rating">Rating:</label>
+                    <select name="rating" id="rating">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select> <span>stars</span><br><br>
                     <input type="submit" value="Submit Review" class="btn btn-primary">
                 </form>
 

@@ -15,7 +15,7 @@
 
         <!-- Display welcome banner with user name and links to add book review AND logout -->
         <div class='row col col-12 border-dark border-bottom'>
-            <h2 class='col-lg-9'>Welcome, NAME_HERE!</h2>
+            <h2 class='col-lg-9'>Welcome, {{request.session.first_name}}!</h2>
             <div class='col-lg-3'>
                 <a href="/books/new">Add Book and Review </a> |
                 <a href="/logout"> Logout</a>
@@ -26,26 +26,28 @@
             <!-- Display list of recent book reviews (top 5?) -->
             <div class='col col-6'>
                 <h3>Recent Book Reviews:</h3>
-                <div class='col col-11'>
-                    <p>RECENT BOOK NAMES GO HERE sdf sdf sdfjlksj sdflskj sdi d ljksd sdlkj sdfsl fsl ksdfsf sdsf</p>
-                    <p>RECENT BOOK NAMES GO HERE sdf sdf sdfjlksj sdflskj sdi d ljksd sdlkj sdfsl fsl ksdfsf sdsf</p>
-                    <p>RECENT BOOK NAMES GO HERE sdf sdf sdfjlksj sdflskj sdi d ljksd sdlkj sdfsl fsl ksdfsf sdsf</p>
-                    <p>RECENT BOOK NAMES GO HERE sdf sdf sdfjlksj sdflskj sdi d ljksd sdlkj sdfsl fsl ksdfsf sdsf</p>
-                    <p>RECENT BOOK NAMES GO HERE sdf sdf sdfjlksj sdflskj sdi d ljksd sdlkj sdfsl fsl ksdfsf sdsf</p>
+                <div class='col col-12'>
+
+                    <!-- Use slice template filter to only display first 3 reviews -->
+                    {% for review in all_reviews|slice:":3" %}
+                    <p style="height: 1px;"><a href="/books/{{review.book.id}}">{{review.book.title}}</a></p>
+                    <p class="col-11" style="height: 10px;">Rating: {{review.rating}}</p>
+                    <p class="col-11" style="height: 10px;"><a href="">{{review.user.first_name}}</a> says:
+                        {{review.text}}</p>
+                    <em>
+                        <p class="col-11" style="height: 1px;">Posted on: {{ review.created_at}}</p>
+                    </em><br>
+                    {% endfor %}
                 </div>
             </div>
 
             <!-- Display full list of other books with review -->
             <div class='col col-6'>
                 <h3>Other Books with Reviews:</h3>
-                <div class='col col-11'>
-                    <p>OTHER BOOKS WITH REVIEWS GO HERE: sdfjlksj sdflskj sdf dfdkj ds lsjsdfsd lsfj sdfs f</p>
-                    <p>OTHER BOOKS WITH REVIEWS GO HERE: sdfjlksj sdflskj sdf dfdkj ds lsjsdfsd lsfj sdfs f</p>
-                    <p>OTHER BOOKS WITH REVIEWS GO HERE: sdfjlksj sdflskj sdf dfdkj ds lsjsdfsd lsfj sdfs f</p>
-                    <p>OTHER BOOKS WITH REVIEWS GO HERE: sdfjlksj sdflskj sdf dfdkj ds lsjsdfsd lsfj sdfs f</p>
-                    <p>OTHER BOOKS WITH REVIEWS GO HERE: sdfjlksj sdflskj sdf dfdkj ds lsjsdfsd lsfj sdfs f</p>
-                    <p>OTHER BOOKS WITH REVIEWS GO HERE: sdfjlksj sdflskj sdf dfdkj ds lsjsdfsd lsfj sdfs f</p>
-                    <p>OTHER BOOKS WITH REVIEWS GO HERE: sdfjlksj sdflskj sdf dfdkj ds lsjsdfsd lsfj sdfs f</p>
+                <div class='col col-11' style="height: 250px; overflow-y: auto;">
+                    {% for book in all_books%}
+                    <p style="height: 1px;"><a href="/books/{{book.id}}">{{book.title}}</a></p>
+                    {% endfor %}
                 </div>
 
             </div>

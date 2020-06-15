@@ -5,5 +5,6 @@ urlpatterns = [
     path('', views.index),
     path('new', views.new),
     path('create', views.create),
+    path('create_review/<id>', views.create_review),
     path('<id>', views.show),
 ]
