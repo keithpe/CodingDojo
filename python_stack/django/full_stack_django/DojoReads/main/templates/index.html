@@ -5,15 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
-    <link rel="stylesheet" href="{% static % 'css/bootstrap.css'}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <title>Dojo Reads</title>
 </head>
 
 <body>
-    <div class='container'>
-        <h2>Welcome, NAME_HERE!</h2>
-        <a href="">Add Book and Review | </a>
-        <a href="/logout">Logout</a>
+    <div class='container-fluid'>
+        <br>
+
+        <!-- Display welcome banner with user name and links to add book review AND logout -->
+        <div class='row col col-12 border-dark border-bottom'>
+            <h2 class='col-lg-9'>Welcome, NAME_HERE!</h2>
+            <div class='col-lg-3'>
+                <a href="">Add Book and Review </a> |
+                <a href="/logout"> Logout</a>
+            </div>
+        </div><br><br>
+
+        <div class='row col col-12'>
+            <!-- Display list of recent book reviews (top 5?) -->
+            <div class='col col-6'>
+                <h3>Recent Book Reviews:</h3>
+                <div class='col col-11'>
+                    <p>RECENT BOOK NAMES GO HERE sdf sdf sdfjlksj sdflskj sdi d ljksd sdlkj sdfsl fsl ksdfsf sdsf</p>
+                    <p>RECENT BOOK NAMES GO HERE sdf sdf sdfjlksj sdflskj sdi d ljksd sdlkj sdfsl fsl ksdfsf sdsf</p>
+                    <p>RECENT BOOK NAMES GO HERE sdf sdf sdfjlksj sdflskj sdi d ljksd sdlkj sdfsl fsl ksdfsf sdsf</p>
+                    <p>RECENT BOOK NAMES GO HERE sdf sdf sdfjlksj sdflskj sdi d ljksd sdlkj sdfsl fsl ksdfsf sdsf</p>
+                    <p>RECENT BOOK NAMES GO HERE sdf sdf sdfjlksj sdflskj sdi d ljksd sdlkj sdfsl fsl ksdfsf sdsf</p>
+                </div>
+            </div>
+
+            <!-- Display full list of other books with review -->
+            <div class='col col-6'>
+                <h3>Other Books with Reviews:</h3>
+                <div class='col col-11'>
+                    <p>OTHER BOOKS WITH REVIEWS GO HERE: sdfjlksj sdflskj sdf dfdkj ds lsjsdfsd lsfj sdfs f</p>
+                    <p>OTHER BOOKS WITH REVIEWS GO HERE: sdfjlksj sdflskj sdf dfdkj ds lsjsdfsd lsfj sdfs f</p>
+                    <p>OTHER BOOKS WITH REVIEWS GO HERE: sdfjlksj sdflskj sdf dfdkj ds lsjsdfsd lsfj sdfs f</p>
+                    <p>OTHER BOOKS WITH REVIEWS GO HERE: sdfjlksj sdflskj sdf dfdkj ds lsjsdfsd lsfj sdfs f</p>
+                    <p>OTHER BOOKS WITH REVIEWS GO HERE: sdfjlksj sdflskj sdf dfdkj ds lsjsdfsd lsfj sdfs f</p>
+                    <p>OTHER BOOKS WITH REVIEWS GO HERE: sdfjlksj sdflskj sdf dfdkj ds lsjsdfsd lsfj sdfs f</p>
+                    <p>OTHER BOOKS WITH REVIEWS GO HERE: sdfjlksj sdflskj sdf dfdkj ds lsjsdfsd lsfj sdfs f</p>
+                </div>
+
+            </div>
+        </div>
+
+
     </div>
 
 </body>
