@@ -32,7 +32,8 @@
                     {% for review in all_reviews|slice:":3" %}
                     <p style="height: 1px;"><a href="/books/{{review.book.id}}">{{review.book.title}}</a></p>
                     <p class="col-11" style="height: 10px;">Rating: {{review.rating}}</p>
-                    <p class="col-11" style="height: 10px;"><a href="">{{review.user.first_name}}</a> says:
+                    <p class="col-11" style="height: 10px;"><a
+                            href="/books/user/{{review.user.id}}">{{review.user.first_name}}</a> says:
                         {{review.text}}</p>
                     <em>
                         <p class="col-11" style="height: 1px;">Posted on: {{ review.created_at}}</p>

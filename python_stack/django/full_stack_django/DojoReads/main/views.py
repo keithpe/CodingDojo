@@ -85,3 +85,15 @@ def create_review(request, id):
     new_review.save()
 
     return redirect('/books/'+str(this_book.id))
+
+
+def show_user(request, id):
+    # Show current user information and list all book reviews
+    this_user = User.objects.get(id=id)
+    this_user_reviews = Review.objects.filter(user=this_user)
+
+    print('***this_user.first_name', this_user.first_name)
+    context = {'this_user': this_user,
+               'this_user_reviews': this_user_reviews}
+
+    return render(request, 'user_page.html', context)

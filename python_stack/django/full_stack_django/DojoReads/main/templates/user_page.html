@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <title>Dojo Reads</title>
+</head>
+
+<body>
+    <div class='container-fluid'>
+        <br>
+
+        <!-- Display welcome banner with user name and links to add book review AND logout -->
+        <div class='row col col-12 border-dark border-bottom'>
+            <h2 class='col-lg-9'>Welcome, {{request.session.first_name}}!</h2>
+            <div class='col-lg-3'>
+                <a href="/books">Home</a> |
+                <a href="/books/new">Add Book and Review</a> |
+                <a href="/logout"> Logout</a>
+            </div>
+        </div><br><br>
+
+        <!-- Display Information for this user -->
+        <div>
+            <h4>User Alias: TODO: Add alias to user table</h4>
+            <h4>Name: {{this_user.first_name}} {{this_user.last_name}}</h4>
+            <h4>Email: {{this_user.email}}</h4>
+            <h4>Total Reviews: {{this_user_reviews.count}}</h4>
+        </div>
+
+        <!-- Display all the reviews this user has created -->
+        <br>
+        <h4 class='border-bottom border-dark'>Posted Reviews on the following books</h4>
+        <br>
+        <div class="col-6">
+            {% for review in this_user_reviews %}
+            <p style="height: 10px;"><a href="/books/{{review.book.id}}">{{review.book.title}}</a></p>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+
+</html>
