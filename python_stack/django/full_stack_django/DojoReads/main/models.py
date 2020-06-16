@@ -49,8 +49,6 @@ class Book(models.Model):
         Author, related_name="books_written", on_delete=models.CASCADE)
     user = models.ForeignKey(
         User, related_name="books_uploaded", on_delete=models.CASCADE)
-    # users_who_like = models.ManyToManyField(User, related_name="liked_books")
-    # reviews = models.OneToManyField(Review, related_name="reviewed_books")
     objects = BookManager()
 
 
