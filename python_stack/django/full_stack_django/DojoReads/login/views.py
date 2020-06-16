@@ -23,6 +23,7 @@ def registration(request):
             # Save form info so we can display it back in the form when we get redirected.
             request.session['first_name'] = request.POST['first_name']
             request.session['last_name'] = request.POST['last_name']
+            request.session['alias_name'] = request.POST['alias_name']
             request.session['email'] = request.POST['email']
             request.session['birthday'] = request.POST['birthday']
 
@@ -36,7 +37,7 @@ def registration(request):
 
     # Create the user record for this new user,
     this_user = User(first_name=request.POST['first_name'],
-                     last_name=request.POST['last_name'], email=request.POST['email'], password=pw_hash, birthday=request.POST['birthday'])
+                     last_name=request.POST['last_name'], alias_name=request.POST['alias_name'], email=request.POST['email'], password=pw_hash, birthday=request.POST['birthday'])
 
     # And save it.
     this_user.save()
@@ -45,6 +46,7 @@ def registration(request):
     request.session['userid'] = this_user.id
     request.session['first_name'] = this_user.first_name
     request.session['last_name'] = this_user.last_name
+    request.session['alias_name'] = this_user.alias_name
 
     # Set a session variable to indicate that we've successfully logged in. (access to success page will require it.)
     request.session['status'] = 'success'
@@ -72,6 +74,7 @@ def login(request):
             request.session['userid'] = logged_user.id
             request.session['first_name'] = logged_user.first_name
             request.session['last_name'] = logged_user.last_name
+            request.session['alias_name'] = logged_user.alias_name
 
             # Set a session variable to indicate that we've successfully logged in. (access to success page will require it.)
             request.session['status'] = 'success'

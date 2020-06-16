@@ -32,7 +32,8 @@
                     <!-- for review in this_book_reviews -->
                     {% for review in this_book_reviews %}
                     <p style="height: 10px;">Rating:{{review.rating}}</p>
-                    <p style="height: 10px"><a href="">{{review.user.first_name}}</a> says: <em>{{ review.text}}</em>
+                    <p style="height: 10px"><a href="/books/user/{{review.user.id}}">{{review.user.first_name}}</a>
+                        says: <em>{{ review.text}}</em>
                     </p>
                     <p style="height: 1px;"><em>Posted on {{review.created_at}}</em></p>
                     <br>
