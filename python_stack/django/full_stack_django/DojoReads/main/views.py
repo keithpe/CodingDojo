@@ -97,3 +97,10 @@ def show_user(request, id):
                'this_user_reviews': this_user_reviews}
 
     return render(request, 'user_page.html', context)
+
+
+def delete_review(request, id):
+    this_review = Review.objects.get(id=id)
+    this_book_id = this_review.book.id
+    this_review.delete()
+    return redirect('/books/'+str(this_book_id))

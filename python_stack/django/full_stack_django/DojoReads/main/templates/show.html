@@ -36,6 +36,9 @@
                         says: <em>{{ review.text}}</em>
                     </p>
                     <p style="height: 1px;"><em>Posted on {{review.created_at}}</em></p>
+                    {% if request.session.userid == review.user_id %}
+                    <p><a href="/books/review/{{review.id}}/delete">Delete this post</a></p>
+                    {% endif %}
                     <br>
                     {% endfor %}
                 </div>
