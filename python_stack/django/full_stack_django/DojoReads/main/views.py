@@ -4,7 +4,8 @@ from main.models import Book, Review, Author
 
 
 def index(request):
-    all_reviews = Review.objects.all()
+    # Sort newest to oldest. We want to display the most recent in index.html
+    all_reviews = Review.objects.order_by('-created_at').all()
     all_books = Book.objects.all()
     context = {'all_reviews': all_reviews,
                'all_books': all_books}
