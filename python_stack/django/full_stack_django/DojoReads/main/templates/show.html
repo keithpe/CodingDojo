@@ -31,7 +31,24 @@
                 <div class='col col-11'>
                     <!-- for review in this_book_reviews -->
                     {% for review in this_book_reviews %}
-                    <p class="m-0">Rating:{{review.rating}}</p>
+                    <div>
+                        {% load static %}
+                        {% if review.rating == 1%}
+                        <span>Rating: </span><img height="15px" src="{% static 'images/1star.jpeg' %}" alt="My image">
+                        {% endif %}
+                        {% if review.rating == 2%}
+                        <span>Rating: </span><img height="15px" src="{% static 'images/2stars.jpeg' %}" alt="My image">
+                        {% endif %}
+                        {% if review.rating == 3%}
+                        <span>Rating: </span><img height="15px" src="{% static 'images/3stars.jpeg' %}" alt="My image">
+                        {% endif %}
+                        {% if review.rating == 4%}
+                        <span>Rating: </span><img height="15px" src="{% static 'images/4stars.jpeg' %}" alt="My image">
+                        {% endif %}
+                        {% if review.rating == 5%}
+                        <span>Rating: </span><img height="15px" src="{% static 'images/5stars.jpeg' %}" alt="My image">
+                        {% endif %}
+                    </div>
                     <p class="m-0"><a href="/books/user/{{review.user.id}}">{{review.user.first_name}}</a>
                         says: <em>{{ review.text}}</em>
                     </p>

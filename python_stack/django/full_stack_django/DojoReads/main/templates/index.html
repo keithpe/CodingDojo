@@ -31,7 +31,24 @@
                     <!-- Use slice template filter to only display first 3 reviews -->
                     {% for review in all_reviews|slice:":3" %}
                     <p class="m-1"><a href="/books/{{review.book.id}}">{{review.book.title}}</a></p>
-                    <p class="col-11 m-0">Rating: {{review.rating}}</p>
+                    <div class='col-11'>
+                        {% load static %}
+                        {% if review.rating == 1%}
+                        <span>Rating: </span><img height="15px" src="{% static 'images/1star.jpeg' %}" alt="My image">
+                        {% endif %}
+                        {% if review.rating == 2%}
+                        <span>Rating: </span><img height="15px" src="{% static 'images/2stars.jpeg' %}" alt="My image">
+                        {% endif %}
+                        {% if review.rating == 3%}
+                        <span>Rating: </span><img height="15px" src="{% static 'images/3stars.jpeg' %}" alt="My image">
+                        {% endif %}
+                        {% if review.rating == 4%}
+                        <span>Rating: </span><img height="15px" src="{% static 'images/4stars.jpeg' %}" alt="My image">
+                        {% endif %}
+                        {% if review.rating == 5%}
+                        <span>Rating: </span><img height="15px" src="{% static 'images/5stars.jpeg' %}" alt="My image">
+                        {% endif %}
+                    </div>
                     <p class="col-11 m-0"><a href="/books/user/{{review.user.id}}">{{review.user.first_name}}</a> says:
                         {{review.text}}</p>
                     <em>
