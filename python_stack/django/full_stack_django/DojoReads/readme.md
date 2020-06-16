@@ -28,4 +28,8 @@ After you complete the belt reviewer above, we strongly encourage that you talk 
 
 ### My finished project:
 
-![My finished App Registration](./images/my_finished_project_login.png)
+![My finished app registration](./images/registration.png)
+![My finished app recent reviews](./images/recent_reviews.png)
+![My finished app add book and review](./images/add_book_and_review.png)
+![My finished app show book](./images/show_book.png)
+![My finished app reviews by user](./images/reviews_by_user.png)

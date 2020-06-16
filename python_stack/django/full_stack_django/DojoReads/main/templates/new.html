@@ -15,24 +15,24 @@
 
         <!-- Display welcome banner with user name and links to add book review AND logout -->
         <div class='row col col-12 border-dark border-bottom'>
-            <h2 class='col-lg-10'>Welcome, NAME_HERE!</h2>
+            <h2 class='col-lg-10'>Welcome, {{request.session.first_name}}!</h2>
             <div class='col-lg-2'>
                 <a href="/books">Home</a> |
                 <a href="/logout"> Logout</a>
             </div>
-        </div><br><br>
+        </div><br>
 
         <div class='row col col-12'>
             <!-- Add a new Book Title and a Review -->
             <div class='col col-6'>
-                <h3>Add a new Book Title and a Review:</h3>
+                <h4>Add a new Book Title and a Review:</h4><br>
                 <div class='col col-11'>
                     <form action="create" method="post">
                         {% csrf_token %}
-                        <label for="title">Book Title:</label>
+                        <label for="title"><strong>Book Title:</strong></label>
                         <input type="text" name="title" id="title">
-                        <br><br>
-                        <p>Author:</p>
+                        <br>
+                        <p><strong>Author:</strong></p>
                         <label for="author_list">Choose from the list: </label>
                         <select name="author_list" id="author_list" class="col-4">
                             {% for author in all_authors %}
