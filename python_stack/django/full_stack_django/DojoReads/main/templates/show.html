@@ -31,11 +31,11 @@
                 <div class='col col-11'>
                     <!-- for review in this_book_reviews -->
                     {% for review in this_book_reviews %}
-                    <p style="height: 10px;">Rating:{{review.rating}}</p>
-                    <p style="height: 10px"><a href="/books/user/{{review.user.id}}">{{review.user.first_name}}</a>
+                    <p class="m-0">Rating:{{review.rating}}</p>
+                    <p class="m-0"><a href="/books/user/{{review.user.id}}">{{review.user.first_name}}</a>
                         says: <em>{{ review.text}}</em>
                     </p>
-                    <p style="height: 1px;"><em>Posted on {{review.created_at}}</em></p>
+                    <p class="m-0"><em>Posted on {{review.created_at}}</em></p>
                     {% if request.session.userid == review.user_id %}
                     <p><a href="/books/review/{{review.id}}/delete">Delete this post</a></p>
                     {% endif %}
