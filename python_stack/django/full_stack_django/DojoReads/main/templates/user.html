@@ -15,8 +15,8 @@
 
         <!-- Display welcome banner with user name and links to add book review AND logout -->
         <div class='row col col-12 border-dark border-bottom'>
-            <h2 class='col-lg-8'>Welcome, {{request.session.first_name}}!</h2>
-            <div class='col-lg-4'>
+            <h2 class='col-lg-9'>Welcome, {{request.session.first_name}}!</h2>
+            <div class='col-lg-3'>
                 <a href="/books">Home</a> |
                 <a href="/books/new">Add Book and Review</a> |
                 <a href="/logout"> Logout</a>
@@ -24,16 +24,16 @@
         </div><br><br>
 
         <!-- Display Information for this user -->
-        <div>
-            <h4>User Alias: {{this_user.alias_name}}</h4>
-            <h4>Name: {{this_user.first_name}} {{this_user.last_name}}</h4>
-            <h4>Email: {{this_user.email}}</h4>
-            <h4>Total Reviews: {{this_user_reviews.count}}</h4>
+        <div class='col-11'>
+            <h4>User Alias: {{this_user.alias_name}}</h4><br>
+            <p>Name: <strong>{{this_user.first_name}} {{this_user.last_name}}</strong></p>
+            <p>Email: <strong>{{this_user.email}}</strong></p>
+            <p>Total Reviews: <strong>{{this_user_reviews.count}}</strong></p>
         </div>
 
         <!-- Display all the reviews this user has created -->
         <br>
-        <h4 class='border-bottom border-dark'>Posted Reviews on the following books</h4>
+        <h4 class='border-bottom border-dark'>{{this_user.first_name}} posted Reviews on the following books</h4>
         <br>
         <div class="col-6">
             {% for review in this_user_reviews %}

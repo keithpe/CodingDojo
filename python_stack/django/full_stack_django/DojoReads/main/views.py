@@ -97,7 +97,7 @@ def show_user(request, id):
     context = {'this_user': this_user,
                'this_user_reviews': this_user_reviews}
 
-    return render(request, 'user_page.html', context)
+    return render(request, 'user.html', context)
 
 
 def delete_review(request, id):
