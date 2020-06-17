@@ -64,10 +64,9 @@
             <!-- Display full list of other books with review -->
             <div class='col col-6'>
                 <h3>Add a Review:</h3>
-                <form action="create_review/{{this_book.id}}" method="post">
+                <form action="/books/{{this_book.id}}/review/create" method="post">
                     {% csrf_token %}
-                    <label for="review">Add a Review:</label><br>
-                    <textarea name="review" id="review" cols="30" rows="10" style='resize: none'
+                    <textarea name="review" id="review" cols="60" rows="10" style='resize: none'
                         placeholder="Enter your review"></textarea><br><br>
                     <label for="rating">Rating:</label>
                     <select name="rating" id="rating">
