@@ -60,6 +60,14 @@ def create(request):
     return redirect('/books/'+str(new_book.id))
 
 
+def delete_book(request, id):
+
+    # Get a book object for the book the user wants to delete
+    this_book = Book.objects.get(id=id)
+    this_book.delete()
+    return redirect('/books')
+
+
 def show(request, id):
     # Show current book and review
     this_book = Book.objects.get(id=id)

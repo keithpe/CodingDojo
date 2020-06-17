@@ -12,15 +12,18 @@ urlpatterns = [
     path('create', views.create),
 
     # Create a review (for existing book - from show book page)
-    path('<id>/review/create', views.create_review),
+    path('<int:id>/review/create', views.create_review),
 
     # Show a book
-    path('<id>', views.show),
+    path('<int:id>', views.show),
+
+    # Delete a book
+    path('<int:id>/delete', views.delete_book),
 
     # show a user
-    path('user/<id>', views.show_user),
+    path('user/<int:id>', views.show_user),
 
     # delete a review
-    path('review/<id>/delete', views.delete_review),
+    path('review/<int:id>/delete', views.delete_review),
 
 ]
