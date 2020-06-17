@@ -13,15 +13,16 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
+                <h2>Registration</h2><br>
                 {% if messages %}
                 <ul class="messages">
                     {% for message in messages %}
-                    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    <li class='text-danger' {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}
+                    </li>
                     {% endfor %}
                 </ul>
                 {% endif %}
                 <br>
-                <h2>Registration</h2><br>
                 <form action="registration" method="POST">
                     {% csrf_token %}
                     <label class="col-lg-3" for="first_name">First Name</label>
