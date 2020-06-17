@@ -58,6 +58,6 @@ class Review(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(
-        User, related_name="books_reviewed_by", on_delete=models.CASCADE)
+        User, related_name="has_reviews", on_delete=models.CASCADE)
     book = models.ForeignKey(
-        Book, related_name="reviews_for_this_book", on_delete=models.CASCADE)
+        Book, related_name="has_reviews", on_delete=models.CASCADE)

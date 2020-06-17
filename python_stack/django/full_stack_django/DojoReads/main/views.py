@@ -71,7 +71,7 @@ def delete_book(request, id):
 def show(request, id):
     # Show current book and review
     this_book = Book.objects.get(id=id)
-    this_book_reviews = this_book.reviews_for_this_book.all()
+    this_book_reviews = this_book.has_reviews.all()
 
     # Store this book and it's reivews into context so we can pass it to show.html
     context = {'this_book_reviews': this_book_reviews,
@@ -101,7 +101,7 @@ def create_review(request, id):
 def show_user(request, id):
     # Show current user information and list all book reviews
     this_user = User.objects.get(id=id)
-    this_user_reviews = this_user.books_reviewed_by.all()
+    this_user_reviews = this_user.has_reviews.all()
 
     context = {'this_user': this_user,
                'this_user_reviews': this_user_reviews}
