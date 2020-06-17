@@ -30,22 +30,23 @@
                     <form action="create" method="post">
                         {% csrf_token %}
                         <label for="title"><strong>Book Title:</strong></label>
-                        <input type="text" name="title" id="title">
+                        <input class='col-8' type="text" name="title" id="title">
                         <br>
                         <p><strong>Author:</strong></p>
                         <label for="author_list">Choose from the list: </label>
-                        <select name="author_list" id="author_list" class="col-4">
+                        <select class='col-6' name="author_list" id="author_list" class="col-4">
                             {% for author in all_authors %}
                             <option value="{{author.id}}">{{author.name}}</option>
                             {% endfor %}
                         </select>
                         <br>
                         <label for="author_name">Or add a new Author:</label>
-                        <input type="text" name="author_name" id="author_name">
+                        <input class='col-8' type="text" name="author_name" id="author_name">
                         <br><br>
                         <label for="review">Review:</label>
                         <br>
-                        <textarea name="review" id="review" cols="30" rows="10" style="resize: none;"></textarea>
+                        <textarea name="review" id="review" cols="70" rows="10" style="resize: none;"
+                            placeholder="Enter your review"></textarea>
                         <br><br>
                         <label for="rating">Rating:</label>
                         <select name="rating" id="rating">
