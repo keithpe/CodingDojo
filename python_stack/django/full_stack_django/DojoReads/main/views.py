@@ -71,7 +71,7 @@ def delete_book(request, id):
 def show(request, id):
     # Show current book and review
     this_book = Book.objects.get(id=id)
-    this_book_reviews = this_book.has_reviews.all()
+    this_book_reviews = this_book.has_reviews.order_by('-created_at').all()
 
     # Store this book and it's reivews into context so we can pass it to show.html
     context = {'this_book_reviews': this_book_reviews,
