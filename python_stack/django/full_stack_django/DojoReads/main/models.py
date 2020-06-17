@@ -11,11 +11,8 @@ class AuthorManager(models.Manager):
 
         errors = {}
 
-        if len(postData['first_name']) == 0:
-            errors['first_name'] = 'Author first name cannot be empty'
-
-        if len(postData['last_name']) == 0:
-            errors['last_name'] = 'Author last name cannot be empty'
+        if len(postData['name']) == 0:
+            errors['name'] = 'Author name cannot be empty'
 
         return errors
 
