@@ -57,6 +57,19 @@
                         </tr>
                     </tbody>
                     {% endfor %}
+                    {% for trip in this_users_trips_joined %}
+                    <tbody>
+                        <tr>
+                            <th scope="row">{{trip.id}}</th>
+                            <td><a href="/trips/{{trip.id}}">{{trip.destination}}</a></td>
+                            <td>{{trip.start_date}}</td>
+                            <td>{{trip.end_date}}</td>
+                            <td>{{trip.plan}}</td>
+                            <td><a href="/trips/{{trip.id}}/delete">Cancel</a>
+                        </tr>
+                    </tbody>
+                    {% endfor %}
+
                 </table>
             </div>
 

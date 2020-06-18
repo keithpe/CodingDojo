@@ -11,11 +11,15 @@ def index(request):
     # Get a list of trips created by the currently logged in user
     this_users_trips = this_user.trips_created.all()
 
+    # Get a list of trips the currently logged in user has joined
+    this_users_trips_joined = this_user.trips_joined.all()
+
     # Get a list of trips created by anyone OTHER than the current user.
     # other_users_trips = Trip.objects.all()
     other_users_trips = Trip.objects.filter().exclude(created_by=this_user)
 
     context = {'this_users_trips': this_users_trips,
+               'this_users_trips_joined': this_users_trips_joined,
                'other_users_trips': other_users_trips}
 
     return render(request, 'index.html', context)
