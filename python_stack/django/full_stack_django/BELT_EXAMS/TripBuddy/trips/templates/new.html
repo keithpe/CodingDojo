@@ -23,12 +23,24 @@
         </div>
 
         <!-- Enter Trip Information -->
-        <div class='container-fluid'>
+        <div class='container-fluid col-11'>
             <form action="create" method="post">
                 {% csrf_token %}
+                <br><br>
                 <label for="destination">Destination</label>
-                <input type="text" name="destination" id="destination" placehoder="Enter your destination">
+                <input class="col-8" type="text" name="destination" id="destination"
+                    placehoder="Enter your destination"><br><br><br>
+                <label for="startdate">Start Date:</label>
+                <input type="date" name="startdate" id="startdate"><br>
+                <label for="enddate">End Date:</label>
+                <input type="date" name="enddate" id="enddate"><br><br><br>
+                <label for="plan">Plan:</label><br>
+                <textarea name="plan" id="plan" cols="80" rows="10" style="resize: none;"
+                    placeholder="Enter your plan here"></textarea><br><br>
+                <button onclick='/trips' class='btn btn-danger'>Cancel</button>
+                <input type="submit" class="btn btn-primary" value="Submit">
             </form>
+
         </div>
     </div>
 </body>
