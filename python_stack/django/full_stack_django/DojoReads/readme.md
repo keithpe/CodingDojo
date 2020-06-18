@@ -28,6 +28,14 @@ After you complete the belt reviewer above, we strongly encourage that you talk 
 
 ### My finished project:
 
+### Link to a running instance of this project available online at:
+
+http://dojoreads.sumarap.com
+
+http://54.212.62.115
+
+### Screen images of this project:
+
 ![My finished app registration](./images/registration.png)
 ![My finished app registration failed](./images/failed_registration.png)
 ![My finished app recent reviews](./images/recent_reviews.png)
