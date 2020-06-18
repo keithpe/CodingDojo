@@ -87,7 +87,7 @@
                             <td>{{trip.end_date}}</td>
                             <td>{{trip.plan}}</td>
                             <td>{{trip.created_by.first_name}}</td>
-                            <td><a href="">Want to join?</a></td>
+                            <td><a href="/trips/{{trip.id}}/join">Want to join?</a></td>
                         </tr>
                     </tbody>
                     {% endfor %}

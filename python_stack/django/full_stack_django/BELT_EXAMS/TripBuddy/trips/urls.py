@@ -10,4 +10,5 @@ urlpatterns = [
     path('update', views.update),
     path('<int:id>', views.show),
     path('<int:id>/delete', views.delete),
+    path('<int:id>/join', views.join),
 ]

@@ -99,3 +99,19 @@ def delete(request, id):
     this_trip.delete()
 
     return redirect('/trips')
+
+
+def join(request, id):
+    print('Inside JOIN def')
+    # Join the current user to this trip
+
+    # Get Trip object for this current trip id
+    this_trip = Trip.objects.get(id=id)
+
+    # Get the User object for the currently logged in user
+    this_user = User.objects.get(id=request.session['userid'])
+
+    # Add it to the list of users/joiners in this trip
+    this_trip.joiners.add(this_user)
+
+    return redirect('/trips')
