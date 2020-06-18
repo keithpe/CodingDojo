@@ -15,21 +15,34 @@
 
         <!-- This div hold other items (greeting, logout link, create trip link, etc.), 
              that make up the heading part of the page -->
-        <div class='container row col-12'>
-            <h3 class='col-9'>Hello {{request.session.first_name}} </h3>
-            <div class='col-3'>
+        <div class='container row col-12 border-bottom border-dark'>
+            <h3 class='col-10'>Hello {{request.session.first_name}} </h3>
+            <div class='col-2'>
                 <a href="/logout">Logout</a> |
-                <button>Create a new Trip!</button>
+                <form action="/trips/new" method="post" style='display: inline-block;'>
+                    {% csrf_token %}
+                    <input class="btn btn-primary btn-sm" type="submit" value="Create a new trip!">
+                </form>
             </div>
         </div>
-        <!-- Your Trips -->
-        <h4>Your Trips:</h4>
-        <div class='col=12'>
 
-        </div>
-        <!--Other People's Trips-->
-        <div class='col=12'>
+        <div class='container col-12'>
 
+            <br>
+            <h4 class='col-2'>Your Trips:</h4>
+
+            <!-- Your Trips -->
+            <div class='container col-12 border border-dark' style='height: 300px;'>
+                <h4>YOUR TRIPS LIST HERE</h4>
+            </div>
+
+            <br>
+            <h4 class='col-12'>Other Peoples Trips:</h4>
+
+            <!--Other People's Trips-->
+            <div class='container col-12 border border-dark' style='height: 300px;'>
+                <h4>OTHER PEOPLES TRIPS LIST HERE</h4>
+            </div>
         </div>
 
     </div>
