@@ -25,22 +25,27 @@
         <!-- Show Information about the trip -->
         <div class='container-fluid col-11'>
             <br><br>
-            <h4>DESTINATION TEXT HERE (NOT PLAN)</h4>
+            <h4>{{this_trip.destination}}</h4>
 
             <!-- Trip information here -->
             <div class='col-10'>
-                <p>Start Date:</p>
-                <p>End Date:</p>
-                <p>Created on:</p>
-                <p>Last Updated:</p>
-                <p>Plan:</p>
-                <p>Created by:</p>
+                <p>Start Date: <strong>{{this_trip.start_date}}</strong> </p>
+                <p>End Date: <strong>{{this_trip.end_date}}</strong></p>
+                <p>Created on: <strong>{{this_trip.created_at}}</strong></p>
+                <p>Last Updated: <strong>{{this_trip.updated_at}}</strong></p>
+                <p>Plan: <strong>{{this_trip.plan}}</strong></p>
+                <p>Created by: <strong>{{this_trip.created_by.first_name}} {{this_trip.created_by.last_name}}</strong>
+                </p>
             </div>
             <!-- Trip Fellow Travellers here -->
             <h4>People who've joined the trip:</h4>
             <div class='col-10'>
                 <div>
                     <p>LIST FELLOW TRAVELLERS HERE</p>
+                    {{ trip_joiners }}
+                    {% for joiner in trip_joiners %}
+                    {{ joiner}}
+                    {% endfor %}
                 </div>
             </div>
 

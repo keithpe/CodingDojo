@@ -48,11 +48,12 @@
                     <tbody>
                         <tr>
                             <th scope="row">{{trip.id}}</th>
-                            <td>{{trip.destination}}</td>
+                            <td><a href="/trips/{{trip.id}}">{{trip.destination}}</a></td>
                             <td>{{trip.start_date}}</td>
                             <td>{{trip.end_date}}</td>
                             <td>{{trip.plan}}</td>
-                            <td><a href="">Remove</a>|<a href="">Edit</a></td>
+                            <td><a href="/trips/{{trip.id}}/delete">Remove</a> | <a
+                                    href="/trips/{{trip.id}}/edit">Edit</a></td>
                         </tr>
                     </tbody>
                     {% endfor %}
@@ -65,9 +66,10 @@
             <!--Other People's Trips-->
             <div class='container col-12 border border-dark' style='height: 300px;'>
 
-                <table class="table">
+                <table class=" table">
                     <thead>
                         <tr>
+                            <th scope="col">ID</th>
                             <th scope="col">Destination</th>
                             <th scope="col">Start Date</th>
                             <th scope="col">End Date</th>
@@ -80,7 +82,7 @@
                     <tbody>
                         <tr>
                             <th scope="row">{{trip.id}}</th>
-                            <td>{{trip.destination}}</td>
+                            <td><a href="/trips/{{trip.id}}">{{trip.destination}}</a></td>
                             <td>{{trip.start_date}}</td>
                             <td>{{trip.end_date}}</td>
                             <td>{{trip.plan}}</td>

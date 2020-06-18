@@ -27,16 +27,19 @@
             <form action="update" method="post">
                 {% csrf_token %}
                 <br><br>
+                <p>start_date={{this_trip.start_date}}</p>
+                <p>{{this_trip.start_date|date:'m/d/Y'}}</p>
                 <label for="destination">Destination</label>
-                <input class="col-8" type="text" name="destination" id="destination"
-                    placehoder="Enter your destination"><br><br><br>
-                <label for="startdate">Start Date:</label>
-                <input type="date" name="startdate" id="startdate"><br>
-                <label for="enddate">End Date:</label>
-                <input type="date" name="enddate" id="enddate"><br><br><br>
+                <input class="col-8" type="text" name="destination" id="destination" placehoder="Enter your destination"
+                    value="{{this_trip.destination}}""><br><br><br>
+                    <label for=" start_date">Start Date:</label>
+                <input type="date" name="start_date" id="start_date" value="{{this_trip.start_date|date:'Y-m-d'}}"><br>
+                <label for="end_date">End Date:</label>
+                <input type="date" name="end_date" id="end_date"
+                    value="{{this_trip.end_date|date:'Y-m-d'}}"><br><br><br>
                 <label for="plan">Plan:</label><br>
                 <textarea name="plan" id="plan" cols="80" rows="10" style="resize: none;"
-                    placeholder="Enter your plan here"></textarea><br><br>
+                    placeholder="Enter your plan here">{{this_trip.plan}}</textarea><br><br>
                 <button onclick='/trips' class='btn btn-danger'>Cancel</button>
                 <input type="submit" class="btn btn-primary" value="Submit">
             </form>
