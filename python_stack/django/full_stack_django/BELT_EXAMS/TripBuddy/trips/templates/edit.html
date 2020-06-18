@@ -15,10 +15,9 @@
         <!-- This div hold other items (greeting, logout link, create trip link, etc.), 
              that make up the heading part of the page -->
         <div class='container row col-12 border-bottom border-dark'>
-            <h3 class='col-11'>Hello {{request.session.first_name}}! Let's edit your trip! </h3>
-            <div class='col-1'>
-                <a href="/trips">Home</a>
-                <a href="/logout">Logout</a>
+            <h3 class='col-10'>Hello {{request.session.first_name}}! Let's edit your trip! </h3>
+            <div class='col-2'>
+                <a href="/trips">Dashboard</a> | <a href="/logout">Logout</a>
             </div>
         </div>
 
@@ -26,9 +25,17 @@
         <div class='container-fluid col-11'>
             <form action="update" method="post">
                 {% csrf_token %}
-                <br><br>
-                <p>start_date={{this_trip.start_date}}</p>
-                <p>{{this_trip.start_date|date:'m/d/Y'}}</p>
+
+                <br>
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li class='text-danger' {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
                 <label for="destination">Destination</label>
                 <input class="col-8" type="text" name="destination" id="destination" placehoder="Enter your destination"
                     value="{{this_trip.destination}}""><br><br><br>

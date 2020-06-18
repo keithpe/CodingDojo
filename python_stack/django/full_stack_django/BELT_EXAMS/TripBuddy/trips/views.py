@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, HttpResponse
+from django.contrib import messages
 from login.models import User
 from trips.models import Trip
 
@@ -27,11 +28,34 @@ def index(request):
 
 def new(request):
     # Display form for user to enter new trip information
+    if 'destination' not in request.session or request.session['destination'] != '':
+        request.session['destination'] = ''
+        request.session['plan'] = ''
+        request.session['start_date'] = ''
+        request.session['end_date'] = ''
+
     return render(request, 'new.html')
 
 
 def create(request):
     # Create the new trip object and save it to the database
+
+    # Run validation
+    errors = Trip.objects.basic_validator(request.POST)
+
+    if errors:
+        # Loop through each key-value pair and make a flash messge
+        for key, value in errors.items():
+            messages.error(request, value)
+
+        # Save form info so we can display it back in the form when we get redirected
+        request.session['destination'] = request.POST['destination']
+        request.session['plan'] = request.POST['plan']
+        request.session['start_date'] = request.POST['start_date']
+        request.session['end_date'] = request.POST['end_date']
+
+        # redirect the user back to the form to fix the errors
+        return redirect('/trips/new')
 
     # Get the object of the user who is creating this trip
     this_user = User.objects.get(id=request.session['userid'])
@@ -62,8 +86,27 @@ def edit(request, id):
 def update(request, id):
     # Update the trip object
 
+    print('request.POST', request.POST)
+
     # Get the original trip object
     this_trip = Trip.objects.get(id=id)
+
+    # Run validation
+    errors = Trip.objects.basic_validator(request.POST)
+
+    if errors:
+        # Loop through each key-value pair and make a flash messge
+        for key, value in errors.items():
+            messages.error(request, value)
+
+        # Save form info so we can display it back in the form when we get redirected
+        request.session['destination'] = request.POST['destination']
+        request.session['plan'] = request.POST['plan']
+        request.session['start_date'] = request.POST['start_date']
+        request.session['end_date'] = request.POST['end_date']
+
+        # redirect the user back to the form to fix the errors
+        return redirect('/trips/'+str(this_trip.id)+'/edit')
 
     # Update this_trip
     this_trip.destination = request.POST['destination']
@@ -84,10 +127,10 @@ def show(request, id):
     this_trip = Trip.objects.get(id=id)
 
     # Get a list of the people who have joined the trip
-    trip_joiners = this_trip.joiners.all()
+    this_trip_joiners = this_trip.joiners.all()
 
     # Stuff it into context, so we can use it in show.html
-    context = {'this_trip': this_trip, 'trip_joiners': trip_joiners}
+    context = {'this_trip': this_trip, 'this_trip_joiners': this_trip_joiners}
 
     # Get the record to edit push it to the form with context
     return render(request, 'show.html', context)

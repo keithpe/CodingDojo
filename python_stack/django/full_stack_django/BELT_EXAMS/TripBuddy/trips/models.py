@@ -25,6 +25,10 @@ class TripManager(models.Manager):
             if datetime.datetime.strptime(postData['start_date'], '%Y-%m-%d') < datetime.datetime.now():
                 errors['start_date_in_past'] = 'Start date cannot be in the past'
 
+        # Check that end date is AFTER start date
+            if datetime.datetime.strptime(postData['start_date'], '%Y-%m-%d') > datetime.datetime.strptime(postData['end_date'], '%Y-%m-%d'):
+                errors['end_date_after_start_date'] = 'End date has to come after start date'
+
         # Check for empty end date
         if postData['end_date'] == '':
             errors['end_date_empty'] = 'Please enter a valid end date'

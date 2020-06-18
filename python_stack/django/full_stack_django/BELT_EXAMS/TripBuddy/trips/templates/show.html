@@ -15,10 +15,9 @@
         <!-- This div hold other items (greeting, logout link, create trip link, etc.), 
              that make up the heading part of the page -->
         <div class='container row col-12 border-bottom border-dark'>
-            <h3 class='col-11'>Hello {{request.session.first_name}}! Read about your trip! </h3>
-            <div class='col-1'>
-                <a href="/trips">Home</a>
-                <a href="/logout">Logout</a>
+            <h3 class='col-10'>Hello {{request.session.first_name}}! Read about your trip! </h3>
+            <div class='col-2'>
+                <a href="/trips">Dashboard</a> | <a href="/logout">Logout</a>
             </div>
         </div>
 
@@ -28,7 +27,8 @@
             <h4>{{this_trip.destination}}</h4>
 
             <!-- Trip information here -->
-            <div class='col-10'>
+            <div class='col-10 border border-dark'>
+                <br>
                 <p>Start Date: <strong>{{this_trip.start_date}}</strong> </p>
                 <p>End Date: <strong>{{this_trip.end_date}}</strong></p>
                 <p>Created on: <strong>{{this_trip.created_at}}</strong></p>
@@ -38,13 +38,12 @@
                 </p>
             </div>
             <!-- Trip Fellow Travellers here -->
+            <br><br>
             <h4>People who've joined the trip:</h4>
-            <div class='col-10'>
-                <div>
-                    <p>LIST FELLOW TRAVELLERS HERE</p>
-                    {{ trip_joiners }}
-                    {% for joiner in trip_joiners %}
-                    {{ joiner}}
+            <div class='col-10 border border-dark'>
+                <div class='col-9'>
+                    {% for joiner in this_trip_joiners %}
+                    {{ joiner.first_name}}
                     {% endfor %}
                 </div>
             </div>
