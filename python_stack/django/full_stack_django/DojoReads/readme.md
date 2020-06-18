@@ -28,7 +28,7 @@ After you complete the belt reviewer above, we strongly encourage that you talk 
 
 ### My finished project:
 
-### Link to a running instance of this project available online at:
+### Running instance of this project available online at:
 
 http://dojoreads.sumarap.com
 
