@@ -36,3 +36,11 @@ def update(request):
     # Create a TRIP object withi values from the form and then save the object
 
     return redirect('/trips')
+
+
+def show(request, id):
+    # Show an existing trip
+    print("Inside the SHOW def")
+
+    # Get the record to edit push it to the form with context
+    return render(request, 'show.html')
