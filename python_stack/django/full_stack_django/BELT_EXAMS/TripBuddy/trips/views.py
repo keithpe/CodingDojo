@@ -1,23 +1,46 @@
 from django.shortcuts import render, redirect, HttpResponse
+from login.models import User
+from trips.models import Trip
 
 
 def index(request):
-    # return HttpResponse('Inside the trips index def')
     print("Inside the INDEX def")
 
-    return render(request, 'index.html')
+    # Get the user object for the currently logged in user
+    this_user = User.objects.get(id=request.session['userid'])
+
+    # Get a list of trips created by the currently logged in user
+    this_users_trips = this_user.trips_created.all()
+
+    # Get a list of trips created by anyone OTHER than the current user.
+    # other_users_trips = Trip.objects.all()
+    other_users_trips = Trip.objects.filter().exclude(created_by=this_user)
+
+    context = {'this_users_trips': this_users_trips,
+               'other_users_trips': other_users_trips}
+
+    return render(request, 'index.html', context)
 
 
 def new(request):
     # Display form for user to enter new trip information
-    print("Inside the NEW def")
-
     return render(request, 'new.html')
 
 
 def create(request):
     # Create the new trip object and save it to the database
     print("Inside the CREATE def")
+
+    # Get the object of the user who is creating this trip
+    this_user = User.objects.get(id=request.session['userid'])
+
+    # Create a trip object form new.html form values
+    this_trip = Trip(destination=request.POST['destination'], plan=request.POST['plan'],
+                     start_date=request.POST['start_date'], end_date=request.POST['end_date'], created_by=this_user)
+
+    # Save the trip object
+    this_trip.save()
+
     return redirect('/trips')
 
 

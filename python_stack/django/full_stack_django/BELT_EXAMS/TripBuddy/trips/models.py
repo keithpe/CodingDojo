@@ -43,7 +43,7 @@ class Trip(models.Model):
     end_date = models.DateTimeField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    user = models.ForeignKey(
+    created_by = models.ForeignKey(
         User, related_name="trips_created", on_delete=models.CASCADE)
     joiners = models.ManyToManyField(
         User, related_name="trips_joined")
