@@ -104,3 +104,37 @@ console.log('original array value', arr)
 newArray = double(arr)
 console.log('original array value (unchanged)', arr)
 console.log('newArray with doubled values is:', newArray)
+
+
+//----------------------------------------------------------------------------
+// Count Positives
+//----------------------------------------------------------------------------
+// Given an array of numbers, create a function to replace last value with 
+// the number of positive values. Example,  countPositives([-1,1,1,1]) 
+// changes array to [-1,1,1,3] and returns it.
+//----------------------------------------------------------------------------
+// NOTE: Arrays are passed by reference, not value, so changing the array 
+// that is passed to this function results in the original array outside the 
+// function being changed because the function changes the original array 
+// (there is no copy of the array. The function modifies the origina array). 
+// Seems silly to return the original array.
+//----------------------------------------------------------------------------
+
+function countPositives(arr) {
+    var number_of_positive_values = 0;
+
+    for (var idx = 0; idx < arr.length; idx++) {
+        if (arr[idx] >= 0) {
+            number_of_positive_values++;
+        }
+    }
+    arr[arr.length - 1] = number_of_positive_values;
+    return arr
+}
+
+arr = [-1, 1, 1, 1]
+console.log("\n**** Count Positives ****")
+console.log('original array value', arr)
+newArray = countPositives(arr)
+console.log('original array value (changed)', arr)
+console.log('newArray with doubled values is:', newArray)
