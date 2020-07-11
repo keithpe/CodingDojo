@@ -174,3 +174,30 @@ arr = [1, 2, 3, 5, 7, 9, 4, 6, 8, 10, 12]
 console.log("\n**** Evens and Odds ****")
 console.log('original array value', arr)
 newArray = evensAndOdds(arr)
+
+
+//----------------------------------------------------------------------------
+// Increment the Seconds
+//----------------------------------------------------------------------------
+//Given arr, add 1 to odd elements([1], [3], etc.), console.log all values 
+// and return arr.
+//----------------------------------------------------------------------------
+// NOTE: Again, arrays are passed by reference, not value, so any changes 
+// made to the array that is passed to the function changes the original
+// array, returning the array is redundant.
+//----------------------------------------------------------------------------
+function incrementTheSeconds(arr) {
+    for (var idx = 0; idx < arr.length; idx++) {
+        if (idx % 2 != 0) {
+            arr[idx]++
+        }
+    }
+    return arr
+}
+
+arr = [1, 2, 3, 5, 7, 9, 4, 6, 8, 10, 12]
+console.log("\n**** Increment The Seconds ****")
+console.log('original array value', arr)
+newArray = incrementTheSeconds(arr)
+console.log('original array value (modified)', arr)
+console.log('returned array value', newArray)
