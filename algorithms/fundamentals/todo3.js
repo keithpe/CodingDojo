@@ -283,3 +283,37 @@ console.log('original array value', arr)
 newArray = reverse(arr)
 console.log('original array value (modified)', arr)
 console.log('returned array value', newArray)
+
+
+//----------------------------------------------------------------------------
+// Outlook: Negative
+//----------------------------------------------------------------------------
+// Given an array, create and return a new one containing all the values of 
+// the provided array, made negative (not simply multiplied by -1). 
+// Given [1,-3,5], return [-1,-3,-5].
+//----------------------------------------------------------------------------
+// NOTE: Instead of blindly multiplying the array element by -1, I first 
+// check to see if it's NOT negative and THEN multiple by -1, so if it IS
+// negative we DO NOT multiply by -1, and instead just push that existing
+// negative value into the new array.
+//----------------------------------------------------------------------------
+
+function negative(arr) {
+    var newArray = []
+    for (var idx = 0; idx < arr.length; idx++) {
+        if (arr[idx] > 0) {
+            newArray.push(arr[idx] * -1)
+        } else {
+            newArray.push(arr[idx])
+        }
+    }
+    return newArray
+}
+
+
+arr = [0, -1, 2, -3, 4, 5]
+console.log("\n**** Negative ****")
+console.log('original array value', arr)
+newArray = negative(arr)
+console.log('original array value (unmodified)', arr)
+console.log('returned array value', newArray)
