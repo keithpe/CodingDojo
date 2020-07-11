@@ -80,3 +80,27 @@ console.log("\n**** Print One Return Another ****")
 console.log('original array value', arr)
 var first_odd_value = printOne_ReturnAnother(arr)
 console.log('The first odd value in the array:', first_odd_value)
+
+
+//----------------------------------------------------------------------------
+// Double Vision
+//----------------------------------------------------------------------------
+// Given an array, create a function to return a new array where each value 
+// in the original has been doubled. Calling double([1,2,3]) should 
+// return [2,4,6] without changing original.
+//----------------------------------------------------------------------------
+
+function double(arr) {
+    var newArray = [];
+    for (var idx = 0; idx < arr.length; idx++) {
+        newArray.push(arr[idx] * 2)
+    }
+    return newArray;
+}
+
+arr = [0, 2, 7, 8, 10, 15]
+console.log("\n**** Double Vision ****")
+console.log('original array value', arr)
+newArray = double(arr)
+console.log('original array value (unchanged)', arr)
+console.log('newArray with doubled values is:', newArray)
