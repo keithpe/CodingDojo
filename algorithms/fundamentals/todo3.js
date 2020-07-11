@@ -233,3 +233,26 @@ console.log('original array value', arr)
 newArray = previousLengths(arr)
 console.log('original array value (modified)', arr)
 console.log('returned array value', newArray)
+
+
+//----------------------------------------------------------------------------
+// Add Seven to Most
+//----------------------------------------------------------------------------
+// Build a function that accepts an array. Return a new array with all values 
+// except first, adding 7 to each. Do not alter the original array.
+//----------------------------------------------------------------------------
+function addSevenToMost(arr) {
+    var newArray = [];
+    for (var idx = 1; idx < arr.length; idx++) {
+        newArray.push(arr[idx] + 7);
+    }
+    return newArray;
+}
+
+
+arr = [0, 1, 2, 3, 4, 5]
+console.log("\n**** Add Seven to Most ****")
+console.log('original array value', arr)
+newArray = addSevenToMost(arr)
+console.log('original array value (unmodified)', arr)
+console.log('returned array value', newArray)
