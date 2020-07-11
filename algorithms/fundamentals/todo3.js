@@ -138,3 +138,39 @@ console.log('original array value', arr)
 newArray = countPositives(arr)
 console.log('original array value (changed)', arr)
 console.log('newArray with doubled values is:', newArray)
+
+
+//----------------------------------------------------------------------------
+// Evens and Odds
+//----------------------------------------------------------------------------
+// Create a function that accepts an array. Every time that array has three 
+// odd values in a row, print "That’s odd!" Every time the array has three 
+// evens in a row, print "Even more so!"
+//----------------------------------------------------------------------------
+
+function evensAndOdds(arr) {
+    var even_values_in_a_row = 0;
+    var odd_values_in_a_row = 0;
+    for (var idx = 0; idx < arr.length; idx++) {
+        if (arr[idx] % 2 == 0) {
+            even_values_in_a_row++
+            odd_values_in_a_row = 0
+        } else {
+            odd_values_in_a_row++;
+            even_values_in_a_row = 0;
+        }
+        if (odd_values_in_a_row >= 3) {
+            console.log("That's Odd!")
+        }
+        if (even_values_in_a_row >= 3) {
+            console.log("Even more so!")
+        }
+
+    }
+}
+
+
+arr = [1, 2, 3, 5, 7, 9, 4, 6, 8, 10, 12]
+console.log("\n**** Evens and Odds ****")
+console.log('original array value', arr)
+newArray = evensAndOdds(arr)
