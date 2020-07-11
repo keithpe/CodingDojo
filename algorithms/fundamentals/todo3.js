@@ -256,3 +256,30 @@ console.log('original array value', arr)
 newArray = addSevenToMost(arr)
 console.log('original array value (unmodified)', arr)
 console.log('returned array value', newArray)
+
+
+//----------------------------------------------------------------------------
+// Reverse Array
+//----------------------------------------------------------------------------
+// Given array, write a function to reverse values, in-place. 
+// Example: reverse([3,1,6,4,2]) returns same array, containing [2,4,6,1,3].
+//----------------------------------------------------------------------------
+// NOTE: Arrays are passed by reference, not value, so we really don't need 
+// to return the original array.
+//----------------------------------------------------------------------------
+
+function reverse(arr) {
+    for (var idx = 0; idx < (arr.length / 2); idx++) {
+        var temp = arr[idx]
+        arr[idx] = arr[arr.length - 1 - idx]
+        arr[arr.length - 1 - idx] = temp;
+    }
+    return arr
+}
+
+arr = [0, 1, 2, 3, 4, 5]
+console.log("\n**** Reverse Array ****")
+console.log('original array value', arr)
+newArray = reverse(arr)
+console.log('original array value (modified)', arr)
+console.log('returned array value', newArray)
