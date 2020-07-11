@@ -51,3 +51,32 @@ console.log("\n**** Print Low Return High ****")
 console.log('original array value', arr)
 var highest = printLow_ReturnHigh(arr)
 console.log('The highest value in the array:', highest)
+
+
+//----------------------------------------------------------------------------
+// Print One, Return Another
+//----------------------------------------------------------------------------
+// Build a function that takes an array of numbers. The function should 
+// print the second-to-last value in the array, and return the first odd 
+// value in the array.
+//----------------------------------------------------------------------------
+
+function printOne_ReturnAnother(arr) {
+    var first_odd_value;
+    for (var idx = 0; idx < arr.length; idx++) {
+        if ((arr[idx] % 2 != 0) && !first_odd_value) {
+            first_odd_value = arr[idx]
+        }
+        if (idx == arr.length - 2) {
+            console.log('The second-to-last value in the array is:', arr[idx])
+        }
+    }
+
+    return first_odd_value
+}
+
+arr = [0, 4, 6, 2, 7, 9, 4, 5]
+console.log("\n**** Print One Return Another ****")
+console.log('original array value', arr)
+var first_odd_value = printOne_ReturnAnother(arr)
+console.log('The first odd value in the array:', first_odd_value)
