@@ -201,3 +201,35 @@ console.log('original array value', arr)
 newArray = incrementTheSeconds(arr)
 console.log('original array value (modified)', arr)
 console.log('returned array value', newArray)
+
+
+//----------------------------------------------------------------------------
+// Previous Lengths
+//----------------------------------------------------------------------------
+// You are passed an array containing strings. Working within that same 
+// array, replace each string with a number – the length of the string at 
+// previous array index – and return the array.
+//----------------------------------------------------------------------------
+// NOTE: What should we put in the first array element? 0? That's what I did
+//----------------------------------------------------------------------------
+function previousLengths(arr) {
+    for (var idx = arr.length - 1; idx >= 0; idx--) {
+        if (idx == 0) {
+            arr[idx] = 0;
+        } else {
+            temp = arr[idx - 1]
+            // console.log('temp', temp);
+            // console.log('temp.length', temp.length);
+            arr[idx] = temp.length;
+        }
+    }
+    return arr;
+}
+
+
+arr = ['keith', 'eric', 'donnie', 'sydney', 'barbara']
+console.log("\n**** Previous Lengths ****")
+console.log('original array value', arr)
+newArray = previousLengths(arr)
+console.log('original array value (modified)', arr)
+console.log('returned array value', newArray)
