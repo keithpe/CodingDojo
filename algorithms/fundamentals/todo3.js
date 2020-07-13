@@ -348,3 +348,53 @@ alwaysHungry(arr)
 console.log('Try it with all numbers (no food)')
 arr = [0, 1, 2, 3, 4, 5]
 alwaysHungry(arr)
+
+
+//----------------------------------------------------------------------------
+// Swap Toward the Center
+//----------------------------------------------------------------------------
+// Given array, swap first and last, third and third-tolast, etc. 
+// Input[true,42,"Ada",2,"pizza"] becomes ["pizza",42,"Ada",2,true]. 
+// Change [1,2,3,4,5,6] to [6,2,4,3,5,1].
+//----------------------------------------------------------------------------
+function swapTowardTheCenter(arr) {
+
+    for (var idx = 0; idx < arr.length / 2; idx++) {
+        var temp = arr[idx];
+        arr[idx] = arr[arr.length - 1 - idx]
+        arr[arr.length - 1 - idx] = temp
+    }
+
+}
+
+
+arr = [true, 42, "Ada", 2, "pizza"]
+console.log("\n**** Swap Toward the Center ****")
+console.log('original array value', arr)
+swapTowardTheCenter(arr)
+console.log('original array (modidfied)', arr)
+arr = [1, 2, 3, 4, 5, 6]
+console.log('original array value', arr)
+swapTowardTheCenter(arr)
+console.log('original array (modidfied)', arr)
+
+
+//----------------------------------------------------------------------------
+// Scale the Array
+//----------------------------------------------------------------------------
+// Given array arr and number num, multiply each arr value by num, and 
+// return the changed arr.
+//----------------------------------------------------------------------------
+
+function scaleTheArray(arr, num) {
+    for (var idx = 0; idx < arr.length; idx++) {
+        arr[idx] *= num;
+    }
+}
+
+arr = [1, 2, 3, 4, 5, 6]
+num = 2;
+console.log("\n**** Scale The Array ( multiply by: " + num + ") ****");
+console.log('original array value:', arr)
+scaleTheArray(arr, num);
+console.log('arr modified:', arr);
