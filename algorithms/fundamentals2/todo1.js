@@ -126,3 +126,56 @@ console.log('|--------*---------*---------*---------*---------*---------*-------
 drawLeftStars(25)
 drawCenterStars(25)
 drawRightStars(25)
+
+
+//****************************************************************************
+// Character Art
+//****************************************************************************
+// From the above, derive the following that accepts and draws the given 
+// characters, not just asterisks:
+//
+// drawLeftChars(num,char)
+// drawRightChars(num,char)
+// drawCenteredChars(num,char)
+//
+// For all three of these, you can safely assume that 'char'is a string with 
+// the length of 1.
+//****************************************************************************
+
+function drawLeftChars(num, char) {
+    let line = ''
+    for (let idx = 0; idx < num; idx++) {
+        line += char
+    }
+    console.log(line)
+}
+
+function drawRightChars(num, char) {
+    let line = ''
+    for (let idx = 0; idx < 75 - num; idx++) {
+        line += ' '
+    }
+    for (let idx = 0; idx < num; idx++) {
+        line += char
+    }
+    console.log(line)
+}
+
+function drawCenterChars(num, char) {
+    let line = ''
+    // Leftmost spaces
+    for (let idx = 0; idx < (75 - num) / 2; idx++) {
+        line += ' '
+    }
+    // Then the asterisks
+    for (let idx = 0; idx < num; idx++) {
+        line += char
+    }
+    console.log(line)
+}
+
+console.log("\n**** Chars ****")
+console.log('|--------*---------*---------*---------*---------*---------*---------*----|')
+drawLeftChars(25, '#')
+drawCenterChars(25, '@')
+drawRightChars(25, '+')
