@@ -60,3 +60,46 @@ let myInt = 0;
 
 myInt = getDigits(str)
 console.log(str + ' converts to ' + myInt)
+
+//****************************************************************************
+// Acronyms
+//****************************************************************************
+// Create a function that, given a string, returns the string’s acronym 
+// (first letters only, capitalized). 
+// 
+// Given " there's no free lunch - gotta pay yer way. ", return "TNFL-GPYW". 
+// 
+// Given "Live from New York, it's Saturday Night!", return "LFNYISN".
+//****************************************************************************
+
+function acronyms(str) {
+
+    let newstr = '';
+    for (let idx = 0; idx < str.length; idx++) {
+
+        // Skip over any spaces until we get to a letter
+        while (str[idx] == ' ' && idx < str.length) {
+            idx++
+        }
+
+        // Store the letter, in uppercase as the next letter in the acronym
+        newstr += str[idx].toUpperCase()
+
+        // Skip over any non blank characters until we get to a space
+        while (str[idx] != ' ' && idx < str.length) {
+            idx++
+        }
+    }
+
+    return newstr
+}
+
+
+console.log("\n**** Acronyms ****")
+str = " there's no free lunch - gotta pay yer way. "
+myAcronym = acronyms(str);
+console.log('TEST1: The acronym for "' + str + '" is ' + myAcronym)
+
+str = "Live from New York, it's Saturday Night!"
+myAcronym = acronyms(str)
+console.log('TEST2: The acronym for "' + str + '" is ' + myAcronym)
