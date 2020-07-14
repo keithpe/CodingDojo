@@ -345,6 +345,7 @@ function clockHandAngles(seconds) {
 
 }
 
+console.log("\n**** clockHandAngles ****")
 clockHandAngles(3600)
 clockHandAngles(119730)
 
@@ -374,5 +375,6 @@ function isPrime(n) {
     }
 }
 
+console.log("\n**** isPrime ****")
 console.log(isPrime(23))
 console.log(isPrime(24))
