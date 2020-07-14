@@ -103,3 +103,30 @@ console.log('TEST1: The acronym for "' + str + '" is ' + myAcronym)
 str = "Live from New York, it's Saturday Night!"
 myAcronym = acronyms(str)
 console.log('TEST2: The acronym for "' + str + '" is ' + myAcronym)
+
+
+//****************************************************************************
+// Count Non-Spaces
+//****************************************************************************
+// Accept a string and return the number of non-space characters found 
+// in the string. 
+//
+// For example, given "Honey pie, you are driving me crazy", 
+// return 29 (not 35).
+//****************************************************************************
+
+function countNonSpaces(str) {
+    let non_space_characters = 0;
+    for (let idx = 0; idx < str.length; idx++) {
+        if (str[idx] != ' ') {
+            non_space_characters++;
+        }
+    }
+    return non_space_characters;
+}
+
+
+console.log("\n**** Count Non-Spaces ****")
+str = "Honey pie, you are driving me crazy"
+let count = countNonSpaces(str)
+console.log('Given: "' + str + '", the count is ' + count)
