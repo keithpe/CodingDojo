@@ -130,3 +130,30 @@ console.log("\n**** Count Non-Spaces ****")
 str = "Honey pie, you are driving me crazy"
 let count = countNonSpaces(str)
 console.log('Given: "' + str + '", the count is ' + count)
+
+
+//****************************************************************************
+// Remove Shorter Strings
+//****************************************************************************
+// Given a string array and value (length), remove any strings shorter than 
+// the length from the array.
+//****************************************************************************
+
+function removeShorterStrings(strArr, length) {
+
+    let newStrArr = []
+    for (let idx = 0; idx < stringArray.length; idx++) {
+        if (strArr[idx].length >= length) {
+            newStrArr.push(strArr[idx])
+        }
+    }
+    return newStrArr
+
+}
+
+
+console.log("\n**** removeShortStrings ****")
+let stringArray = ['My', 'Name', 'is', 'Bertram']
+console.log('Original String Array:', stringArray)
+stringArray = removeShorterStrings(stringArray, 5)
+console.log('Modified String Array:', stringArray)
