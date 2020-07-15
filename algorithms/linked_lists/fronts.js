@@ -58,7 +58,7 @@ class SLL {
     // Display all nodes in the list
     show_all() {
         console.log('\n**** Display Nodes ****')
-        let runner = my_list.head;
+        let runner = this.head;
         while (runner) {
             console.log(runner.value)
             runner = runner.next;
