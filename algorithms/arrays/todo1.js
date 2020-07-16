@@ -97,3 +97,47 @@ arr = [1, 2, 3, 4, 5, 6, 7]
 console.log('original array: ' + arr)
 swapPairs(arr)
 console.log('modified array: ' + arr)
+
+
+//****************************************************************************
+// Remove Duplicates
+//****************************************************************************
+//
+// Sara is looking to hire an awesome web developer and has received 
+// applications from various sources. Her assistant alphabetized them but 
+// noticed some duplicates. Given a sorted array, remove duplicate values. 
+// Because array elements are already in order, all duplicate values will be 
+// grouped together. As with all these array challenges, do this without 
+// using any built-in array methods.
+//
+// Second: Solve this without using any nested loops.
+//****************************************************************************
+
+function removeDuplicates(arr) {
+
+    // Create new array to store non dupe elements.
+    // And preload it with the first element from the original array
+    let newArray = [arr[0]]
+    // Set the index for the new array at 1, we've already add the first
+    // element.
+    let idx2 = 1;
+
+    // Loop through the original array and check if the element at the current
+    // index is a duple of the element at the previous element (idx-1)
+    // If it is NOT a dupe at it to the new array, and increment the index
+    // for the new array.
+    for (let idx = 1; idx < arr.length; idx++) {
+        if (arr[idx] != arr[idx - 1]) {
+            newArray[idx2] = arr[idx]
+            idx2++;
+        }
+    }
+    // Return the new array. It can overwrite the orginal or be stored in a new variable.
+    return newArray;
+}
+
+console.log('\n**** Remove Duplicates ****')
+arr = [1, 2, 2, 2, 3, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7]
+console.log('original array: ' + arr)
+arr = removeDuplicates(arr)
+console.log('modified array: ' + arr)
