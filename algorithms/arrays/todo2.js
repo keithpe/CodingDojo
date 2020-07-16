@@ -71,3 +71,56 @@ shiftBy = 3
 console.log('original array: ' + arr)
 rotateArr(arr, shiftBy)
 console.log('modified array: ' + arr)
+
+//****************************************************************************
+// Second: allow negative shiftBy (shift L, not R).
+//****************************************************************************
+
+function rotateArr2(arr, shiftBy) {
+
+    // Shift RIGHT if shiftBy is POSITIVE... 
+    if (shiftBy > 0) {
+        console.log('SHIFTING RIGHT')
+
+        // The outer loop handles the shiftby loop
+        for (let shiftIDX = 0; shiftIDX < shiftBy; shiftIDX++) {
+
+            // We're shifting right so save the value in the last array index position
+            wrap_around_value = arr[arr.length - 1]
+
+            // Loop through the array and shift to the RIGHT
+            for (let idx = arr.length - 1; idx > 0; idx--) {
+                arr[idx] = arr[idx - 1]
+            }
+            // Restore wrap around value after each loop through the array (for each shift)
+            arr[0] = wrap_around_value;
+        }
+
+    } else {
+        // ... shiftBy is negative, shift LEFT
+
+        // The outer loop handles the shiftby loop
+        console.log('SHIFTING LEFT')
+
+        for (let shiftIDX = 0; shiftIDX > shiftBy; shiftIDX--) {
+
+            // We're shifting right so save the value in the last array index position
+            wrap_around_value = arr[0]
+
+            // Loop through the array and shift to the LEFT
+            for (let idx = 0; idx < arr.length - 1; idx++) {
+                arr[idx] = arr[idx + 1]
+            }
+
+            // Restore the wrap around value after each loop through the array (for each shift)
+            arr[arr.length - 1] = wrap_around_value;
+        }
+    }
+}
+
+console.log('\n**** Rotate2 (allow negative shiftBy - shift L, not R) ****')
+arr = [1, 2, 3, 4, 5, 6, 7]
+shiftBy = -3
+console.log('original array: ' + arr)
+rotateArr2(arr, shiftBy)
+console.log('modified array: ' + arr)
