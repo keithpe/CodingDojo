@@ -245,3 +245,41 @@ max = 4;
 console.log('original array: ' + arr)
 filterRange(arr, min, max)
 console.log('modified array: ' + arr)
+
+
+//****************************************************************************
+// Concat
+//****************************************************************************
+//
+// Replicate JavaScript’s concat(). Create a standalone function that accepts 
+// two arrays. Return a new array containing the first array’s elements, 
+// followed by the second array’s elements. 
+// 
+// Do not alter the original arrays. 
+//
+// Ex.: arrConcat( ['a','b'], [1,2] ) should return new array ['a','b',1,2].
+//****************************************************************************
+
+function arrConcat(arr1, arr2) {
+
+    let newArray = []
+    let newIdx = 0;
+    for (let idx = 0; idx < arr1.length; idx++) {
+        newArray[newIdx] = arr1[idx];
+        newIdx++;
+    }
+    for (let idx = 0; idx < arr2.length; idx++) {
+        newArray[newIdx] = arr2[idx];
+        newIdx++;
+    }
+    return newArray;
+}
+
+
+console.log('\n**** arrConcat ****')
+arr1 = ['a', 'b'];
+arr2 = [1, 2];
+console.log('original array: ', arr1, arr2)
+let newArray = arrConcat(arr1, arr2)
+console.log('modified array: ', arr1, arr2)
+console.log('New Concated array: ', newArray)
