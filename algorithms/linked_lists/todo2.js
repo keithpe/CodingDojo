@@ -86,6 +86,45 @@ class SLL {
         return null
 
     }
+
+    //****************************************************************************
+    // addToEnd()
+    // 
+    // Use this in the copy method. It adds to the end of the singly linked list
+    // so our new list is in the same order as or origin list.
+    //****************************************************************************
+
+    addBack(value) {
+        let runner = this.head;
+        while (runner.next) {
+            runner = runner.next;
+        }
+        this.new_node = new Node(value);
+        runner.next = this.new_node;
+        this.new_node.next = null;
+        return this;
+    }
+
+    //****************************************************************************
+    // SList: Copy
+    // Given a pointer to a singly linked list, return a copy of that list. 
+    // Do not return the same list, but instead make a copy of each node in the 
+    // list and connect them in the same order as the original.
+    //****************************************************************************
+
+    copy() {
+        console.log('\n**** copy list () ****')
+        let runner = this.head;
+        let my_copied_list = new SLL(runner.value)
+        let my_copied_list_head = my_copied_list;
+        runner = runner.next;
+        while (runner) {
+            my_copied_list.addBack(runner.value);
+            runner = runner.next;
+        }
+        return my_copied_list_head;
+    }
+
 }
 
 // Create a new list instance, and add some nodes.
@@ -121,3 +160,9 @@ if (second_to_last) {
 } else {
     console.log('There was only one node in the list. There was NO second node')
 }
+
+let my_copied_list = my_list.copy();
+console.log('Original List')
+my_list.show_all();
+console.log('\n**** New Copied List ****')
+my_copied_list.show_all();
