@@ -161,8 +161,16 @@ if (second_to_last) {
     console.log('There was only one node in the list. There was NO second node')
 }
 
+// Create a new list using the copy() method on the orginal list
+// The copy() method uses addBack() method to create the new list in the same order
+// as the original. We move through the original list from head (front) to end. If our list
+// was doubly linked, we could start from the end of the original and move towards the front
+// and add to the front of the new, but because our list is only singly linked we only have 
+// pointers pointing to the next node in the list, so we call addBack() to make sure the 
+// new list is in the same order as the original
+
 let my_copied_list = my_list.copy();
 console.log('Original List')
-my_list.show_all();
+my_list.show_all(); // Show the original list
 console.log('\n**** New Copied List ****')
-my_copied_list.show_all();
+my_copied_list.show_all(); // Show the new copied list.
