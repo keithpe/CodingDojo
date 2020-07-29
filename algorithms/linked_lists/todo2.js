@@ -125,6 +125,39 @@ class SLL {
         return my_copied_list_head;
     }
 
+    //****************************************************************************
+    // SList: Filter
+    // Given a headNode, a loVal and a highVal, remove from the list any nodes 
+    // that have values less than lowVal or higher than highVal. 
+    // Return the new list.
+    //****************************************************************************
+    filter(loVal, highVal) {
+        console.log('\n**** filter(loVal, highVal) ****')
+        let runner = this.head;
+        let runner2 = runner;
+
+        // SPECIAL CASE: While/if the first node is out of range delete it.
+        // And adjust the list head value.
+        while (runner.value < loVal || runner.value > highVal) {
+            runner = runner.next;
+            this.head = runner;
+            runner2 = runner;
+        }
+        while (runner) {
+            console.log('runner.value', runner.value)
+            // If this node value is out of range remove it.
+            if (runner.value < loVal || runner.value > highVal) {
+                // console.log('deleting node', runner.value);
+                runner = runner.next
+                runner2.next = runner
+            } else {
+                runner2 = runner;
+                runner = runner.next;
+            }
+        }
+        return this;
+    }
+
 }
 
 // Create a new list instance, and add some nodes.
@@ -174,3 +207,10 @@ console.log('Original List')
 my_list.show_all(); // Show the original list
 console.log('\n**** New Copied List ****')
 my_copied_list.show_all(); // Show the new copied list.
+
+// Remove any nodes that are less than loVal and more than highVal
+
+my_list = new SLL(1).addFront(15).addFront(5).addFront(10).addFront(12).addFront(14).addFront(20).addFront(25);
+my_list.show_all(); // Show the original list
+my_list.filter(10, 15);
+my_list.show_all(); // Show the original list, modified
